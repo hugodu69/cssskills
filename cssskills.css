@@ -1,3 +1,5 @@
+* {margin: 0;}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -138,7 +140,13 @@ p:hover + #windows {
 
 #hoverextended p {
 	padding: 5px;
+	margin: 5px;
 	text-align: justify;
+}
+
+#hoverextended #phover:hover {
+	color: rgb(204, 51, 255);
+	background-color: rgba(255, 204, 255, 0.8);
 }
 
 #windowsextended {
@@ -253,6 +261,38 @@ p:hover + #windows {
 	display: block;
 }
 
+#beforeafter {
+	position: relative;
+	z-index: 10;
+}
+
+#beforeafter p {
+	background-color: rgba(204, 51, 255, 1);
+}
+
+
+#beforeafter:before, #beforeafter:after {
+	position: absolute;
+	content: "";
+	bottom: 16px;
+	z-index: -10;
+	width: 48%;
+	height: 20px;
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 2px;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.4), 0 20px 10px rgba(0, 0, 0, 0.7);
+}
+
+#beforeafter:after {
+	right: 0;
+	transform: rotate(6deg);
+}
+
+#beforeafter:before {
+	left: 0;
+	transform: rotate(-6deg);
+}
+
 sticky {
 	display: flex;
 	flex-direction: column;
@@ -345,6 +385,97 @@ transition .tiret:after {
 	96% { width: 0%; }
 	100% { width: 0%; }
 }
+
+#apparition {
+	position: relative;
+}
+
+#apparition p {
+	padding: 10px;
+	text-align: justify;
+}
+
+#windowsapparition {
+	opacity: 0;
+	display: block;
+	position: absolute;
+	top: -90;
+	left: -300px;
+	overflow: hidden;
+	background-color: rgba(100, 100, 100, 0.4);
+	padding: 10px 10px 10px 10px;
+	border: 1px solid #777;
+	border-radius: 10px;
+	width: 400px;
+	z-index: 3;
+	transition-duration: 1s;
+}
+
+p:hover #windowsapparition {
+	transition-duration: 1s;
+	opacity: 1;
+}
+
+#windowsapparition:hover {
+	opacity: 1;
+}
+
+
+
+/*la div principale*/
+#apparition2 {
+	position: relative;
+}
+
+/*le bouton a cliquer*/
+#near > p {
+	position: relative;
+}
+
+/*near doit entourer le bouton p pour faire apparaitre le block
+parce que le survol de p fait buguer le hover*/
+#near {
+	position: relative;
+	display: flex;
+	border-radius: 10px;
+}
+
+/*doit générer une fenêtre de la taille de la vignette qui apparaitra*/
+#invisible {
+	display: none;
+	opacity: 1;
+	position: absolute;
+	top: -100px;
+	right: -10px;
+}
+
+#windowsapparition2 {
+	opacity: 0;
+	display: flex;
+	width: 400px;
+	position: relative;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+	background-color: rgba(100, 100, 100, 0.4);
+	padding: 10px 10px 10px 10px;
+	border-radius: 10px;
+	z-index: 3;
+	transition-duration: 1s;
+}
+
+
+#near:hover #invisible {
+	display: flex;
+}
+
+#invisible:hover  #windowsapparition2 {
+	transition-duration: 1s;
+	opacity: 1;
+}
+
+
+
 
 slide {
 	display: flex;
@@ -468,8 +599,8 @@ slide {
 
 /*switch entre les boutons*/
 
-.command:target ~ #cadre3 #pausebtn, {
-	opacity:0;
+.command:target ~ #cadre3:hover #pausebtn, {
+	opacity:0 !important;
 }
 
 #play:target ~ #cadre3:hover #pausebtn,
@@ -488,4 +619,3 @@ slide {
 	right: 55px;
 	cursor: default;
 }
-
