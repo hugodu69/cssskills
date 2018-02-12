@@ -145,6 +145,22 @@ transition {
 	100% { left: -400%; }
 }
 
+@keyframes timeliner {
+	0% { width: 0%; }
+	20% { width: 100%; }
+	21% { width: 0%; }
+	25% { width: 0%; }
+	45% { width: 100%; }
+	46% { width: 0%; }
+	50% { width: 0%; }
+	70% { width: 100%; }
+	71% { width: 0%; }
+	75% { width: 0%; }
+	95% { width: 100%; }
+	96% { width: 0%; }
+	100% { width: 0%; }
+}
+
 slide {
 	display: flex;
 	flex-direction: column;
@@ -160,16 +176,42 @@ slide {
 	margin-bottom: 100px;
 	border-radius: 0;
 	background-color: rgba(160, 160, 160, 0.7);
+	width: 100%;
 }
 
 #slideall {
 	display: flex;
+	margin: 20;
+	flex-wrap: wrap;
 }
 
 .cadre {
+	position: relative;
 	width: 400px;
 	height: 400px;
 	overflow: hidden;
+}
+
+#cadre2:after {
+	position: absolute;
+	bottom: 10;
+	left: 0;
+	content: " ";
+	width: 100%;
+	height: 10px;
+	background-color: rgb(160, 160, 160);
+}
+
+#timeline {
+	position: absolute;
+	bottom: 10;
+	left: 0;
+	content: " ";
+	height: 10px;
+	background-color: rgb(204, 51, 255);
+	width: 0;
+	animation: timeliner 10s infinite;
+	z-index: 1;
 }
 
 .boite img {
@@ -184,6 +226,81 @@ slide {
 	animation: 10s slidy infinite;
 }
 
+#playbtn, #pausebtn {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	opacity: 0;
+	width: 22px;
+	height: 22px;
+	transition: opacity 1s; right 1s;
+	z-index: 1;
+}
 
+/*dessin du bouton pause*/
+#pausebtn:after, #pausebtn:before {
+	position: absolute;
+	display: block;
+	content: " ";
+	width: 38%;
+	height: 22px;
+	background-color: rgba(204, 51, 255, 0.7);
+}
 
+#pausebtn:before {
+	left: 0;
+}
+
+#pausebtn:after {
+	right: 0;
+}
+
+/*dessin du bouton play*/
+#playbtn {
+	width: 1px;
+	height: 1px;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 20px solid rgba(204, 51, 255, 0.7);
+	right: 55px;
+	cursor: default;
+	z-index:2;
+}
+
+.cadre:hover #pausebtn, #playbtn:focus, #pausebtn:focus {
+	opacity: 0;
+}
+
+/*stopper le slide*/
+.command:target ~ #cadre3 .boite {
+	animation-play-state: paused;
+}
+
+/*redémarrer le slide*/
+#play:target ~ #cadre3 .boite {
+	animation-play-state: running;
+}
+
+/*switch entre les boutons*/
+
+.command:target ~ #cadre3 #pausebtn, {
+	opacity:0;
+}
+
+#play:target ~ #cadre3:hover #pausebtn,
+#play:target ~ #cadre3 #pausebtn:focus {
+	opacity:1;
+}
+
+.command:target ~ #cadre3 #playbtn {
+	opacity:1;
+	right: 25px;
+	cursor: pointer;
+}
+
+#play:target ~ #cadre3 #playbtn {
+	opacity:0;
+	right: 55px;
+	cursor: default;
+}
 
