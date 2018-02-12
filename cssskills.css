@@ -267,7 +267,7 @@ slide {
 	z-index:2;
 }
 
-.cadre:hover #pausebtn, #playbtn:focus, #pausebtn:focus {
+#cadre3:hover #pausebtn, #playbtn:focus, #pausebtn:focus {
 	opacity: 0;
 }
 
