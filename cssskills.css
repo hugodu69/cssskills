@@ -11,6 +11,7 @@ body * {
 }
 
 a, p, h1, h2 {
+	position: relative;
 	font-family: "Courier New";
 	text-decoration: none;
 	text-align: center;
@@ -25,6 +26,7 @@ h1, h2 {
 }
 
 p {
+	position: relative;
 	background-color: rgba(204, 51, 255, 0.8);
 	border-radius: 5px;
 	padding: 10px;
@@ -99,6 +101,158 @@ pseudo p {
 	text-align: left;
 }
 
+#hover {
+	position: relative;
+}
+
+#hover p {
+	padding: 5px;
+	text-align: justify;
+}
+
+#windows {
+	display: none;
+	position: absolute;
+	top: 40px;
+	left: -10px;
+	overflow: hidden;
+	background-color: rgba(100, 100, 100, 0.4);
+	padding: 10px 10px 10px 10px;
+	border: 1px solid #777;
+	border-radius: 10px;
+	width: 400px;
+	z-index: 3;
+}
+
+p:hover + #windows {
+	display: block;
+}
+
+#windows:hover {
+	display: block;
+}
+
+#hoverextended {
+	position: relative;
+}
+
+#hoverextended p {
+	padding: 5px;
+	text-align: justify;
+}
+
+#windowsextended {
+	display: none;
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	overflow: hidden;
+	background-color: rgba(100, 100, 100, 0.4);
+	padding: 70px 10px 10px 10px;
+	border: 1px solid #777;
+	border-radius: 10px;
+	width: 400px;
+	z-index: 3;
+}
+
+#hoverextended p:hover + #windowsextended {
+	display: block;
+}
+
+#windowsextended:hover {
+	display: block;
+}
+
+#active {
+	position: relative;
+}
+
+#active p {
+	padding: 5px;
+	text-align: justify;
+}
+
+#windowsactive {
+	display: none;
+	position: absolute;
+	top: 40px;
+	left: -10px;
+	overflow: hidden;
+	background-color: rgba(100, 100, 100, 0.4);
+	padding: 10px 10px 10px 10px;
+	border: 1px solid #777;
+	border-radius: 10px;
+	width: 400px;
+	z-index: 3;
+}
+
+#active p:active + #windowsactive {
+	display: block;
+}
+
+#focus a {
+	position: relative;
+	background-color: rgba(204, 51, 255, 0.8);
+	border-radius: 5px;
+	padding: 5px;
+	color: rgb(255, 204, 255);
+}
+
+#focus a:focus {
+	background-color: rgba(255, 204, 255, 0.8);
+	color: rgb(204, 51, 255);
+}
+
+#windowstarget > a {
+	position: relative;
+	background-color: rgba(204, 51, 255, 0.8);
+	border-radius: 5px;
+	padding: 5px;
+	color: rgb(255, 204, 255);
+}
+
+#target {
+	display: none;
+	position: absolute;
+	width: 400px;
+	top: 0;
+	left: 500px;
+	background-color: transparent;
+	padding-top: 200px;
+	height: 100%;
+	z-index: 10;
+}
+
+#target p {
+	text-align: justify;
+}
+
+#autour a {
+	right: 0;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: rgb(204, 51, 255);
+	background-color: transparent;
+}
+
+#close:hover, #close:focus {
+	color: rgb(255, 204, 255);
+	cursor: pointer;
+	text-decoration: none;
+}
+
+#target #autour {
+	padding: 10px;
+	background-color: rgba(100, 100, 100, 0.4);
+	border: 1px solid #777;
+	border-radius: 10px;
+}
+
+#target:target {
+	display: block;
+}
+
 sticky {
 	display: flex;
 	flex-direction: column;
@@ -131,6 +285,37 @@ transition {
 	background-position: 0px -600px;
 	background-size: cover;
 	background-attachment: fixed;
+}
+
+transition a {
+	background-color: rgba(255, 204, 255, 0.8);
+	border-radius: 5px;
+	padding: 10px;
+	color: rgb(204, 51, 255);
+}
+
+/*mise en place du petit trait animé*/
+.tiret:after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	right: 10px;
+	left: 10px;
+	height: 2px;
+	background-color: rgb(204, 51, 255);
+	opacity: 0;
+	transform: translateY(5px);
+	transition: all 0.4s;
+}
+
+transition .tiret:after {
+	bottom: 10px;
+}
+
+/*animation du petit trait*/
+.tiret:hover:after {
+	opacity: 0.6;
+	transform: translateY(0);
 }
 
 @keyframes slidy {
