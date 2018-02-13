@@ -40,6 +40,92 @@ p {
 	color: rgb(255, 204, 255);
 }
 
+/*mise ne place des petits boutons pour expliquer le code*/
+.question {
+	display: block;
+	position: absolute;
+}
+
+.circle {
+	z-index: 20;
+	position: relative;
+	width: 14px;
+	height: 14px;
+	border-radius: 7px;
+	background-color: rgba(204, 51, 255, 0.8);
+}
+
+.question p {
+	background-color: transparent;
+	color: rgb(204, 51, 255);
+}
+
+.questionmark {
+	display: block;
+	position: absolute;
+	top: -30px;
+	right: -8px;
+	padding-bottom: 15px;
+	transform-origin: bottom center;
+	opacity: 1;
+}
+
+.tooltip {
+	display: none;
+	position: absolute;
+	bottom: 30px;
+	width: 300px;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: rgba(150, 150, 150, 0.9);
+	color: white;
+}
+
+.tooltipgauche {
+	right: 30px;
+}
+
+.tooltipdroite {
+	left: 30px;
+}
+
+.tooltipdroite:after {
+	content: "";
+	position: absolute;
+	bottom: -19;
+	left: -37;
+	transform: rotate(-45deg);
+	border-width: 7px 25px;
+	border-style: solid;
+	border-color: transparent rgba(150, 150, 150, 0.9) transparent transparent;
+}
+
+.tooltipgauche:after {
+	content: "";
+	position: absolute;
+	bottom: -19;
+	right: -37;
+	transform: rotate(-135deg);
+	border-width: 7px 25px;
+	border-style: solid;
+	border-color: transparent rgba(150, 150, 150, 0.9) transparent transparent;
+}
+
+.circle:active ~ .tooltip, .circle:hover ~ .tooltip {
+	display: block;
+}
+
+.circle:hover + p {
+	opacity: 0;
+	transform: rotate(180deg);
+	transition: all 1s;
+} 
+
+/*positionnement des questions*/
+#question1 {
+	left: 10%;
+	top: 50%;
+}
 
 /*premiere section : le titre*/
 titre {
@@ -49,7 +135,6 @@ titre {
 	padding: 200 0 400 0;
 	background-color: rgba(210, 210, 210, 0.7);
 }
-
 
 /*deuxieme section : la nav bar*/
 navbarZone {
