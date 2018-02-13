@@ -47,7 +47,7 @@ p {
 }
 
 .circle {
-	z-index: 20;
+	z-index: 12;
 	position: relative;
 	width: 14px;
 	height: 14px;
@@ -71,14 +71,17 @@ p {
 }
 
 .tooltip {
-	display: none;
+	display: block;
+	opacity: 0;
 	position: absolute;
+	z-index: 11;
 	bottom: 30px;
 	width: 300px;
 	padding: 10px;
 	border-radius: 10px;
 	background-color: rgba(150, 150, 150, 0.9);
 	color: white;
+	transition: opacity 0.5s;
 }
 
 .tooltipgauche {
@@ -89,6 +92,7 @@ p {
 	left: 30px;
 }
 
+/*la petite fleche*/
 .tooltipdroite:after {
 	content: "";
 	position: absolute;
@@ -112,7 +116,8 @@ p {
 }
 
 .circle:active ~ .tooltip, .circle:hover ~ .tooltip {
-	display: block;
+	opacity: 1;
+	transition: opacity 0.5s;
 }
 
 .circle:hover + p {
@@ -125,6 +130,51 @@ p {
 #question1 {
 	left: 10%;
 	top: 50%;
+}
+
+#question2 {
+	left: 64%;
+	top: 35%;
+}
+
+#question3 {
+	left: 40%;
+	top: 50%;
+}
+
+#question4 {
+	left: 40%;
+	top: 80%;
+}
+
+#question5 {
+	left: 10%;
+	top: 40%;
+}
+
+#question6 {
+	left: 20%;
+	top: 60%;
+}
+
+#question7 {
+	left: 45%;
+	top: 45%;
+}
+
+#question8 {
+	left: 51%;
+	top: 47%;
+}
+
+#question9 {
+	left: 78%;
+	top: 59%;
+}
+
+#question10 {
+	left: 86%;
+	top: 54%;
 }
 
 /*premiere section : le titre*/
@@ -491,34 +541,6 @@ transition .tiret:after {
 	transform: translateY(0);
 }
 
-@keyframes slidy {
-	0% { left: 0%; }
-	20% { left: 0%; }
-	25% { left: -100%; }
-	45% { left: -100%; }
-	50% { left: -200%; }
-	70% { left: -200%; }
-	75% { left: -300%; }
-	95% { left: -300%; }
-	100% { left: -400%; }
-}
-
-@keyframes timeliner {
-	0% { width: 0%; }
-	20% { width: 100%; }
-	21% { width: 0%; }
-	25% { width: 0%; }
-	45% { width: 100%; }
-	46% { width: 0%; }
-	50% { width: 0%; }
-	70% { width: 100%; }
-	71% { width: 0%; }
-	75% { width: 0%; }
-	95% { width: 100%; }
-	96% { width: 0%; }
-	100% { width: 0%; }
-}
-
 /*cette transition est une amélioration du hover de tout a l'heure*/
 /*le but est de faire apparaitre et disparaitre le block lentement*/
 /*pour cette premiere version j'utilise la variable opacity plutot que
@@ -633,7 +655,36 @@ slide {
 	margin-bottom: 100px;
 	border-radius: 0;
 	background-color: rgba(160, 160, 160, 0.7);
-	width: 100%;
+	width: 200px;
+}
+
+/*la trame temporelle pour le déroulement des slides*/
+@keyframes slidy {
+	0% { left: 0%; }
+	20% { left: 0%; }
+	25% { left: -100%; }
+	45% { left: -100%; }
+	50% { left: -200%; }
+	70% { left: -200%; }
+	75% { left: -300%; }
+	95% { left: -300%; }
+	100% { left: -400%; }
+}
+
+@keyframes timeliner {
+	0% { width: 0%; }
+	20% { width: 100%; }
+	21% { width: 0%; }
+	25% { width: 0%; }
+	45% { width: 100%; }
+	46% { width: 0%; }
+	50% { width: 0%; }
+	70% { width: 100%; }
+	71% { width: 0%; }
+	75% { width: 0%; }
+	95% { width: 100%; }
+	96% { width: 0%; }
+	100% { width: 0%; }
 }
 
 /*reglages pour mettre les trois slides cote a cote*/
