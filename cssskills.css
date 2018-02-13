@@ -1,3 +1,4 @@
+/*general settings*/
 * {margin: 0;}
 
 body {
@@ -35,6 +36,8 @@ p {
 	color: rgb(255, 204, 255);
 }
 
+
+/*premiere section : le titre*/
 titre {
 	display: flex;
 	flex-direction: column;
@@ -43,12 +46,17 @@ titre {
 	background-color: rgba(210, 210, 210, 0.7);
 }
 
+
+/*deuxieme section : la nav bar*/
 navbarZone {
 	display: flex;
 	flex-direction: column;
 	position: relative;
 }
 
+/*grace a la position sticky elle va rester accrocher en haut de la div
+c'est pour ça que j'ai vais la div navbarzone plus grande que simplement
+la section navbar, elle englobe aussi les pseudos et le section sticky*/
 navbar {
 	display: flex;
 	width: 100%;
@@ -76,6 +84,8 @@ navbar {
 	z-index: 8;
 }
 
+
+/*troisieme section, les pseudos elements*/
 pseudo {
 	position: relative;
 	display: flex;
@@ -89,6 +99,7 @@ pseudo {
 	z-index: 5;
 }
 
+/*grace a ce before je met une couleur transparente au dessus de l'image de fond*/
 pseudo:before {
 	position: absolute;
 	top: 0;
@@ -103,6 +114,7 @@ pseudo p {
 	text-align: left;
 }
 
+/*le premier est un hover sur un p qui s'applique a une div, grace a '+' */
 #hover {
 	position: relative;
 }
@@ -134,6 +146,7 @@ p:hover + #windows {
 	display: block;
 }
 
+/*le deuxieme est comme le premier mais la div est collée au p et est aussi en hover donc elle reste apparente tant que la souris est desus*/
 #hoverextended {
 	position: relative;
 }
@@ -167,10 +180,13 @@ p:hover + #windows {
 	display: block;
 }
 
+/*la div est aussi en hover pour rester apparente*/
 #windowsextended:hover {
 	display: block;
 }
 
+
+/*le troisieme pseudo element est 'active'*/
 #active {
 	position: relative;
 }
@@ -198,6 +214,7 @@ p:hover + #windows {
 	display: block;
 }
 
+/*le quatrieme pseudo element*/
 #focus a {
 	position: relative;
 	background-color: rgba(204, 51, 255, 0.8);
@@ -211,6 +228,7 @@ p:hover + #windows {
 	color: rgb(204, 51, 255);
 }
 
+/*en cinquieme pseudo element j'ai mis un target*/
 #windowstarget > a {
 	position: relative;
 	background-color: rgba(204, 51, 255, 0.8);
@@ -244,6 +262,7 @@ p:hover + #windows {
 	background-color: transparent;
 }
 
+/*le bouton, juste la lettre x, pour fermer le target, c'est a dire juste changer l'irl en cliquant sur le x*/
 #close:hover, #close:focus {
 	color: rgb(255, 204, 255);
 	cursor: pointer;
@@ -261,6 +280,8 @@ p:hover + #windows {
 	display: block;
 }
 
+/*ce sixieme et dernier pseudo element est en fait deux pseudos elements,
+before et after, que j'utilise ici pour faire une ombre tordue*/
 #beforeafter {
 	position: relative;
 	z-index: 10;
@@ -293,6 +314,7 @@ p:hover + #windows {
 	transform: rotate(-6deg);
 }
 
+/*la quatrieme section est juste un zone pour prevenir que la navbar va partir*/
 sticky {
 	display: flex;
 	flex-direction: column;
@@ -304,6 +326,7 @@ sticky {
 	background-attachment: fixed;
 }
 
+/*toujours le before pour mettre un voile sur l'image de fond*/
 sticky:before {
 	position: absolute;
 	top: 0;
@@ -317,6 +340,7 @@ sticky p {
 	background-color: transparent;
 }
 
+/*la cinquieme section porte sur les effets de transition*/
 transition {
 	display: flex;
 	width: 100%;
@@ -334,6 +358,8 @@ transition a {
 	color: rgb(204, 51, 255);
 }
 
+/*la premiere transition est aussi utilisée dans la navbar
+c'est juste une petit trait qui apparait quand on passe la souris sur la cible*/
 /*mise en place du petit trait animé*/
 .tiret:after {
 	content: "";
@@ -386,6 +412,12 @@ transition .tiret:after {
 	100% { width: 0%; }
 }
 
+/*cette transition est une amélioration du hover de tout a l'heure*/
+/*le but est de faire apparaitre et disparaitre le block lentement*/
+/*pour cette premiere version j'utilise la variable opacity plutot que
+le display du bloc, parce que la transition-duration ne marche pas
+sur le display*/
+/*!!! le probleme c'est que la div existe toujours meme si transparente donc elle apparrait au survol au dela du bouton sencé la faire apparaitre !!!*/
 #apparition {
 	position: relative;
 }
@@ -421,8 +453,9 @@ p:hover #windowsapparition {
 }
 
 
-
-/*la div principale*/
+/*cette deuxieme version de la div qui apparait lentement est plus complexe mais marche mieux. la div ne peut toujorus pas disparaitre lentement*/
+/*le principe est de cumuler l'apparition du block et l'augmentation de l'opacité
+pour que la div n'existe pas au survol en dehors de la zone du bouton*/
 #apparition2 {
 	position: relative;
 }
@@ -475,8 +508,8 @@ parce que le survol de p fait buguer le hover*/
 }
 
 
-
-
+/*la sixieme et derniere section montre des techniques pour les slides*/
+/*general setting de la section*/
 slide {
 	display: flex;
 	flex-direction: column;
@@ -488,6 +521,7 @@ slide {
 	background-attachment: fixed;
 }
 
+/*la petite dedicace a morgan sur l'ecran d'ordinateur duquel j'ai vu trois slides cote a cote, inspiration*/
 #dedi {
 	margin-bottom: 100px;
 	border-radius: 0;
@@ -495,12 +529,14 @@ slide {
 	width: 100%;
 }
 
+/*reglages pour mettre les trois slides cote a cote*/
 #slideall {
 	display: flex;
 	margin: 20;
 	flex-wrap: wrap;
 }
 
+/*taille des cadres*/
 .cadre {
 	position: relative;
 	width: 400px;
@@ -508,6 +544,23 @@ slide {
 	overflow: hidden;
 }
 
+/*taille des images*/
+.boite img {
+	width: 20%;
+}
+
+/*la boite (invisible) qui contient toutes les imges et qui defile*/
+.boite {
+	display: flex;
+	justify-content: flex-start;
+	position: relative;
+	width: 500%;
+	animation: 10s slidy infinite;
+}
+
+/*pour le deuxieme slide*/
+/*j'utilise after pour faire apparaitre la zone grise dans laqeulle
+la timeline avance*/
 #cadre2:after {
 	position: absolute;
 	bottom: 10;
@@ -530,18 +583,9 @@ slide {
 	z-index: 1;
 }
 
-.boite img {
-	width: 20%;
-}
-
-.boite {
-	display: flex;
-	justify-content: flex-start;
-	position: relative;
-	width: 500%;
-	animation: 10s slidy infinite;
-}
-
+/*pour le troisieme slide*/
+/*c'est la creation des boutons play et pause*/
+/*ca marche moyennement...*/
 #playbtn, #pausebtn {
 	position: absolute;
 	top: 25px;
@@ -575,6 +619,7 @@ slide {
 #playbtn {
 	width: 1px;
 	height: 1px;
+	/*ce sont les transparences qui dessinent les deux triangles*/
 	border-top: 10px solid transparent;
 	border-bottom: 10px solid transparent;
 	border-left: 20px solid rgba(204, 51, 255, 0.7);
@@ -598,7 +643,6 @@ slide {
 }
 
 /*switch entre les boutons*/
-
 .command:target ~ #cadre3:hover #pausebtn, {
 	opacity:0 !important;
 }
