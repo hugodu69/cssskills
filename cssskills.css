@@ -314,21 +314,26 @@ before et after, que j'utilise ici pour faire une ombre tordue*/
 	content: "";
 	bottom: 16px;
 	z-index: -10;
-	width: 48%;
-	height: 20px;
-	background-color: rgba(0, 0, 0, 0.1);
-	border-radius: 2px;
-	box-shadow: 0 0 3px rgba(0, 0, 0, 0.4), 0 20px 10px rgba(0, 0, 0, 0.7);
+	width: 47%;
+	height: 3px;
+	background-color: transparent;
+	/*je definis deux ombres*/
+	box-shadow: /*0 20px 3px rgba(0, 0, 0, 0.4),*/ 0 18px 5px rgba(0, 0, 0, 1);
 }
 
 #beforeafter:after {
-	right: 0;
-	transform: rotate(6deg);
+	right: 1;
+	transform: rotate(7deg);
 }
 
 #beforeafter:before {
-	left: 0;
-	transform: rotate(-6deg);
+	left: 1;
+	transform: rotate(-7deg);
+}
+
+#beforeafter:active:after, #beforeafter:active:before {
+	bottom: 25px;
+	transition: bottom 0.3s;
 }
 
 /*la quatrieme section est juste un zone pour prevenir que la navbar va partir*/
