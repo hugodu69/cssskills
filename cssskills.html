@@ -9,6 +9,11 @@
     <titre>
       <h1>my skills in css</h1>
       <h2>boom</h2>
+      <div class="question" id="question0">
+        <div class="circle"></div>
+	<p class="questionmark">?</p>
+        <span class="tooltip tooltipgauche">ces petits points pour expliquer le code sont fait d'une div avec un border-radius pour faire le rond, puis en position absolue un bloc de texte avec deux class, une tres generale pour les reglages communs a tous, et une autre plus precise distingant ceux qui apparaitront a gauche de ceux qui apparaitront a droite, et la petite fleche est fabriquée grace a un :after. j'ai remarqué que le hover sur le point ne fonctionne que si le z-index du point est plus élevé que celui du bloc qu'il fait apparaitre</span>
+      </div>
       <div class="question" id="question1">
         <div class="circle"></div>
 	<p class="questionmark">?</p>
@@ -27,6 +32,11 @@
         <div class="circle"></div>
 	<p class="questionmark">?</p>
         <span class="tooltip tooltipdroite">la barre de navigation est large puis elle se réduit quand elle atteind le haut de l'écran, parce qu'elle est entourée de deux div au dessus et en dessous qui ne restent pas accrochées et donc disparaissent avec le reste de la page</span>
+      </div>
+      <div class="question" id="question12">
+        <div class="circle"></div>
+	<p class="questionmark">?</p>
+        <span class="tooltip tooltipgauche">au hover une barre apparait sous les liens de la barre de navigation. elle effectue une trasition d'opacité et un "transform: translatey", on peut faire la même chose avec une valeur de bottom</span>
       </div>
     </div>
     <navbar>
@@ -116,6 +126,11 @@
     </pseudo>
 
     <sticky id="sticky">
+      <div class="question" id="question11">
+        <div class="circle"></div>
+	<p class="questionmark">?</p>
+        <span class="tooltip tooltipgauche">grace a la fonction sticky appliquée a a div de la barre de navigation, celle-ci reste bloquée contre le haut de la fenêtre jusqu'à ce qu'elle atteigne la fin de la div dans laquelle elle se trouve. c'est pourquoi j'ai dû mettre les trois section autour dans une grande div</span>
+      </div>
       <p><em>au dessus</em> de cette limite la nav bar est visible</p>
       <p><em>en dessous</em> de cette limite la nav bar est cachée</p>
     </sticky>
@@ -123,7 +138,16 @@
 
     <transition id="transition">
 
-      <a class="tiret">soulignement</a>
+      <div class="question" id="question13">
+        <div class="circle"></div>
+	<p class="questionmark">?</p>
+        <span class="tooltip tooltipdroite">cette transition est une amélioration du bouton hover qui est plus haut, le but est de faire apparaitre et disparaitre le block lentement plutôt que brutalement. pour cette premiere version j'utilise la variable opacity plutot que le display du bloc, parce que la transition-duration ne marche pas sur le display. le probleme c'est que la div existe toujours meme si transparente donc elle apparrait au survol au dela du bouton sensé la faire apparaitre !!!</span>
+      </div>
+      <div class="question" id="question14">
+        <div class="circle"></div>
+	<p class="questionmark">?</p>
+        <span class="tooltip tooltipgauche">cette deuxieme version de la div qui apparait lentement est plus complexe mais marche mieux. la div ne peut toujorus pas disparaitre lentement. le principe est de cumuler l'apparition du block et l'augmentation de l'opacité pour que la div n'existe pas au survol en dehors de la zone du bouton</span>
+      </div>
 
       <div id="apparition">
         <p>apparition</p>
@@ -146,6 +170,21 @@
     </transition>
 
     <slide id="slide">
+      <div class="question" id="question15">
+        <div class="circle"></div>
+	<p class="questionmark">?</p>
+        <span class="tooltip tooltipdroite">le slide fonctionne en collant les images en un long bandeau, avec celle du debut qui se repete a la fin si on veut que le slide tourne a l'infini, et la boite qui contient ce long bandeau est mise dans un cadre en "overflow: hidden". dans la boite extra large qui contient le bandeau d'image on applique une "animation: temps-total-du-slide creer-le-nom-de-l'animation infinite", puis on definit les temps de chaque action, en l'occurence bouger d'une image sur la gauche, en pourcentage du temps total definit dans l'animation, par exemple pour deux images: "@keyframe{ 0%{left:0%} 40%{left:0%} 50%{left:-100%} 90%{left:-100%} 100%{left:-200%}}</span>
+      </div>
+      <div class="question" id="question16">
+        <div class="circle"></div>
+	<p class="questionmark">?</p>
+        <span class="tooltip tooltipgauche">la barre de timeline qui charge a chaque slide est faite egalement grace a l'action animation, qui est definit a gauche avec une largeur width de 0% et que la @keyframe augmente a 100% le temps de chaque slide</span>
+      </div>
+      <div class="question" id="question17">
+        <div class="circle"></div>
+	<p class="questionmark">?</p>
+        <span class="tooltip tooltipgauche">les options play et pause sont une option css qu'il faut appliquer a la même boite qui contient l'animation "animation-play-state: paused/running". le switch entre les boutons se fait en faisant varier les z-index et les opacity en hover et en fonction des target, et il faut pour ca utiliser target avec le + pour un element juste apres l'element target, rien pour un element contenu par l'element target, et la tilde ~ pour un element deux positions apres l'element hover</span>
+      </div>
 
       <p id="dedi">spé dédi a morgan</p>
 

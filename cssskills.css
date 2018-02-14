@@ -47,7 +47,7 @@ p {
 }
 
 .circle {
-	z-index: 12;
+	z-index: 19;
 	position: relative;
 	width: 14px;
 	height: 14px;
@@ -56,6 +56,7 @@ p {
 }
 
 .question p {
+	z-index: 15;
 	background-color: transparent;
 	color: rgb(204, 51, 255);
 }
@@ -127,14 +128,20 @@ p {
 } 
 
 /*positionnement des questions*/
+
+#question0 {
+	left: 72%;
+	top: 69%;
+}
+
 #question1 {
 	left: 10%;
 	top: 50%;
 }
 
 #question2 {
-	left: 64%;
-	top: 35%;
+	left: 41%;
+	top: 27%;
 }
 
 #question3 {
@@ -175,6 +182,49 @@ p {
 #question10 {
 	left: 86%;
 	top: 54%;
+}
+
+#question11 {
+	left: 86%;
+	top: 64%;
+}
+
+#question11 p {
+	color: rgb(255, 204, 255);
+}
+
+#question11 div {
+	background-color: rgb(255, 204, 255);
+}
+
+#question12 {
+	left: 90%;
+	top: 90%;
+}
+
+#question13 {
+	left: 8%;
+	top: 79%;
+}
+
+#question14 {
+	left: 86%;
+	top: 54%;
+}
+
+#question15 {
+	left: 15%;
+	top: 73%;
+}
+
+#question16 {
+	left: 56%;
+	top: 54%;
+}
+
+#question17 {
+	left: 84%;
+	top: 68%;
 }
 
 /*premiere section : le titre*/
@@ -221,6 +271,28 @@ navbar {
 	top: 45px;
 	background-color: rgb(255, 204, 255);
 	z-index: 8;
+}
+
+/*cette transition est utilisée dans la navbar
+c'est juste une petit trait qui apparait quand on passe la souris sur la cible*/
+/*mise en place du petit trait animé*/
+.tiret:after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	right: 10px;
+	left: 10px;
+	height: 2px;
+	background-color: rgb(204, 51, 255);
+	opacity: 0;
+	transform: translateY(5px);
+	transition: all 0.4s;
+}
+
+/*animation du petit trait*/
+.tiret:hover:after {
+	opacity: 0.6;
+	transform: translateY(0);
 }
 
 
@@ -473,6 +545,7 @@ before et after, que j'utilise ici pour faire une ombre tordue*/
 
 /*la quatrieme section est juste un zone pour prevenir que la navbar va partir*/
 sticky {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -499,6 +572,7 @@ sticky p {
 
 /*la cinquieme section porte sur les effets de transition*/
 transition {
+	position: relative;
 	display: flex;
 	width: 100%;
 	padding: 200 0;
@@ -513,32 +587,6 @@ transition a {
 	border-radius: 5px;
 	padding: 10px;
 	color: rgb(204, 51, 255);
-}
-
-/*la premiere transition est aussi utilisée dans la navbar
-c'est juste une petit trait qui apparait quand on passe la souris sur la cible*/
-/*mise en place du petit trait animé*/
-.tiret:after {
-	content: "";
-	position: absolute;
-	bottom: 0;
-	right: 10px;
-	left: 10px;
-	height: 2px;
-	background-color: rgb(204, 51, 255);
-	opacity: 0;
-	transform: translateY(5px);
-	transition: all 0.4s;
-}
-
-transition .tiret:after {
-	bottom: 10px;
-}
-
-/*animation du petit trait*/
-.tiret:hover:after {
-	opacity: 0.6;
-	transform: translateY(0);
 }
 
 /*cette transition est une amélioration du hover de tout a l'heure*/
@@ -561,14 +609,14 @@ sur le display*/
 	display: block;
 	position: absolute;
 	top: -90;
-	left: -300px;
+	left: -150px;
 	overflow: hidden;
 	background-color: rgba(100, 100, 100, 0.4);
 	padding: 10px 10px 10px 10px;
 	border: 1px solid #777;
 	border-radius: 10px;
 	width: 400px;
-	z-index: 3;
+	z-index: 30;
 	transition-duration: 1s;
 }
 
@@ -616,13 +664,13 @@ parce que le survol de p fait buguer le hover*/
 	display: flex;
 	width: 400px;
 	position: relative;
-	left: 0;
+	left: 130px;
 	top: 0;
 	overflow: hidden;
 	background-color: rgba(100, 100, 100, 0.4);
 	padding: 10px 10px 10px 10px;
 	border-radius: 10px;
-	z-index: 3;
+	z-index: 30;
 	transition-duration: 1s;
 }
 
@@ -640,6 +688,7 @@ parce que le survol de p fait buguer le hover*/
 /*la sixieme et derniere section montre des techniques pour les slides*/
 /*general setting de la section*/
 slide {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
