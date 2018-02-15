@@ -148,12 +148,22 @@
 	<p class="questionmark">?</p>
         <span class="tooltip tooltipgauche">cette deuxieme version de la div qui apparait lentement est plus complexe mais marche mieux. la div ne peut toujorus pas disparaitre lentement. le principe est de cumuler l'apparition du block et l'augmentation de l'opacité pour que la div n'existe pas au survol en dehors de la zone du bouton</span>
       </div>
+      <div class="question" id="question141">
+        <div class="circle"></div>
+	<p class="questionmark">?</p>
+        <span class="tooltip tooltipgauche">ce bouton clignote grace a une transition sur le z-index : au hover de l'élément, le bouton change d'apparence, et un autre element caché derriere augmente son z-index au dessus en 1s, et une fois arrivé devant le hover ne marche plus, donc la transition fait repasser l'élément caché en 1s en dessous du coup le hover re-marche, etc...</span>
+      </div>
 
       <div id="apparition">
         <p>apparition</p>
         <div id="windowsapparition">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
+      </div>
+
+      <div id="clignote">
+        <p id="disco">disco</p>
+        <span id="camoufle"></span>
       </div>
 
       <div id="apparition2">

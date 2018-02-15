@@ -47,7 +47,7 @@ p {
 }
 
 .circle {
-	z-index: 19;
+	z-index: 7;
 	position: relative;
 	width: 14px;
 	height: 14px;
@@ -56,7 +56,7 @@ p {
 }
 
 .question p {
-	z-index: 15;
+	z-index: 5;
 	background-color: transparent;
 	color: rgb(204, 51, 255);
 }
@@ -75,7 +75,7 @@ p {
 	display: block;
 	opacity: 0;
 	position: absolute;
-	z-index: 11;
+	z-index: 4;
 	bottom: 30px;
 	width: 300px;
 	padding: 10px;
@@ -117,6 +117,7 @@ p {
 }
 
 .circle:active ~ .tooltip, .circle:hover ~ .tooltip {
+	z-index: 6;
 	opacity: 1;
 	transition: opacity 0.5s;
 }
@@ -160,7 +161,7 @@ p {
 }
 
 #question6 {
-	left: 20%;
+	left: 19%;
 	top: 60%;
 }
 
@@ -208,8 +209,13 @@ p {
 }
 
 #question14 {
-	left: 86%;
-	top: 54%;
+	left: 89%;
+	top: 57%;
+}
+
+#question141 {
+	left: 44%;
+	top: 63%;
 }
 
 #question15 {
@@ -253,7 +259,7 @@ navbar {
 	height: 50px;
 	position: sticky;
 	top: 0;
-	z-index: 10;
+	z-index: 3;
 }
 
 #navbar1 {
@@ -270,7 +276,7 @@ navbar {
 	width: 100%;
 	top: 45px;
 	background-color: rgb(255, 204, 255);
-	z-index: 8;
+	z-index: 2;
 }
 
 /*cette transition est utilisée dans la navbar
@@ -307,7 +313,7 @@ pseudo {
 	background-position: 0px -100px;
 	background-size: cover;
 	background-attachment: fixed;
-	z-index: 5;
+	z-index: 1;
 }
 
 /*grace a ce before je met une couleur transparente au dessus de l'image de fond*/
@@ -321,12 +327,13 @@ pseudo:before {
 }
 
 pseudo p {
-	z-index: 7;
-	text-align: left;
+/*	z-index: 7;
+*/	text-align: left;
 }
 
 /*le premier est un hover sur un p qui s'applique a une div, grace a '+' */
 #hover {
+	z-index: 5;
 	position: relative;
 }
 
@@ -346,7 +353,7 @@ pseudo p {
 	border: 1px solid #777;
 	border-radius: 10px;
 	width: 400px;
-	z-index: 3;
+	z-index: 6;
 }
 
 p:hover + #windows {
@@ -360,6 +367,7 @@ p:hover + #windows {
 /*le deuxieme est comme le premier mais la div est collée au p et est aussi en hover donc elle reste apparente tant que la souris est desus*/
 #hoverextended {
 	position: relative;
+	z-index: 5;
 }
 
 #hoverextended p {
@@ -384,7 +392,7 @@ p:hover + #windows {
 	border: 1px solid #777;
 	border-radius: 10px;
 	width: 400px;
-	z-index: 3;
+	z-index: -1;
 }
 
 #hoverextended p:hover + #windowsextended {
@@ -400,6 +408,7 @@ p:hover + #windows {
 /*le troisieme pseudo element est 'active'*/
 #active {
 	position: relative;
+	z-index: 5;
 }
 
 #active p {
@@ -418,7 +427,7 @@ p:hover + #windows {
 	border: 1px solid #777;
 	border-radius: 10px;
 	width: 400px;
-	z-index: 3;
+	z-index: 6;
 }
 
 #active p:active + #windowsactive {
@@ -428,7 +437,7 @@ p:hover + #windows {
 /*le quatrieme pseudo element*/
 /*c'est un input que j'ai mis en readonly donc on ne peut pas l'éditer*/
 #focus {
-	z-index: 1;
+	z-index: 5;
 }
 
 input {
@@ -453,6 +462,10 @@ input:focus {
 }
 
 /*en cinquieme pseudo element j'ai mis un target*/
+#windowstarget {
+	z-index: 5;
+}
+
 #windowstarget > a {
 	position: relative;
 	background-color: rgba(204, 51, 255, 0.8);
@@ -470,7 +483,7 @@ input:focus {
 	background-color: transparent;
 	padding-top: 200px;
 	height: 100%;
-	z-index: 10;
+	z-index: 6;
 }
 
 #target p {
@@ -508,7 +521,7 @@ input:focus {
 before et after, que j'utilise ici pour faire une ombre tordue*/
 #beforeafter {
 	position: relative;
-	z-index: 10;
+	z-index: 5;
 }
 
 #beforeafter p {
@@ -520,7 +533,7 @@ before et after, que j'utilise ici pour faire une ombre tordue*/
 	position: absolute;
 	content: "";
 	bottom: 16px;
-	z-index: -10;
+	z-index: -1;
 	width: 47%;
 	height: 3px;
 	background-color: transparent;
@@ -616,7 +629,7 @@ sur le display*/
 	border: 1px solid #777;
 	border-radius: 10px;
 	width: 400px;
-	z-index: 30;
+	z-index: 6;
 	transition-duration: 1s;
 }
 
@@ -629,6 +642,37 @@ p:hover #windowsapparition {
 	opacity: 1;
 }
 
+/*ce bouton clignote grace a une transition sur le z-index : au hover de l'élément, le bouton change d'apparence, et un autre element caché derriere augmente son z-index au dessus en 1s, et une fois arrivé devant le hover ne marche plus, donc la transition fait repasser l'élément caché en 1s en dessous du coup le hover re-marche, etc...*/
+#clignote {
+	position: relative;
+}
+
+#disco {
+	z-index: 5;
+	cursor: default;
+}
+
+#camoufle {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 4;
+	transition: z-index 1s;
+}
+
+#disco:hover {
+	background-color: rgba(255, 204, 255, 0.8);
+	color: rgb(204, 51, 255);
+	cursor: default;
+}
+
+#disco:hover + #camoufle {
+	z-index: 6;
+	transition: z-index 1s;
+}
 
 /*cette deuxieme version de la div qui apparait lentement est plus complexe mais marche mieux. la div ne peut toujorus pas disparaitre lentement*/
 /*le principe est de cumuler l'apparition du block et l'augmentation de l'opacité
@@ -648,6 +692,7 @@ parce que le survol de p fait buguer le hover*/
 	position: relative;
 	display: flex;
 	border-radius: 10px;
+	z-index: 5;
 }
 
 /*doit générer une fenêtre de la taille de la vignette qui apparaitra*/
@@ -656,7 +701,7 @@ parce que le survol de p fait buguer le hover*/
 	opacity: 1;
 	position: absolute;
 	top: -100px;
-	right: -10px;
+	right: -130px;
 }
 
 #windowsapparition2 {
@@ -664,13 +709,12 @@ parce que le survol de p fait buguer le hover*/
 	display: flex;
 	width: 400px;
 	position: relative;
-	left: 130px;
 	top: 0;
 	overflow: hidden;
 	background-color: rgba(100, 100, 100, 0.4);
 	padding: 10px 10px 10px 10px;
 	border-radius: 10px;
-	z-index: 30;
+	z-index: 6;
 	transition-duration: 1s;
 }
 
