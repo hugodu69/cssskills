@@ -4,23 +4,21 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-image: url("./ressources/cosmonaute.jpg");
-	background-size: cover;
-	background-attachment: fixed;
 }
 
 body * {
 	margin: auto;
 }
 
-a, p, h1, h2 {
+a, p, h1, h2, h3 {
 	position: relative;
 	font-family: "Courier New";
 	text-decoration: none;
 	text-align: center;
+	z-index: 1;
 }
 
-a, h1, h2 {
+a, h1, h2, h3 {
 	color: rgb(204, 51, 255);
 }
 
@@ -28,7 +26,7 @@ h1, h2 {
 	text-shadow: 0px 0px 9px black;
 }
 
-a, p {
+a, p, h3 {
 	font-size: 15px;
 }
 
@@ -47,18 +45,20 @@ p {
 }
 
 .circle {
-	z-index: 7;
+	z-index: 5;
 	position: relative;
 	width: 14px;
 	height: 14px;
 	border-radius: 7px;
 	background-color: rgba(204, 51, 255, 0.8);
+	cursor: pointer;
 }
 
 .question p {
-	z-index: 5;
+	z-index: 4;
 	background-color: transparent;
 	color: rgb(204, 51, 255);
+	cursor: default;
 }
 
 .questionmark {
@@ -74,15 +74,16 @@ p {
 .tooltip {
 	display: block;
 	opacity: 0;
+	visibility: hidden;
 	position: absolute;
-	z-index: 4;
+	z-index: 0;
 	bottom: 30px;
 	width: 300px;
 	padding: 10px;
 	border-radius: 10px;
 	background-color: rgba(150, 150, 150, 0.9);
 	color: white;
-	transition: opacity 0.5s;
+	transition: all 0.5s;
 }
 
 .tooltipgauche {
@@ -116,9 +117,14 @@ p {
 	border-color: transparent rgba(150, 150, 150, 0.9) transparent transparent;
 }
 
+.circle:hover {
+	z-index: 7;
+}
+
 .circle:active ~ .tooltip, .circle:hover ~ .tooltip {
 	z-index: 6;
 	opacity: 1;
+	visibility: visible;
 	transition: opacity 0.5s;
 }
 
@@ -130,116 +136,120 @@ p {
 
 /*positionnement des questions*/
 
-#question0 {
-	left: 72%;
-	top: 69%;
+#questionSelf {
+	left: 450px;
+	top: -30px;
 }
 
-#question1 {
-	left: 10%;
-	top: 50%;
+#questionTitre {
+	left: 40px;
+	top: -20px;
 }
 
-#question2 {
-	left: 41%;
-	top: 27%;
+#questionNavbar {
+	left: 400px;
+	top: 5px;
 }
 
-#question3 {
-	left: 40%;
-	top: 50%;
+#questionDisco {
+	left: 90px;
+	top: 80px;
 }
 
-#question4 {
-	left: 40%;
-	top: 80%;
+#questionMenu {
+	left: -40px;
+	top: 30px;
 }
 
-#question5 {
-	left: 10%;
-	top: 40%;
+#questionRonds {
+	left: 25px;
+	top: 75px;
 }
 
-#question6 {
-	left: 19%;
-	top: 60%;
+#questionWithin {
+	left: 90px;
+	top: -30px;
 }
 
-#question7 {
-	left: 45%;
-	top: 45%;
+#questionTarget {
+	left: -20px;
+	top: -70px;
 }
 
-#question8 {
-	left: 51%;
-	top: 47%;
+#questionOmbres {
+	left: 95px;
+	top: 54px;
 }
 
-#question9 {
-	left: 78%;
-	top: 59%;
-}
-
-#question10 {
-	left: 86%;
-	top: 54%;
-}
-
-#question11 {
+#questionSticky {
 	left: 86%;
 	top: 64%;
 }
 
-#question11 p {
+#questionSticky p {
 	color: rgb(255, 204, 255);
 }
 
-#question11 div {
+#questionSticky div {
 	background-color: rgb(255, 204, 255);
 }
 
-#question12 {
-	left: 90%;
-	top: 90%;
+#questionLinks {
+	left: -30px;
+	top: -35px;
 }
 
-#question13 {
-	left: 8%;
-	top: 79%;
-}
-
-#question14 {
-	left: 89%;
-	top: 57%;
-}
-
-#question141 {
-	left: 44%;
-	top: 63%;
-}
-
-#question15 {
+#questionSlide {
 	left: 15%;
 	top: 73%;
 }
 
-#question16 {
+#questionTimeline {
 	left: 56%;
 	top: 54%;
 }
 
-#question17 {
+#questionPlay {
 	left: 84%;
 	top: 68%;
 }
 
 /*premiere section : le titre*/
 titre {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	padding: 200 0 400 0;
+	overflow: hidden;
+	background-image: url("./ressources/cosmonaute.jpg");
+	background-position: 0px -200px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+titre:after {
+	width: 100%;
+	height: 100%;
 	background-color: rgba(210, 210, 210, 0.7);
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "";
+	z-index: 0;
+}
+
+#title {
+	position: relative;
+}
+
+h2 {
+	margin-bottom: 100px;
+}
+
+#instructions {
+	position: relative;
 }
 
 /*deuxieme section : la nav bar*/
@@ -260,6 +270,10 @@ navbar {
 	position: sticky;
 	top: 0;
 	z-index: 3;
+}
+
+#navbarSlides {
+	position: relative;
 }
 
 #navbar1 {
@@ -312,6 +326,7 @@ pseudo {
 	background-image: url("./ressources/lucie.jpg");
 	background-position: 0px -100px;
 	background-size: cover;
+	background-repeat: no-repeat;
 	background-attachment: fixed;
 	z-index: 1;
 }
@@ -326,320 +341,14 @@ pseudo:before {
 	width: 100%;
 }
 
+pseudo * {
+	cursor: default;
+}
+
 pseudo p {
-/*	z-index: 7;
-*/	text-align: left;
-}
-
-/*le premier est un hover sur un p qui s'applique a une div, grace a '+' */
-#hover {
-	z-index: 5;
-	position: relative;
-}
-
-#hover p {
-	padding: 5px;
-	text-align: justify;
-}
-
-#windows {
-	display: none;
-	position: absolute;
-	top: 40px;
-	left: -10px;
-	overflow: hidden;
-	background-color: rgba(100, 100, 100, 0.4);
-	padding: 10px 10px 10px 10px;
-	border: 1px solid #777;
-	border-radius: 10px;
-	width: 400px;
-	z-index: 6;
-}
-
-p:hover + #windows {
-	display: block;
-}
-
-#windows:hover {
-	display: block;
-}
-
-/*le deuxieme est comme le premier mais la div est collée au p et est aussi en hover donc elle reste apparente tant que la souris est desus*/
-#hoverextended {
-	position: relative;
-	z-index: 5;
-}
-
-#hoverextended p {
-	padding: 5px;
 	margin: 5px;
-	text-align: justify;
-}
-
-#hoverextended #phover:hover {
-	color: rgb(204, 51, 255);
-	background-color: rgba(255, 204, 255, 0.8);
-}
-
-#windowsextended {
-	display: none;
-	position: absolute;
-	top: -10px;
-	left: -10px;
-	overflow: hidden;
-	background-color: rgba(100, 100, 100, 0.4);
-	padding: 70px 10px 10px 10px;
-	border: 1px solid #777;
-	border-radius: 10px;
-	width: 400px;
-	z-index: -1;
-}
-
-#hoverextended p:hover + #windowsextended {
-	display: block;
-}
-
-/*la div est aussi en hover pour rester apparente*/
-#windowsextended:hover {
-	display: block;
-}
-
-
-/*le troisieme pseudo element est 'active'*/
-#active {
-	position: relative;
-	z-index: 5;
-}
-
-#active p {
 	padding: 5px;
-	text-align: justify;
-}
-
-#windowsactive {
-	display: none;
-	position: absolute;
-	top: 40px;
-	left: -10px;
-	overflow: hidden;
-	background-color: rgba(100, 100, 100, 0.4);
-	padding: 10px 10px 10px 10px;
-	border: 1px solid #777;
-	border-radius: 10px;
-	width: 400px;
-	z-index: 6;
-}
-
-#active p:active + #windowsactive {
-	display: block;
-}
-
-/*le quatrieme pseudo element*/
-/*c'est un input que j'ai mis en readonly donc on ne peut pas l'éditer*/
-#focus {
-	z-index: 5;
-}
-
-input {
-	border: 0 none;
-	background-color: rgba(204, 51, 255, 0.8);
-	font-family: "Courier New";
-	text-decoration: none;
-	text-align: center;
-	color: rgb(255, 204, 255);
-	font-size: 15px;
-	border-radius: 5px;
-	padding: 5px;
-	width: 65px;
-	transition: width 0.35s;
-}
-
-input:focus {
-	width: 200px;
-	background-color: rgb(255, 204, 255);
-	color: rgba(204, 51, 255, 0.8);
-	transition: width 0.35s;
-}
-
-/*en cinquieme pseudo element j'ai mis un target*/
-#windowstarget {
-	z-index: 5;
-}
-
-#windowstarget > a {
-	position: relative;
-	background-color: rgba(204, 51, 255, 0.8);
-	border-radius: 5px;
-	padding: 5px;
-	color: rgb(255, 204, 255);
-}
-
-#target {
-	display: none;
-	position: absolute;
-	width: 400px;
-	top: 0;
-	left: 500px;
-	background-color: transparent;
-	padding-top: 200px;
-	height: 100%;
-	z-index: 6;
-}
-
-#target p {
-	text-align: justify;
-}
-
-#autour a {
-	right: 0;
-	font-size: 30px;
-	font-weight: bold;
-	text-decoration: none;
-	color: rgb(204, 51, 255);
-	background-color: transparent;
-}
-
-/*le bouton, juste la lettre x, pour fermer le target, c'est a dire juste changer l'irl en cliquant sur le x*/
-#close:hover, #close:focus {
-	color: rgb(255, 204, 255);
 	cursor: pointer;
-	text-decoration: none;
-}
-
-#target #autour {
-	padding: 10px;
-	background-color: rgba(100, 100, 100, 0.4);
-	border: 1px solid #777;
-	border-radius: 10px;
-}
-
-#target:target {
-	display: block;
-}
-
-/*ce sixieme et dernier pseudo element est en fait deux pseudos elements,
-before et after, que j'utilise ici pour faire une ombre tordue*/
-#beforeafter {
-	position: relative;
-	z-index: 5;
-}
-
-#beforeafter p {
-	background-color: rgba(204, 51, 255, 1);
-}
-
-
-#beforeafter:before, #beforeafter:after {
-	position: absolute;
-	content: "";
-	bottom: 16px;
-	z-index: -1;
-	width: 47%;
-	height: 3px;
-	background-color: transparent;
-	/*je definis deux ombres*/
-	box-shadow: /*0 20px 3px rgba(0, 0, 0, 0.4),*/ 0 18px 5px rgba(0, 0, 0, 1);
-}
-
-#beforeafter:after {
-	right: 1;
-	transform: rotate(7deg);
-}
-
-#beforeafter:before {
-	left: 1;
-	transform: rotate(-7deg);
-}
-
-#beforeafter:active:after, #beforeafter:active:before {
-	bottom: 25px;
-	transition: bottom 0.3s;
-}
-
-/*la quatrieme section est juste un zone pour prevenir que la navbar va partir*/
-sticky {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	height: 300px;
-	padding: 20 0;
-	background-image: url("./ressources/tete.jpg");
-	background-size: cover;
-	background-attachment: fixed;
-}
-
-/*toujours le before pour mettre un voile sur l'image de fond*/
-sticky:before {
-	position: absolute;
-	top: 0;
-	content: "";
-	background-color: rgba(255, 204, 255, 0.5);
-	height: 100%;
-	width: 100%;
-}
-
-sticky p {
-	background-color: transparent;
-}
-
-/*la cinquieme section porte sur les effets de transition*/
-transition {
-	position: relative;
-	display: flex;
-	width: 100%;
-	padding: 200 0;
-	background-image: url("./ressources/pantalon.jpg");
-	background-position: 0px -600px;
-	background-size: cover;
-	background-attachment: fixed;
-}
-
-transition a {
-	background-color: rgba(255, 204, 255, 0.8);
-	border-radius: 5px;
-	padding: 10px;
-	color: rgb(204, 51, 255);
-}
-
-/*cette transition est une amélioration du hover de tout a l'heure*/
-/*le but est de faire apparaitre et disparaitre le block lentement*/
-/*pour cette premiere version j'utilise la variable opacity plutot que
-le display du bloc, parce que la transition-duration ne marche pas
-sur le display*/
-/*!!! le probleme c'est que la div existe toujours meme si transparente donc elle apparrait au survol au dela du bouton sencé la faire apparaitre !!!*/
-#apparition {
-	position: relative;
-}
-
-#apparition p {
-	padding: 10px;
-	text-align: justify;
-}
-
-#windowsapparition {
-	opacity: 0;
-	display: block;
-	position: absolute;
-	top: -90;
-	left: -150px;
-	overflow: hidden;
-	background-color: rgba(100, 100, 100, 0.4);
-	padding: 10px 10px 10px 10px;
-	border: 1px solid #777;
-	border-radius: 10px;
-	width: 400px;
-	z-index: 6;
-	transition-duration: 1s;
-}
-
-p:hover #windowsapparition {
-	transition-duration: 1s;
-	opacity: 1;
-}
-
-#windowsapparition:hover {
-	opacity: 1;
 }
 
 /*ce bouton clignote grace a une transition sur le z-index : au hover de l'élément, le bouton change d'apparence, et un autre element caché derriere augmente son z-index au dessus en 1s, et une fois arrivé devant le hover ne marche plus, donc la transition fait repasser l'élément caché en 1s en dessous du coup le hover re-marche, etc...*/
@@ -649,7 +358,6 @@ p:hover #windowsapparition {
 
 #disco {
 	z-index: 5;
-	cursor: default;
 }
 
 #camoufle {
@@ -674,58 +382,328 @@ p:hover #windowsapparition {
 	transition: z-index 1s;
 }
 
-/*cette deuxieme version de la div qui apparait lentement est plus complexe mais marche mieux. la div ne peut toujorus pas disparaitre lentement*/
-/*le principe est de cumuler l'apparition du block et l'augmentation de l'opacité
-pour que la div n'existe pas au survol en dehors de la zone du bouton*/
-#apparition2 {
+/*le deuxieme est comme le premier mais la div est collée au p et est aussi en hover donc elle reste apparente tant que la souris est desus*/
+#menu {
 	position: relative;
 }
 
-/*le bouton a cliquer*/
-#near > p {
-	position: relative;
-}
-
-/*near doit entourer le bouton p pour faire apparaitre le block
-parce que le survol de p fait buguer le hover*/
-#near {
-	position: relative;
-	display: flex;
-	border-radius: 10px;
+#hoverextended {
 	z-index: 5;
-}
-
-/*doit générer une fenêtre de la taille de la vignette qui apparaitra*/
-#invisible {
-	display: none;
-	opacity: 1;
-	position: absolute;
-	top: -100px;
-	right: -130px;
-}
-
-#windowsapparition2 {
-	opacity: 0;
-	display: flex;
-	width: 400px;
 	position: relative;
-	top: 0;
+}
+
+#hoverextended #phover:hover {
+	color: rgb(204, 51, 255);
+	background-color: rgba(255, 204, 255, 0.8);
+}
+
+#windowsextended {
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	top: -10px;
+	left: -5px;
 	overflow: hidden;
 	background-color: rgba(100, 100, 100, 0.4);
-	padding: 10px 10px 10px 10px;
+	padding: 70px 5px 5px 5px;
+	border: 1px solid #777;
 	border-radius: 10px;
-	z-index: 6;
-	transition-duration: 1s;
+	width: 200px;
+	z-index: -1;
+	transition: all 0.3s;
 }
 
-
-#near:hover #invisible {
-	display: flex;
+#windowsextended p {
+	text-align: justify;
 }
 
-#invisible:hover  #windowsapparition2 {
-	transition-duration: 1s;
+#hoverextended:hover, #hoverextended:focus {
+	z-index: 7;
+	outline: none;
+}
+
+#hoverextended:hover #windowsextended, #hoverextended:focus #windowsextended {
+	visibility: visible;
 	opacity: 1;
+	transition: all 0.3s;
+}
+
+/*la div est aussi en hover pour rester apparente*/
+#windowsextended:hover {
+	visibility: visible;
+	opacity: 1;
+}
+
+/*le troisieme pseudo element*/
+#focus {
+	z-index: 5;
+	position: relative;
+}
+
+#bull {
+	z-index: -1;
+	border-radius: 5px;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	margin-left: -50%;
+	transition: all 0.3s;
+	background-color: rgba(204, 51, 255, 0.8);
+}
+
+#focus > p {
+	background-color: transparent;
+	margin: 0;
+}
+
+.bulles {
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	border-radius: 50%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: transparent;
+	transition: all 0.3s;
+}
+
+#bulla {top: -210px;}
+
+#bullb {right: -210px;}
+
+#bullc {bottom: -210px;}
+
+#bulld {left: -210px;}
+
+
+#bulle {top: -350px;}
+
+#bullf {right: -350px;}
+
+#bullg {bottom: -350px;}
+
+#bullh {left: -350px;}
+
+
+#bulli {top: -460px;}
+
+#bullj {right: -460px;}
+
+#bullk {bottom: -460px;}
+
+#bulll {left: -460px;}
+
+
+#focus:focus {
+	outline: none;
+	z-index: 7;
+}
+
+#focus:focus > p {
+	color: rgb(204, 51, 255);
+	z-index: 6;
+}
+
+#focus:focus #bull {
+	width: 100px;
+	height: 100px;
+	top: 0;
+	z-index: 5;
+	bottom: 0;
+	left: 50%;
+	margin-left: -50px;
+	border-radius: 50%;
+	background-color: rgba(255, 204, 255, 0.8);
+	transition: all 0.3s;
+}
+
+#focus:focus .bull1 {
+	width: 60px;
+	height: 60px;
+	background-color: rgba(255, 204, 255, 0.8);
+	transition: all 0.4s;
+	transition-delay: 0.1s;
+}
+
+#focus:focus .bull2 {
+	width: 45px;
+	height: 45px;
+	background-color: rgba(255, 204, 255, 0.8);
+	transition: all 0.4s;
+	transition-delay: 0.2s;
+}
+
+#focus:focus .bull3 {
+	width: 35px;
+	height: 35px;
+	background-color: rgba(255, 204, 255, 0.8);
+	transition: all 0.4s;
+	transition-delay: 0.3s;
+}
+
+/*quatrieme pseudo element*/
+/*un focus-within, qui permet de modifier le conteuneur au focus de l'element*/
+#focuswithin {
+	position: relative;
+}
+
+#focuswithin:focus-within {
+	background-image: url("./ressources/lucie.jpg");
+}
+
+/*en cinquieme pseudo element j'ai mis un target*/
+#targetposition {
+	position: relative;
+}
+
+#windowstarget > a {
+	position: relative;
+	background-color: rgba(204, 51, 255, 0.8);
+	border-radius: 5px;
+	padding: 5px;
+	color: rgb(255, 204, 255);
+	cursor: pointer;
+}
+
+#target {
+	display: none;
+	position: absolute;
+	width: 400px;
+	top: 0;
+	left: 500px;
+	background-color: transparent;
+	padding-top: 200px;
+	height: 100%;
+	z-index: 7;
+}
+
+#target p {
+	text-align: justify;
+}
+
+/*le bouton, juste la lettre x, pour fermer le target, c'est a dire juste changer l'irl en cliquant sur le x*/
+#close {
+	margin: 5px;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: rgb(204, 51, 255);
+	background-color: transparent;
+}
+
+#close:hover, #close:focus {
+	color: rgb(255, 204, 255);
+	cursor: pointer;
+	text-decoration: none;
+}
+
+#target #autour {
+	padding: 5px;
+	background-color: rgba(100, 100, 100, 0.4);
+	border: 1px solid #777;
+	border-radius: 10px;
+}
+
+#target:target {
+	display: block;
+}
+
+/*ce sixieme et dernier pseudo element est en fait deux pseudos elements,
+before et after, que j'utilise ici pour faire une ombre tordue*/
+#beforeafter {
+	position: relative;
+	z-index: 5;
+	outline: none;
+}
+
+#beforeafter p {
+	text-align: left;
+}
+
+
+#beforeafter:before, #beforeafter:after {
+	position: absolute;
+	content: "";
+	bottom: 23px;
+	z-index: -1;
+	width: 43%;
+	height: 3px;
+	background-color: transparent;
+	/*je definis deux ombres*/
+	box-shadow: /*0 20px 3px rgba(0, 0, 0, 0.4),*/ 0 18px 5px rgba(0, 0, 0, 1);
+	transition: all 0.5s;
+}
+
+#beforeafter:after {
+	right: 5px;
+	transform: rotate(7deg);
+}
+
+#beforeafter:before {
+	left: 5px;
+	transform: rotate(-7deg);
+}
+
+#beforeafter:focus:after {
+	bottom: -50px;
+	right: 50%;
+	transform: rotate(-180deg);
+	transform-origin: right;
+	transition: all 1s;
+}
+
+#beforeafter:focus:before {
+	bottom: -50px;
+	left: 50%;
+	transform: rotate(180deg);
+	transform-origin: left;
+	transition: all 1s;
+}
+
+/*la quatrieme section est juste un zone pour prevenir que la navbar va partir*/
+sticky {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 300px;
+	padding: 20 0;
+	background-image: url("./ressources/tete.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+/*toujours le before pour mettre un voile sur l'image de fond*/
+sticky:before {
+	position: absolute;
+	top: 0;
+	content: "";
+	background-color: rgba(255, 204, 255, 0.5);
+	height: 100%;
+	width: 100%;
+}
+
+sticky p {
+	background-color: transparent;
+}
+
+/*la cinquieme section porte sur les formulaires*/
+formulaire {
+	position: relative;
+	display: flex;
+	width: 100%;
+	padding: 200 0;
+	background-image: url("./ressources/pantalon.jpg");
+	background-position: 0px -600px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 
@@ -737,9 +715,11 @@ slide {
 	flex-direction: column;
 	width: 100%;
 	padding: 100 0;
+	overflow: hidden;
 	background-image: url("./ressources/genevieve.jpg");
 	background-position: 0px -200px;
 	background-size: cover;
+	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
 
