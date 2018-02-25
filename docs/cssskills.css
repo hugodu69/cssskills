@@ -704,17 +704,66 @@ sticky p {
 	background-color: transparent;
 }
 
-/*la cinquieme section porte sur les formulaires*/
+/*la cinquieme section est remplie de formulaires :-) */
 formulaire {
 	position: relative;
 	display: flex;
 	width: 100%;
-	padding: 200 0;
 	background-image: url("./ressources/pantalon.jpg");
 	background-position: 0px -600px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	color: rgb(255, 204, 255);
+}
+
+formulaire * {
+	outline: none;
+}
+
+formulaire:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(150, 150, 150, 0.8);
+	z-index: 0;
+}
+
+formulaire > form {
+	width: 30%;
+}
+
+formulaire form:first-child:before {
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 1px;
+	background-color: rgb(200, 200, 200);
+}
+
+form {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	margin-top: 200px;
+	margin-bottom: 200px;
+}
+/*je orecise la position relative des labels pour que la position absolue de input fonctionne*/
+label {
+	position: relative;
+}
+
+/*pour les inputs qui ne sont pas de type text ou submit, je maitrise leurs positions*/
+input:not([type="text"]) {
+	position: absolute;
+	left: -20px;
+	top: 2px;
 }
 
 
