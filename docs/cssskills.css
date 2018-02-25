@@ -4,6 +4,7 @@
 body {
 	margin: 0;
 	padding: 0;
+	scroll-behavior: smooth;
 }
 
 body * {
@@ -77,31 +78,33 @@ p {
 	visibility: hidden;
 	position: absolute;
 	z-index: 0;
-	bottom: 30px;
+	bottom: 10;
+	transform: translateY(50%);
 	width: 300px;
 	padding: 10px;
 	border-radius: 10px;
 	background-color: rgba(150, 150, 150, 0.9);
 	color: white;
+	margin-left: 40px;
+	margin-right: 40px;
 	transition: all 0.5s;
 }
 
 .tooltipgauche {
-	right: 30px;
+	right: 0px;
 }
 
 .tooltipdroite {
-	left: 30px;
+	left: 0px;
 }
 
 /*la petite fleche*/
 .tooltipdroite:after {
 	content: "";
 	position: absolute;
-	bottom: -19;
-	left: -37;
-	transform: rotate(-45deg);
-	border-width: 7px 25px;
+	top: calc(50% - 5px);
+	left: -20px;
+	border-width: 10px 10px;
 	border-style: solid;
 	border-color: transparent rgba(150, 150, 150, 0.9) transparent transparent;
 }
@@ -109,12 +112,11 @@ p {
 .tooltipgauche:after {
 	content: "";
 	position: absolute;
-	bottom: -19;
-	right: -37;
-	transform: rotate(-135deg);
-	border-width: 7px 25px;
+	top: calc(50% - 5px);
+	right: -20px;
+	border-width: 10px 10px;
 	border-style: solid;
-	border-color: transparent rgba(150, 150, 150, 0.9) transparent transparent;
+	border-color: transparent transparent transparent rgba(150, 150, 150, 0.9);
 }
 
 .circle:hover {
@@ -128,17 +130,31 @@ p {
 	transition: opacity 0.5s;
 }
 
-.circle:hover + p {
+.circle:active + p, .circle:hover + p {
 	opacity: 0;
 	transform: rotate(180deg);
 	transition: all 1s;
+}
+
+.tooltip:hover {
+	z-index: 6;
+	opacity: 1;
+	visibility: visible;
 } 
 
 /*positionnement des questions*/
 
 #questionSelf {
-	left: 450px;
-	top: -30px;
+	right: -45px;
+	top: -10px;
+}
+
+#questionSelf p {
+	color: rgb(255, 204, 255);
+}
+
+#questionSelf div {
+	background-color: rgb(255, 204, 255);
 }
 
 #questionTitre {
@@ -146,9 +162,17 @@ p {
 	top: -20px;
 }
 
+#questionTitre p {
+	color: rgb(255, 204, 255);
+}
+
+#questionTitre div {
+	background-color: rgb(255, 204, 255);
+}
+
 #questionNavbar {
 	left: 400px;
-	top: 5px;
+	top: 150px;
 }
 
 #questionDisco {
@@ -164,11 +188,6 @@ p {
 #questionRonds {
 	left: 25px;
 	top: 75px;
-}
-
-#questionWithin {
-	left: 90px;
-	top: -30px;
 }
 
 #questionTarget {
@@ -220,7 +239,7 @@ titre {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 200 0 400 0;
+	padding: 200 0 200 0;
 	overflow: hidden;
 	background-image: url("./ressources/cosmonaute.jpg");
 	background-position: 0px -200px;
@@ -229,10 +248,14 @@ titre {
 	background-attachment: fixed;
 }
 
+titre h3 {
+	color: rgb(255, 204, 255);
+}
+
 titre:after {
 	width: 100%;
 	height: 100%;
-	background-color: rgba(210, 210, 210, 0.7);
+	background-color: rgba(150, 110, 150, 0.9);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -242,9 +265,6 @@ titre:after {
 
 #title {
 	position: relative;
-}
-
-h2 {
 	margin-bottom: 100px;
 }
 
@@ -336,7 +356,7 @@ pseudo:before {
 	position: absolute;
 	top: 0;
 	content: "";
-	background-color: rgba(160, 160, 160, 0.7);
+	background-color: rgba(60, 60, 60, 0.9);
 	height: 100%;
 	width: 100%;
 }
@@ -546,15 +566,6 @@ pseudo p {
 	transition-delay: 0.3s;
 }
 
-/*quatrieme pseudo element*/
-/*un focus-within, qui permet de modifier le conteuneur au focus de l'element*/
-#focuswithin {
-	position: relative;
-}
-
-#focuswithin:focus-within {
-	background-image: url("./ressources/lucie.jpg");
-}
 
 /*en cinquieme pseudo element j'ai mis un target*/
 #targetposition {
@@ -574,11 +585,11 @@ pseudo p {
 	display: none;
 	position: absolute;
 	width: 400px;
-	top: 0;
-	left: 500px;
+	top: 50%;
+	left: 50%;
+	padding: 200px 0;
+	transform: translate(-50%, -50%);
 	background-color: transparent;
-	padding-top: 200px;
-	height: 100%;
 	z-index: 7;
 }
 
@@ -641,12 +652,12 @@ before et after, que j'utilise ici pour faire une ombre tordue*/
 
 #beforeafter:after {
 	right: 5px;
-	transform: rotate(7deg);
+	transform: rotate(9deg);
 }
 
 #beforeafter:before {
 	left: 5px;
-	transform: rotate(-7deg);
+	transform: rotate(-9deg);
 }
 
 #beforeafter:focus:after {
@@ -723,6 +734,20 @@ slide {
 	background-attachment: fixed;
 }
 
+slide #question {
+	overflow: visible;
+}
+
+slide:before {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(100, 100, 100, 0.7);
+}
+
 /*la petite dedicace a morgan sur l'ecran d'ordinateur duquel j'ai vu trois slides cote a cote, inspiration*/
 #dedi {
 	margin-bottom: 100px;
@@ -766,6 +791,7 @@ slide {
 	margin: 20;
 	flex-wrap: wrap;
 }
+
 
 /*taille des cadres*/
 .cadre {

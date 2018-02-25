@@ -18,7 +18,12 @@
         </div>
 
         <h1>my skills in css</h1>
-        <h2>boom</h2>
+        <h2>boom<br>&nbsp</h2>
+        <h2>ce site vous fait mal aux yeux</h2>
+        <h2>sans meme vous toucher</h2>
+        <h2>c'est ca l'intelligence artificielle</h2>
+        <h2>on est dans le dualisme corps esprit</h2>
+        <h2>a fond</h2>
       </div>
 
       <div id="instructions">
@@ -48,7 +53,7 @@
     <navbar>
       <a class="tiret" href="#pseudo" alt="go to pseudos">pseudos<br />elements</a>
       <a class="tiret" href="#sticky" alt="got to sticky">sticky<br />nav bar</a>
-      <a class="tiret" href="#transition" alt="go to transition">transitions</a>
+      <a class="tiret" href="#formulaire" alt="go to transition">formulaire</a>
 
       <div id="navbarSlides">
         <a class="tiret" href="#slide" alt="go to slide">slides</a>
@@ -127,18 +132,6 @@
       </div>
 
 
-      <div id="focuswithin">
-        <p>:focus-within</p>
-
-        <div class="question" id="questionWithin">
-          <div class="circle"></div>
-          <p class="questionmark">?</p>
-          <span class="tooltip tooltipdroite">l'action focus transforme l'élément une fois qu'il a été cliqué, pour un lien classique vers une autre page ça n'est pas tres utile puisqu'on change de page et donc on ne voit plus le lien après avoir cliqué, mais par exemple pour un champ a remplir c'est utile</span>
-        </div>
-
-      </div>
-
-
       <div id="windowstarget">
         <a href="#target" title="target">:target</a>
         <div id="target">
@@ -184,58 +177,17 @@
     </sticky>
    </navbarZone>
 
-    <formulaire id="formulaire">
+    <form id="formulaire">
 
-    </formulaire>
+    </form>
 
     <slide id="slide">
-      <div class="question" id="questionSlide">
-        <div class="circle"></div>
-	<p class="questionmark">?</p>
-        <span class="tooltip tooltipdroite">le slide fonctionne en collant les images en un long bandeau, avec celle du debut qui se repete a la fin si on veut que le slide tourne a l'infini, et la boite qui contient ce long bandeau est mise dans un cadre en "overflow: hidden". dans la boite extra large qui contient le bandeau d'image on applique une "animation: temps-total-du-slide creer-le-nom-de-l'animation infinite", puis on definit les temps de chaque action, en l'occurence bouger d'une image sur la gauche, en pourcentage du temps total definit dans l'animation, par exemple pour deux images: "@keyframe{ 0%{left:0%} 40%{left:0%} 50%{left:-100%} 90%{left:-100%} 100%{left:-200%}}</span>
-      </div>
-      <div class="question" id="questionTimeline">
-        <div class="circle"></div>
-	<p class="questionmark">?</p>
-        <span class="tooltip tooltipgauche">la barre de timeline qui charge a chaque slide est faite egalement grace a l'action animation, qui est definit a gauche avec une largeur width de 0% et que la @keyframe augmente a 100% le temps de chaque slide</span>
-      </div>
-      <div class="question" id="questionPlay">
-        <div class="circle"></div>
-	<p class="questionmark">?</p>
-        <span class="tooltip tooltipgauche">les options play et pause sont une option css qu'il faut appliquer a la même boite qui contient l'animation "animation-play-state: paused/running". le switch entre les boutons se fait en faisant varier les z-index et les opacity en hover et en fonction des target, et il faut pour ca utiliser target avec le + pour un element juste apres l'element target, rien pour un element contenu par l'element target, et la tilde ~ pour un element deux positions apres l'element hover</span>
-      </div>
 
       <p id="dedi">spé dédi a morgan</p>
 
       <div id="slideall">
-      <div class="cadre" id="cadre1">      
-        <div class="boite">
-          <img src="./ressources/archi1.jpg" alt="archi">
-          <img src="./ressources/archi2.jpg" alt="archi">
-          <img src="./ressources/archi3.jpg" alt="archi">
-          <img src="./ressources/archi4.jpg" alt="archi">
-          <img src="./ressources/archi1.jpg" alt="archi">
-        </div>
-      </div>
 
-      <div class="cadre" id="cadre2">      
-        <div class="boite">
-          <img src="./ressources/archi1.jpg" alt="archi">
-          <img src="./ressources/archi2.jpg" alt="archi">
-          <img src="./ressources/archi3.jpg" alt="archi">
-          <img src="./ressources/archi4.jpg" alt="archi">
-          <img src="./ressources/archi1.jpg" alt="archi">
-        </div>
-        <span id="timeline"></span>
-      </div>
-
-
-      <div class="cadre">      
-        <span id="play" class="command"></span>
-        <span id="pause" class="command"></span>
-        <div id="cadre3">
-          <a id="playbtn" class ="btn" href="#play" title="play"></a>
-          <a id="pausebtn" class="btn" href="#pause" title="pause"></a>
+        <div class="cadre" id="cadre1">      
           <div class="boite">
             <img src="./ressources/archi1.jpg" alt="archi">
             <img src="./ressources/archi2.jpg" alt="archi">
@@ -244,7 +196,55 @@
             <img src="./ressources/archi1.jpg" alt="archi">
           </div>
         </div>
-      </div>
+
+        <div class="question" id="questionSlide">
+          <div class="circle"></div>
+          <p class="questionmark">?</p>
+          <span class="tooltip tooltipdroite">le slide fonctionne en collant les images en un long bandeau, avec celle du debut qui se repete a la fin si on veut que le slide tourne a l'infini, et la boite qui contient ce long bandeau est mise dans un cadre en "overflow: hidden". dans la boite extra large qui contient le bandeau d'image on applique une "animation: temps-total-du-slide creer-le-nom-de-l'animation infinite", puis on definit les temps de chaque action, en l'occurence bouger d'une image sur la gauche, en pourcentage du temps total definit dans l'animation, par exemple pour deux images: "@keyframe{ 0%{left:0%} 40%{left:0%} 50%{left:-100%} 90%{left:-100%} 100%{left:-200%}}</span>
+        </div>
+
+
+        <div class="cadre" id="cadre2">      
+          <div class="boite">
+            <img src="./ressources/archi1.jpg" alt="archi">
+            <img src="./ressources/archi2.jpg" alt="archi">
+            <img src="./ressources/archi3.jpg" alt="archi">
+            <img src="./ressources/archi4.jpg" alt="archi">
+            <img src="./ressources/archi1.jpg" alt="archi">
+          </div>
+          <span id="timeline"></span>
+        </div>
+
+        <div class="question" id="questionTimeline">
+          <div class="circle"></div>
+          <p class="questionmark">?</p>
+          <span class="tooltip tooltipgauche">la barre de timeline qui charge a chaque slide est faite egalement grace a l'action animation, qui est definit a gauche avec une largeur width de 0% et que la @keyframe augmente a 100% le temps de chaque slide</span>
+        </div>
+
+
+        <div class="cadre">      
+          <span id="play" class="command"></span>
+          <span id="pause" class="command"></span>
+
+          <div id="cadre3">
+            <a id="playbtn" class ="btn" href="#play" title="play"></a>
+            <a id="pausebtn" class="btn" href="#pause" title="pause"></a>
+            <div class="boite">
+              <img src="./ressources/archi1.jpg" alt="archi">
+              <img src="./ressources/archi2.jpg" alt="archi">
+              <img src="./ressources/archi3.jpg" alt="archi">
+              <img src="./ressources/archi4.jpg" alt="archi">
+              <img src="./ressources/archi1.jpg" alt="archi">
+            </div>
+          </div>
+        </div>
+
+        <div class="question" id="questionPlay">
+          <div class="circle"></div>
+          <p class="questionmark">?</p>
+          <span class="tooltip tooltipgauche">les options play et pause sont une option css qu'il faut appliquer a la même boite qui contient l'animation "animation-play-state: paused/running". le switch entre les boutons se fait en faisant varier les z-index et les opacity en hover et en fonction des target, et il faut pour ca utiliser target avec le + pour un element juste apres l'element target, rien pour un element contenu par l'element target, et la tilde ~ pour un element deux positions apres l'element hover</span>
+        </div>
+
       </div>
 
     </slide>
