@@ -732,16 +732,20 @@ formulaire:before {
 	z-index: 0;
 }
 
-formulaire > form {
-	width: 30%;
+formulaire form:first-child {
+	width: 60%;
+}
+
+formulaire form:last-child {
+	width: 40%;
 }
 
 formulaire form:first-child:before {
 	content: "";
 	position: absolute;
 	right: 0;
-	top: 0;
-	height: 100%;
+	top: 20%;
+	height: 60%;
 	width: 1px;
 	background-color: rgb(200, 200, 200);
 }
@@ -751,19 +755,74 @@ form {
 	z-index: 1;
 	display: flex;
 	flex-direction: column;
-	margin-top: 200px;
-	margin-bottom: 200px;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	margin: 0;
 }
+
+form:focus-within {
+	background-color: rgba(50, 50, 50, 0.2);
+}
+
+.inputline {
+	display: flex;
+	flex-direction: line;
+}
+
+.inputcolumn {
+	display: flex;
+	flex-direction: column;
+	margin: 30px;
+	position: relative;
+}
+
+.inputcolumn > span {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+input {
+	background-color: rgba(204, 51, 255, 0.6);
+	padding: 5px;
+	border-radius: 5px;
+	border: transparent;
+	color: rgb(255, 204, 255);
+	font-size: 15px;
+}
+
+input:focus {
+	box-shadow: 0 0 2px rgba(50, 50, 50, 0.8) inset;
+}
+
 /*je orecise la position relative des labels pour que la position absolue de input fonctionne*/
+/*je mets aussi leur largeur a 100% pour qu'ils remplissent toute la div sinon je n'arrive pas a les aligner a droite*/
 label {
 	position: relative;
+	width: 100%;
 }
 
 /*pour les inputs qui ne sont pas de type text ou submit, je maitrise leurs positions*/
 input:not([type="text"]) {
+	visibility: hidden;
 	position: absolute;
+}
+
+label:before {
+	content: "";
+	width: 10px;
+	height: 10px;
+	background-color: rgb(255, 204, 255);
+	position: absolute;
+	top: 5px;
 	left: -20px;
-	top: 2px;
+}
+
+label:checked {
+	left: -40px;
+}
+
+input:checked + label:before {
+	left: -40px;
 }
 
 
