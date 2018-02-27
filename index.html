@@ -193,9 +193,9 @@
             </datalist>
 
             <span>quelles couleurs aimes-tu ?</span>
-            <p id="jaime">j'aime</p>
-            <p id="jaimepas">j'aime pas</p>
-            <input type="checkbox" name="couleur" id="smaragdin" required>
+            <p class="couleur" id="jaime">j'aime</p>
+            <p class="couleur" id="jaimepas">j'aime pas</p>
+            <input type="checkbox" name="couleur" id="smaragdin">
             <label tabindex="0" id="smaragdin" for="smaragdin">smaragdin</label>
             <input type="checkbox" name="couleur" id="glauque" required>
             <label tabindex="0" id="glauque" for="glauque">glauque</label>
@@ -203,15 +203,16 @@
             <label tabindex="0" id="pelure" for="pelure">pelure d'oignon</label>
             <input type="checkbox" name="couleur" id="cramoisi" required>
             <label tabindex="0" id="cramoisi" for="cramoisi">cramoisi</label>
-            <input type="checkbox" name="couleur" id="zinzolin" required>
+            <input type="checkbox" name="couleur" id="zinzolin">
             <label tabindex="0" id="zinzolin" for="zinzolin">zinzolin</label>
           </div>
 
           <div class="inputcolumn inputcolumn2">
             <span>quel bouquin preferes-tu ?</span>
-            <input type="radio" name="livre" id="horde" required>
-            <label tabindex="0" for="horde"><span><em>la horde du contrevent</em><br> de Alain Damasio</span></label>
-            <select id="selecthorde" name"horde" size="5">
+            <input type="radio" name="livre" id="horde">
+            <label tabindex="0" for="horde"><span><em>la horde du contrevent</em><br> de Alain Damasio</span><p>ton héro-ine ?</p></label>
+            <select id="selecthorde" name"horde" size="5" required>
+              <option value="" style="display:none">golgoth</option>
               <option value="horde">golgoth</option>
               <option id="caracole" value="horde">caracole</option>
               <option value="horde">oroshi</option>
@@ -235,25 +236,32 @@
               <option value="horde">sveziest</option>
               <option value="horde">barbak</option>
             </select>
-            <input type="radio" name="livre" id="ya" required>
+            <input type="radio" name="livre" id="ya">
             <label tabindex="0" for="ya"><span><em>ya</em><br> de Thomas Bernard</span></label>
-            <input type="radio" name="livre" id="city" required>
+            <input type="radio" name="livre" id="city">
             <label tabindex="0" for="city"><span><em>city</em><br> de Clifford D. Simak</span></label>
             <textarea id="textecity" name="livre">pourquoi ??</textarea>
-            <input type="radio" name="livre" id="dirk" required>
+            <input type="radio" name="livre" id="dirk">
             <label tabindex="0" for="dirk"><span><em>Dirk Gently</em><br> de Douglas Adams</span></label>
           </div>
 
         </div>
 
-        <button type="reset">perdue ! recommence</button>
-        <button type="submit">surprise</button>
+        <div class="inputline">
+          <button type="reset">reinitialise</button>
+          <button type="submit">surprise ?</button>
+        </div>
       </form>
 
       <form action="#formulaire" method="post">
         <div class="inputline">
-          <div class="inputcolumn">
-          </div>
+          <input id="a" type="checkbox"><label for="a">64</label>
+          <input id="b" type="checkbox"><label for="b">16</label>
+          <input id="c" type="checkbox"><label for="c">-32</label>
+          <input id="d" type="checkbox"><label for="d">128</label>
+          <input id="e" type="checkbox"><label for="e">4</label>
+          <input id="f" type="checkbox"><label for="f">-8</label>
+          <span class="sum"></span>
         </div>
       </form>
 

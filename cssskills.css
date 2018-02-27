@@ -44,6 +44,7 @@ p {
 	color: rgb(255, 204, 255);
 }
 
+/*//////////////////////////////////////*/
 /*mise ne place des petits boutons pour expliquer le code*/
 .question {
 	display: block;
@@ -238,6 +239,7 @@ p {
 	top: 68%;
 }
 
+/*///////////////////////////////////*/
 /*premiere section : le titre*/
 titre {
 	position: relative;
@@ -277,6 +279,7 @@ titre:after {
 	position: relative;
 }
 
+/*//////////////////////////////////*/
 /*deuxieme section : la nav bar*/
 navbarZone {
 	display: flex;
@@ -340,7 +343,7 @@ c'est juste une petit trait qui apparait quand on passe la souris sur la cible*/
 	transform: translateY(0);
 }
 
-
+/*///////////////////////////////////////////*/
 /*troisieme section, les pseudos elements*/
 pseudo {
 	position: relative;
@@ -681,6 +684,7 @@ before et after, que j'utilise ici pour faire une ombre tordue*/
 	transition: all 1s;
 }
 
+/*//////////////////////////////////////*/
 /*la quatrieme section est juste un zone pour prevenir que la navbar va partir*/
 sticky {
 	position: relative;
@@ -709,6 +713,7 @@ sticky p {
 	background-color: transparent;
 }
 
+/*///////////////////////////////////////////*/
 /*la cinquieme section est remplie de formulaires :-) */
 formulaire {
 	position: relative;
@@ -722,10 +727,13 @@ formulaire {
 	color: rgb(255, 204, 255);
 }
 
+/*suppression des pointilles automatiques lors de la selection*/
 formulaire * {
 	outline: none;
 }
 
+
+/*creation d'un voile devant la photo de fond*/
 formulaire:before {
 	content: "";
 	position: absolute;
@@ -737,14 +745,15 @@ formulaire:before {
 	z-index: 0;
 }
 
+/*répartir les deux zones de formulaire sur la page*/
 formulaire form:first-child {
 	width: 60%;
 }
-
 formulaire form:last-child {
 	width: 40%;
 }
 
+/*créer la ligne blanche de separation*/
 formulaire form:first-child:before {
 	content: "";
 	position: absolute;
@@ -755,6 +764,28 @@ formulaire form:first-child:before {
 	background-color: rgb(200, 200, 200);
 }
 
+/*les boutons "reinitialise" et "suprise ?"*/
+button {
+	background-color: rgb(255, 204, 255);
+	border: transparent;
+	border-radius: 7px 7px 7px 7px;
+	color: rgb(204, 51, 255);
+	margin: 1px;
+	padding: 5px;
+}
+/*---pour les bords plats des deux boutons face a face */
+button[type="reset"] {
+	border-radius: 7px 0px 0px 7px;
+}
+button[type="submit"] {
+	border-radius: 0px 7px 7px 0px;
+}
+/*pour leur apparences au clic*/
+button:active {
+	box-shadow: 0 0 2px rgba(50, 50, 50, 0.8) inset;
+}
+
+/*les reglages generaux du formulaire, en direction vertivale*/
 form {
 	position: relative;
 	z-index: 1;
@@ -765,15 +796,19 @@ form {
 	margin: 0;
 }
 
+/*pour que quand on clique sur un bouton du formulaire
+ou qu'on remplisse un champs
+ça assombrisse le fond*/
 form:focus-within {
 	background-color: rgba(50, 50, 50, 0.2);
 }
 
+/*pour les bouts de formulaires qui doivent etre alignés en ligne*/
 .inputline {
 	display: flex;
 	flex-direction: line;
 }
-
+/*pour les bouts de formulaires qui doivent etre alignés en colonnes*/
 .inputcolumn {
 	display: flex;
 	flex-direction: column;
@@ -781,13 +816,12 @@ form:focus-within {
 	margin-top: 60px;
 	position: relative;
 }
-
+/*reglages des differents types de textes et leurs marges*/
 .inputcolumn > span {
 	margin-top: 0;
 	margin-bottom: 25px;
 	margin-left: 0;
 }
-
 .inputcolumn p {
 	color: rgb(255,204, 255);
 	background-color: transparent;
@@ -799,8 +833,11 @@ form:focus-within {
 	text-align: left;
 	font-size: 12px;
 }
-
-.inputcolumn p:before {
+.inputcolumn2 label {
+	margin-top: 0;
+}
+/*la ligne au dessus des zones "j'aime" et "j'aime pas"*/
+.inputcolumn .couleur:before {
 	content: "";
 	width: calc(100% - 7px);
 	background-color: rgb(255, 204, 255);
@@ -809,41 +846,45 @@ form:focus-within {
 	top: -1px;
 	left: 0;
 }
-
-.inputcolumn p:after {
+/*la fleche a la fin de la zone*/
+.inputcolumn .couleur:after {
 	content: "V";
 	position: absolute;
 	right: 0;
 	top: -2px;
 }
 
-.inputcolumn2 label {
-	margin-top: 0;
-}
 
+/*mise en forme de l'input "pour resumer sa vie"*/
 input#life {
 	position: absolute;
 	top: -60px;
 	left: 0;
-	background-color: rgb(204, 51, 255);
+	background-color: rgb(255, 204, 255);
 	padding: 5px;
 	border: transparent;
 	border-radius: 5px;
-	color: rgb(255, 204, 255);
+	color: rgb(204, 51, 255);
 	font-size: 15px;
 	width: 200%;
 }
-
+/*changement de taille de l'input*/
 input#life:focus {
 	box-shadow: 0 0 2px rgba(50, 50, 50, 0.8) inset;
 	width: 60%;
 	transition: width 0.5s;
 }
 
+/*section de selection des couleurs*/
+/*on definit la couleur en la laissant transparente*/
+/*c'est juste pour adoucir l'animation avec des effets de couleurs
+et d'opacité*/
 #smaragdin {
 	background-color: rgba(1, 215, 88, 0);
 }
 
+/*quand la couleur est selectionnée*/
+/*elle change d'ordre*/
 input:checked + #smaragdin {
 	order: 2;
 	color: rgba(255, 204, 255, 0.5);
@@ -851,10 +892,10 @@ input:checked + #smaragdin {
 	transition: order 0s, color 0.5s, background-color 1s;
 }
 
+/*et c'est pareil pour toutes le couleurs*/
 #glauque {
 	background-color: rgba(100, 155, 136, 0);
 }
-
 input:checked + #glauque {
 	order: 2;
 	color: rgba(255, 204, 255, 0.5);
@@ -862,10 +903,10 @@ input:checked + #glauque {
 	transition: order 0s, color 0.5s, background-color 1s;
 }
 
+/*couleur pelure d'oignon...*/
 #pelure {
 	background-color: rgba(213, 132, 144, 0);
 }
-
 input:checked + #pelure {
 	order: 2;
 	color: rgba(255, 204, 255, 0.5);
@@ -873,10 +914,10 @@ input:checked + #pelure {
 	transition: order 0s, color 0.5s, background-color 1s;
 }
 
+/*couleur cramoisi*/
 #cramoisi {
 	background-color: rgba(220, 20, 60, 0);
 }
-
 input:checked + #cramoisi {
 	order: 2;
 	color: rgba(255, 204, 255, 0.5);
@@ -884,10 +925,10 @@ input:checked + #cramoisi {
 	transition: order 0s, color 0.5s, background-color 1s;
 }
 
+/*couleur zinzolin*/
 #zinzolin {
 	background-color: rgba(108, 2, 119, 0);
 }
-
 input:checked + #zinzolin {
 	order: 2;
 	color: rgba(255, 204, 255, 0.5);
@@ -895,19 +936,18 @@ input:checked + #zinzolin {
 	transition: order 0s, color 0.5s, background-color 1s;
 }
 
+/*et l'ordre des elements par defaut*/
 #check label {
 	order: 4;
 }
-
 #jaime {
 	order: 1;
 }
-
 #jaimepas {
 	order: 3;
 }
 
-/*je orecise la position relative des labels pour que la position absolue de input fonctionne*/
+/*je precise la position relative des labels pour que la position absolue de input fonctionne*/
 /*je mets aussi leur largeur a 100% pour qu'ils remplissent toute la div sinon je n'arrive pas a les aligner a droite*/
 label {
 	position: relative;
@@ -915,12 +955,13 @@ label {
 	margin-bottom: 9px;
 }
 
-/*pour les inputs qui ne sont pas de type text ou submit, je maitrise leurs positions*/
+/*pour les inputs qui ne sont pas de type text
+je les caches pour les remplacer par des personnalisés*/
 input:not([type="text"]) {
 	visibility: hidden;
 	position: absolute;
 }
-
+/*creation d'un carré à gauche des labels*/
 label:before {
 	content: "";
 	width: 10px;
@@ -930,7 +971,7 @@ label:before {
 	top: 3px;
 	left: -20px;
 }
-
+/*creation d'un rond pour quand c'est selectionné*/
 label:after {
 	content: "";
 	display: none;
@@ -942,40 +983,59 @@ label:after {
 	top: 5px;
 	left: -18px;
 }
-
+/*pour le choix des livres le carré est un rond en fait*/
+.inputcolumn2 label:before {
+	border-radius: 50%;
+}
+/*pour faire apparaitre les petits ronds quand un input est selectionné*/
 input:checked + label:after {
 	display: block;
 }
 
+/*pour faire apparaitre les options sous certains livres*/
+/*d'abord pour la horde du contrevent
+les options sont d'abord applatis*/
 #horde ~ #selecthorde {
-	visibility: hidden;
+	opacity: 0;
 	margin: -2px;
 	height: 0px;
 	transition: all 1s;
 }
-
+/*puis s'étendent en hauteur en apparraissant*/
 #horde:checked ~ #selecthorde {
-	visibility: visible;
+	opacity: 1;
 	height: 80px;
 	margin: 0;
 	margin-bottom: 9px;
 	transition: all 1s;
 }
-
+/*ainsi que le sous-titre*/
+#horde + label p {
+	opacity: 0;
+	margin-top: -20px;
+	transition: all 1s;
+}
+/*qui grossissent*/
+#horde:checked + label p {
+	opacity: 1;
+	margin-top: 10px;
+	transition: all 1s;
+}
+/*la meme pour city*/
 textarea {
 	visibility: hidden;
 	margin: 0;
 	height: 0px;
 	transition: all 1s;
 }
-
+/*qui grossis aussi*/
 #city:checked ~ #textecity {
 	visibility: visible;
 	height: 80px;
 	transition: all 1s;
 }
 
-
+/*/////////////////////////////////////*/
 /*la sixieme et derniere section montre des techniques pour les slides*/
 /*general setting de la section*/
 slide {
