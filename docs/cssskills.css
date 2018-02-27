@@ -11,12 +11,17 @@ body * {
 	margin: auto;
 }
 
-a, p, h1, h2, h3 {
+a, p, h1, h2, h3, span, option, label {
 	position: relative;
 	font-family: "Courier New";
 	text-decoration: none;
 	text-align: center;
 	z-index: 1;
+}
+
+span, option, label {
+	text-align: left;
+	font-size: 15px;
 }
 
 a, h1, h2, h3 {
@@ -773,25 +778,133 @@ form:focus-within {
 	display: flex;
 	flex-direction: column;
 	margin: 30px;
+	margin-top: 60px;
 	position: relative;
 }
 
 .inputcolumn > span {
 	margin-top: 0;
-	margin-bottom: 10px;
+	margin-bottom: 25px;
+	margin-left: 0;
 }
 
-input {
-	background-color: rgba(204, 51, 255, 0.6);
+.inputcolumn p {
+	color: rgb(255,204, 255);
+	background-color: transparent;
+	padding: 2px;
+	margin-left: 0;
+	margin-bottom: 5px;
+	border-radius: 0;
+	width: 100%;
+	text-align: left;
+	font-size: 12px;
+}
+
+.inputcolumn p:before {
+	content: "";
+	width: calc(100% - 7px);
+	background-color: rgb(255, 204, 255);
+	height: 1px;
+	position: absolute;
+	top: -1px;
+	left: 0;
+}
+
+.inputcolumn p:after {
+	content: "V";
+	position: absolute;
+	right: 0;
+	top: -2px;
+}
+
+.inputcolumn2 label {
+	margin-top: 0;
+}
+
+input#life {
+	position: absolute;
+	top: -60px;
+	left: 0;
+	background-color: rgb(204, 51, 255);
 	padding: 5px;
-	border-radius: 5px;
 	border: transparent;
+	border-radius: 5px;
 	color: rgb(255, 204, 255);
 	font-size: 15px;
+	width: 200%;
 }
 
-input:focus {
+input#life:focus {
 	box-shadow: 0 0 2px rgba(50, 50, 50, 0.8) inset;
+	width: 60%;
+	transition: width 0.5s;
+}
+
+#smaragdin {
+	background-color: rgba(1, 215, 88, 0);
+}
+
+input:checked + #smaragdin {
+	order: 2;
+	color: rgba(255, 204, 255, 0.5);
+	background-color: rgba(1, 215, 88, 1);
+	transition: order 0s, color 0.5s, background-color 1s;
+}
+
+#glauque {
+	background-color: rgba(100, 155, 136, 0);
+}
+
+input:checked + #glauque {
+	order: 2;
+	color: rgba(255, 204, 255, 0.5);
+	background-color: rgba(100, 155, 136, 1);
+	transition: order 0s, color 0.5s, background-color 1s;
+}
+
+#pelure {
+	background-color: rgba(213, 132, 144, 0);
+}
+
+input:checked + #pelure {
+	order: 2;
+	color: rgba(255, 204, 255, 0.5);
+	background-color: rgba(213, 132, 144, 1);
+	transition: order 0s, color 0.5s, background-color 1s;
+}
+
+#cramoisi {
+	background-color: rgba(220, 20, 60, 0);
+}
+
+input:checked + #cramoisi {
+	order: 2;
+	color: rgba(255, 204, 255, 0.5);
+	background-color: rgba(220, 20, 60, 1);
+	transition: order 0s, color 0.5s, background-color 1s;
+}
+
+#zinzolin {
+	background-color: rgba(108, 2, 119, 0);
+}
+
+input:checked + #zinzolin {
+	order: 2;
+	color: rgba(255, 204, 255, 0.5);
+	background-color: rgba(100, 2, 119, 1);
+	transition: order 0s, color 0.5s, background-color 1s;
+}
+
+#check label {
+	order: 4;
+}
+
+#jaime {
+	order: 1;
+}
+
+#jaimepas {
+	order: 3;
 }
 
 /*je orecise la position relative des labels pour que la position absolue de input fonctionne*/
@@ -799,6 +912,7 @@ input:focus {
 label {
 	position: relative;
 	width: 100%;
+	margin-bottom: 9px;
 }
 
 /*pour les inputs qui ne sont pas de type text ou submit, je maitrise leurs positions*/
@@ -813,16 +927,52 @@ label:before {
 	height: 10px;
 	background-color: rgb(255, 204, 255);
 	position: absolute;
-	top: 5px;
+	top: 3px;
 	left: -20px;
 }
 
-label:checked {
-	left: -40px;
+label:after {
+	content: "";
+	display: none;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background-color: rgb(204, 51, 255);
+	position: absolute;
+	top: 5px;
+	left: -18px;
 }
 
-input:checked + label:before {
-	left: -40px;
+input:checked + label:after {
+	display: block;
+}
+
+#horde ~ #selecthorde {
+	visibility: hidden;
+	margin: -2px;
+	height: 0px;
+	transition: all 1s;
+}
+
+#horde:checked ~ #selecthorde {
+	visibility: visible;
+	height: 80px;
+	margin: 0;
+	margin-bottom: 9px;
+	transition: all 1s;
+}
+
+textarea {
+	visibility: hidden;
+	margin: 0;
+	height: 0px;
+	transition: all 1s;
+}
+
+#city:checked ~ #textecity {
+	visibility: visible;
+	height: 80px;
+	transition: all 1s;
 }
 
 

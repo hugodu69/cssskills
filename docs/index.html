@@ -181,56 +181,80 @@
     <formulaire id="formulaire">
 
       <form action="#formulaire" method="post">
-        <input type="text" id="life" list="resume" placeholder="résume ta vie en un mot" required>
-        <datalist id="resume">
-          <option value="prairie">
-          <option value="simplon">
-          <option value="css">
-          <option value="javascript">
-        </datalist>
         <div class="inputline">
-          <div class="inputcolumn">
-            <span>quelle est ta couleur préférée ?</span>
-            <input type="radio" name="couleur" id="jaune" required>
-            <label for="jaune">jaune</label>
-            <input type="radio" name="couleur" id="violet"required>
-            <label for="violet">violet</label>
-            <input type="radio" name="couleur" id="marron" required>
-            <label for="marron">marron</label>
+
+          <div class="inputcolumn" id="check">
+            <input type="text" id="life" list="resume" placeholder="resume ta vie en un mot" required>
+            <datalist id="resume">
+              <option value="prairie">
+              <option value="simplon">
+              <option value="css">
+              <option value="javascript">
+            </datalist>
+
+            <span>quelles couleurs aimes-tu ?</span>
+            <p id="jaime">j'aime</p>
+            <p id="jaimepas">j'aime pas</p>
+            <input type="checkbox" name="couleur" id="smaragdin" required>
+            <label tabindex="0" id="smaragdin" for="smaragdin">smaragdin</label>
+            <input type="checkbox" name="couleur" id="glauque" required>
+            <label tabindex="0" id="glauque" for="glauque">glauque</label>
+            <input type="checkbox" name="couleur" id="pelure" required>
+            <label tabindex="0" id="pelure" for="pelure">pelure d'oignon</label>
+            <input type="checkbox" name="couleur" id="cramoisi" required>
+            <label tabindex="0" id="cramoisi" for="cramoisi">cramoisi</label>
+            <input type="checkbox" name="couleur" id="zinzolin" required>
+            <label tabindex="0" id="zinzolin" for="zinzolin">zinzolin</label>
           </div>
-          <div class="inputcolumn">
-            <span>quels bouquins as-tu lus ?</span>
-            <label tabindex="0"><input type="checkbox" name="livre" required><span><em>city</em><br>de Clifford D. Simak</span></label>
-            <label><input type="checkbox" name="livre"><span><em>ya</em><br>de Thomas Bernard</span></label>
+
+          <div class="inputcolumn inputcolumn2">
+            <span>quel bouquin preferes-tu ?</span>
+            <input type="radio" name="livre" id="horde" required>
+            <label tabindex="0" for="horde"><span><em>la horde du contrevent</em><br> de Alain Damasio</span></label>
+            <select id="selecthorde" name"horde" size="5">
+              <option value="horde">golgoth</option>
+              <option id="caracole" value="horde">caracole</option>
+              <option value="horde">oroshi</option>
+              <option value="horde">sov</option>
+              <option value="horde">erg</option>
+              <option value="horde">talweg</option>
+              <option value="horde">firost</option>
+              <option value="horde">tourse</option>
+              <option value="horde">steppe</option>
+              <option value="horde">arval</option>
+              <option value="horde">darbon</option>
+              <option value="horde">horst</option>
+              <option value="horde">pietro</option>
+              <option value="horde">alme</option>
+              <option value="horde">aoi</option>
+              <option value="horde">larco</option>
+              <option value="horde">learch</option>
+              <option value="horde">callirhoe</option>
+              <option value="horde">boscavo</option>
+              <option value="horde">coriolis</option>
+              <option value="horde">sveziest</option>
+              <option value="horde">barbak</option>
+            </select>
+            <input type="radio" name="livre" id="ya" required>
+            <label tabindex="0" for="ya"><span><em>ya</em><br> de Thomas Bernard</span></label>
+            <input type="radio" name="livre" id="city" required>
+            <label tabindex="0" for="city"><span><em>city</em><br> de Clifford D. Simak</span></label>
+            <textarea id="textecity" name="livre">pourquoi ??</textarea>
+            <input type="radio" name="livre" id="dirk" required>
+            <label tabindex="0" for="dirk"><span><em>Dirk Gently</em><br> de Douglas Adams</span></label>
           </div>
+
         </div>
+
+        <button type="reset">perdue ! recommence</button>
         <button type="submit">surprise</button>
       </form>
 
       <form action="#formulaire" method="post">
         <div class="inputline">
           <div class="inputcolumn">
-             <select name="cars">
-               <option value="volvo">Volvo</option>
-               <option value="saab" selected>Saab</option>
-               <option value="fiat">Fiat</option>
-               <option value="audi">Audi</option>
-             </select> 
-             <select name="car" size="3">
-               <option value="volvo">Volvo</option>
-               <option value="saab">Saab</option>
-               <option value="fiat">Fiat</option>
-               <option value="audi">Audi</option>
-               <option value="fiat">Fiat</option>
-               <option value="fiat">Fiat</option>
-               <option value="audi">Audi</option>
-               <option value="audi">Audi</option>
-             </select> 
           </div>
-          <textarea name="carpette" rows="10" cols="20" placeholder="resume ta vie en un mot">
-          </textarea>
         </div>
-        <button type="submit">Submit</button>
       </form>
 
     </formulaire>
