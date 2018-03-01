@@ -764,6 +764,14 @@ formulaire form:first-child:before {
 	background-color: rgb(200, 200, 200);
 }
 
+formulaire label {
+	cursor: pointer;
+}
+
+.inputcolumn > span {
+	cursor: default;
+}
+
 /*les boutons "reinitialise" et "suprise ?"*/
 button {
 	background-color: rgb(255, 204, 255);
@@ -881,6 +889,7 @@ input#life:focus {
 et d'opacité*/
 #smaragdin {
 	background-color: rgba(1, 215, 88, 0);
+	width: calc(100% - 28px);
 }
 
 /*quand la couleur est selectionnée*/
@@ -895,6 +904,7 @@ input:checked + #smaragdin {
 /*et c'est pareil pour toutes le couleurs*/
 #glauque {
 	background-color: rgba(100, 155, 136, 0);
+	width: calc(100% - 28px);
 }
 input:checked + #glauque {
 	order: 2;
@@ -906,6 +916,7 @@ input:checked + #glauque {
 /*couleur pelure d'oignon...*/
 #pelure {
 	background-color: rgba(213, 132, 144, 0);
+	width: calc(100% - 28px);
 }
 input:checked + #pelure {
 	order: 2;
@@ -917,6 +928,7 @@ input:checked + #pelure {
 /*couleur cramoisi*/
 #cramoisi {
 	background-color: rgba(220, 20, 60, 0);
+	width: calc(100% - 28px);
 }
 input:checked + #cramoisi {
 	order: 2;
@@ -928,6 +940,7 @@ input:checked + #cramoisi {
 /*couleur zinzolin*/
 #zinzolin {
 	background-color: rgba(108, 2, 119, 0);
+	width: calc(100% - 28px);
 }
 input:checked + #zinzolin {
 	order: 2;
@@ -939,6 +952,7 @@ input:checked + #zinzolin {
 /*et l'ordre des elements par defaut*/
 #check label {
 	order: 4;
+	margin-left: 28px;
 }
 #jaime {
 	order: 1;
@@ -947,32 +961,65 @@ input:checked + #zinzolin {
 	order: 3;
 }
 
-/*je precise la position relative des labels pour que la position absolue de input fonctionne*/
-/*je mets aussi leur largeur a 100% pour qu'ils remplissent toute la div sinon je n'arrive pas a les aligner a droite*/
+/*je precise la position relative des labels pour que
+la position absolue de input fonctionne*/
+/*je mets aussi leur largeur a 100% pour qu'ils remplissent
+toute la div sinon je n'arrive pas a les aligner a droite*/
 label {
 	position: relative;
 	width: 100%;
 	margin-bottom: 9px;
 }
 
-/*pour les inputs qui ne sont pas de type text
-je les caches pour les remplacer par des personnalisés*/
+/*je cache les inputs qui ne sont pas de type text
+pour les remplacer par des personnalisés*/
 input:not([type="text"]) {
 	visibility: hidden;
 	position: absolute;
 }
-/*creation d'un carré à gauche des labels*/
-label:before {
+/*d'abord le coeur pour la selection des couleurs*/
+#check label:before {
+	content: "";
+	width: 5px;
+	height: 10px;
+	border-radius: 4px 4px 9px 0px / 4px 5px 10px 10px;
+	background-color: rgb(255, 204, 255);
+	position: absolute;
+	top: 3px;
+	left: -17px;
+	transform: rotate(-33deg);
+}
+#check label:after {
+	content: "";
+	width: 5px;
+	height: 10px;
+	border-radius: 5px 4px 0px 9px / 4px 4px 10px 10px;
+	background-color: rgb(255, 204, 255);
+	position: absolute;
+	top: 3px;
+	left: -15px;
+	transform: rotate(37deg);
+}
+/*puis remplir le coeur en rouge*/
+#check input:checked + label:before {
+	background-color: rgb(204, 51, 255);
+}
+#check input:checked + label:after {
+	background-color: rgb(204, 51, 255);
+}
+/*maintenant creation d'un carré à gauche des livres*/
+.inputcolumn2 label:before {
 	content: "";
 	width: 10px;
 	height: 10px;
+	border-radius: 50%;
 	background-color: rgb(255, 204, 255);
 	position: absolute;
 	top: 3px;
 	left: -20px;
 }
-/*creation d'un rond pour quand c'est selectionné*/
-label:after {
+/*creation d'un rond pour quand un livre est selectionné*/
+.inputcolumn2 label:after {
 	content: "";
 	display: none;
 	width: 6px;
@@ -983,12 +1030,8 @@ label:after {
 	top: 5px;
 	left: -18px;
 }
-/*pour le choix des livres le carré est un rond en fait*/
-.inputcolumn2 label:before {
-	border-radius: 50%;
-}
 /*pour faire apparaitre les petits ronds quand un input est selectionné*/
-input:checked + label:after {
+#surprise input:checked + label:after {
 	display: block;
 }
 
@@ -1033,6 +1076,124 @@ textarea {
 	visibility: visible;
 	height: 80px;
 	transition: all 1s;
+}
+
+
+/*on passe au deuxieme formulaire*/
+/**/
+#count {
+	counter-reset: sum;
+	flex-direction: column;
+}
+
+#form2 {
+	display:flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 350px;
+	height: 300px;
+}
+
+#clavier {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#a:checked { counter-increment: sum 64; }
+#b:checked { counter-increment: sum 16; }
+#c:checked { counter-increment: sum -32; }
+#d:checked { counter-increment: sum 128; }
+#e:checked { counter-increment: sum 4; }
+#f:checked { counter-increment: sum -8; }
+#g:checked { counter-increment: sum 64; }
+#h:checked { counter-increment: sum 16; }
+#i:checked { counter-increment: sum -32; }
+#j:checked { counter-increment: sum 128; }
+#k:checked { counter-increment: sum 4; }
+#l:checked { counter-increment: sum -8; }
+#m:checked { counter-increment: sum 64; }
+#n:checked { counter-increment: sum 16; }
+#o:checked { counter-increment: sum -32; }
+
+#sum {
+	padding: 10px;
+	margin: 10px;
+	border-radius: 10px;
+	border: 2px solid rgb(255, 204, 255);
+	cursor: default;
+}
+
+#sum:after {
+	height: 100%;
+	width: 100%;
+	content: counter(sum);
+}
+
+#sum + button {
+	padding: 5px;
+	margin: 10px;
+	border-radius: 10px;
+	font-size: 20px;
+	border: 2px solid rgb(255, 204, 255);
+	cursor: pointer;
+}
+
+#form2 label {
+	position: relative;
+	width: 30px;
+	height: 20px;
+	margin: 10px;
+	padding: 18px 10px 12px 10px;
+	color: rgb(204, 51, 255);
+	text-align: center;
+	vertical-align: text-bottom;
+}
+
+#clavier label {
+	margin: 10px;
+	height: 100%;
+	padding:10px;
+}
+
+#form2 label:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	content: "";
+	border-radius: 50%;
+	background-color: rgb(255, 204, 255);
+	z-index: -1;
+}
+
+#clavier label:before {
+	border-radius: 10px;
+}
+
+#count input:checked + label {
+	color: rgb(255, 204, 255);
+}
+
+#count input:checked + label:before {
+	background-color: rgb(204, 51, 255);
+	box-shadow: 0 0 4px rgba(100, 100, 100, 0.4) inset;
+}
+
+#un:checked ~ #clavier .deux {
+	z-index: -1;
+}
+
+#un:checked ~ #clavier .deux:after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	content: "";
+	border-radius: 10px;
+	background-color: rgba(50, 50, 50, 0.5);
+	z-index: 1;
 }
 
 /*/////////////////////////////////////*/

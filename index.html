@@ -180,7 +180,7 @@
 
     <formulaire id="formulaire">
 
-      <form action="#formulaire" method="post">
+      <form id="surprise" action="#formulaire" method="post">
         <div class="inputline">
 
           <div class="inputcolumn" id="check">
@@ -193,8 +193,8 @@
             </datalist>
 
             <span>quelles couleurs aimes-tu ?</span>
-            <p class="couleur" id="jaime">j'aime</p>
-            <p class="couleur" id="jaimepas">j'aime pas</p>
+            <p class="couleur" id="jaime">j'aime :</p>
+            <p class="couleur" id="jaimepas">j'aime pas :</p>
             <input type="checkbox" name="couleur" id="smaragdin">
             <label tabindex="0" id="smaragdin" for="smaragdin">smaragdin</label>
             <input type="checkbox" name="couleur" id="glauque" required>
@@ -253,16 +253,57 @@
         </div>
       </form>
 
-      <form action="#formulaire" method="post">
-        <div class="inputline">
-          <input id="a" type="checkbox"><label for="a">64</label>
-          <input id="b" type="checkbox"><label for="b">16</label>
-          <input id="c" type="checkbox"><label for="c">-32</label>
-          <input id="d" type="checkbox"><label for="d">128</label>
-          <input id="e" type="checkbox"><label for="e">4</label>
-          <input id="f" type="checkbox"><label for="f">-8</label>
-          <span class="sum"></span>
-        </div>
+      <form id="count" action="#formulaire" method="post">
+
+          <div id="form2">
+            <input id="un" name="cal" type="radio">
+            <label tabindex="0"  for="un">64</label>
+            <input id="deux" name="cal" type="radio">
+            <label tabindex="0"  for="deux">16</label>
+            <input id="trois" name="cal" type="radio">
+            <label tabindex="0"  for="trois">-32</label>
+            <input id="quatre" name="cal" type="radio">
+            <label tabindex="0"  for="quatre">128</label>
+            <input id="cinq" name="cal" type="radio">
+            <label tabindex="0"  for="cinq">4</label>
+            <div id="clavier">
+              <input id="a" type="checkbox">
+              <label tabindex="0"  for="a" class="deux">64</label>
+              <input id="b" type="checkbox">
+              <label tabindex="0"  for="b" class="detux">16</label>
+              <input id="c" type="checkbox">
+              <label tabindex="0"  for="c" class="deux">-32</label>
+              <input id="d" type="checkbox">
+              <label tabindex="0"  for="d" class="detux">128</label>
+              <input id="e" type="checkbox">
+              <label tabindex="0"  for="e" class="deux">4</label>
+              <input id="f" type="checkbox">
+              <label tabindex="0"  for="f" class="detux">-8</label>
+              <input id="g" type="checkbox">
+              <label tabindex="0"  for="g" class="deux">64</label>
+              <input id="h" type="checkbox">
+              <label tabindex="0"  for="h" class="detux">16</label>
+              <input id="i" type="checkbox">
+              <label tabindex="0"  for="i" class="deux">-43</label>
+              <input id="j" type="checkbox">
+              <label tabindex="0"  for="j" class="detux">28</label>
+              <input id="k" type="checkbox">
+              <label tabindex="0"  for="k" class="detux">4</label>
+              <input id="l" type="checkbox">
+              <label tabindex="0"  for="l" class="detux">-8</label>
+              <input id="m" type="checkbox">
+              <label tabindex="0"  for="m" class="detux">64</label>
+              <input id="n" type="checkbox">
+              <label tabindex="0"  for="n" class="deux">16</label>
+              <input id="o" type="checkbox">
+              <label tabindex="0"  for="o" class="detux">-32</label>
+            </div>
+          </div>
+
+          <div class="inputline">
+            <span id="sum">= </span>
+            <button type="reset">X</button>
+          </div>
       </form>
 
     </formulaire>
