@@ -1087,6 +1087,7 @@ textarea {
 }
 
 #form2 {
+	position: relative;
 	display:flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -1099,21 +1100,21 @@ textarea {
 	flex-wrap: wrap;
 }
 
-#a:checked { counter-increment: sum 64; }
-#b:checked { counter-increment: sum 16; }
-#c:checked { counter-increment: sum -32; }
-#d:checked { counter-increment: sum 128; }
-#e:checked { counter-increment: sum 4; }
-#f:checked { counter-increment: sum -8; }
-#g:checked { counter-increment: sum 64; }
-#h:checked { counter-increment: sum 16; }
-#i:checked { counter-increment: sum -32; }
-#j:checked { counter-increment: sum 128; }
-#k:checked { counter-increment: sum 4; }
-#l:checked { counter-increment: sum -8; }
-#m:checked { counter-increment: sum 64; }
-#n:checked { counter-increment: sum 16; }
-#o:checked { counter-increment: sum -32; }
+#a:checked { counter-increment: sum 6; }
+#b:checked { counter-increment: sum -17; }
+#c:checked { counter-increment: sum 38; }
+#d:checked { counter-increment: sum 23; }
+#e:checked { counter-increment: sum -21; }
+#f:checked { counter-increment: sum 18; }
+#g:checked { counter-increment: sum 41; }
+#h:checked { counter-increment: sum -37; }
+#i:checked { counter-increment: sum 5; }
+#j:checked { counter-increment: sum -7; }
+#k:checked { counter-increment: sum 15; }
+#l:checked { counter-increment: sum 33; }
+#m:checked { counter-increment: sum 25; }
+#n:checked { counter-increment: sum 13; }
+#o:checked { counter-increment: sum 43; }
 
 #sum {
 	padding: 10px;
@@ -1180,11 +1181,31 @@ textarea {
 	box-shadow: 0 0 4px rgba(100, 100, 100, 0.4) inset;
 }
 
-#un:checked ~ #clavier .deux {
-	z-index: -1;
+#form2 span {
+	position: absolute;
+	left: 25px;
+	top: 80px;
+	visibility: hidden;
 }
 
-#un:checked ~ #clavier .deux:after {
+#form2 > input:checked + label + span {
+	visibility: visible;
+}
+
+/*quand on selectionne un bouton rond ça
+camouffle certains boutons de la calculatrice*/
+#quatre:checked ~ #clavier .quatre,
+#cinquanquatre:checked ~ #clavier .cinquanquatre,
+#cinquante:checked ~ #clavier .cinquante,
+#dixsept:checked ~ #clavier .dixseptquatre,
+#soixantreize:checked ~ #clavier .soixantreize {
+	z-index: -1;
+}
+#quatre:checked ~ #clavier .quatre:after,
+#cinquanquatre:checked ~ #clavier .cinquanquatre:after,
+#cinquante:checked ~ #clavier .cinquante:after,
+#dixsept:checked ~ #clavier .dixsept:after,
+#soixantreize:checked ~ #clavier .soixantreize:after {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -1195,6 +1216,36 @@ textarea {
 	background-color: rgba(50, 50, 50, 0.5);
 	z-index: 1;
 }
+
+#win {
+	display: none;
+	background-color: rgb(255, 204, 255);
+	color: rgb(204, 51, 255);
+}
+
+/*maintenant on affiche un message quand les bonnes valeurs sont selectionnées*/
+#quatre:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:checked ~ #g:not(:checked) ~ #h:checked ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:checked ~ #l:not(:checked) ~ #m:checked ~ #n:not(:checked) ~ #o:not(:checked) ~ #win {
+	display: block;
+}
+#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:checked ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #win {
+	display: block;
+}
+#cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:checked ~ #d:not(:checked) ~ #e:checked ~ #f:checked ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
+	display: block;
+}
+#dixsept:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:checked ~ #i:checked ~ #j:checked ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
+	display: block;
+}
+#cinquante:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:checked ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
+	display: block;
+}
+
+#sum:after {
+	height: 100%;
+	width: 100%;
+	content: counter(sum);
+}
+
 
 /*/////////////////////////////////////*/
 /*la sixieme et derniere section montre des techniques pour les slides*/
