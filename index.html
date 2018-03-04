@@ -181,9 +181,17 @@
     <formulaire id="formulaire">
 
       <form id="surprise" action="#formulaire" method="post">
+
+        <div id="camoufflage">
+          <a href="#surprise" id="closecamoufflage"></a>
+          <div id="histoire">
+          </div>
+        </div>
+
         <div class="inputline">
 
           <div class="inputcolumn" id="check">
+            <span>remplis les bons champs pour voir la surprise !</span>
             <input type="text" id="life" list="resume" placeholder="resume ta vie en un mot" required>
             <datalist id="resume">
               <option value="prairie">
@@ -237,7 +245,7 @@
               <option value="horde">barbak</option>
             </select>
             <input type="radio" name="livre" id="ya">
-            <label tabindex="0" for="ya"><span><em>ya</em><br> de Thomas Bernard</span></label>
+            <label tabindex="0" for="ya"><span><em>ja</em><br> de Thomas Bernard</span></label>
             <input type="radio" name="livre" id="city">
             <label tabindex="0" for="city"><span><em>city</em><br> de Clifford D. Simak</span></label>
             <textarea id="textecity" name="livre">pourquoi ??</textarea>
@@ -256,21 +264,24 @@
       <form id="count" action="#formulaire" method="post">
 
           <div id="form2">
+            <span>pour commencer clique sur un rond !<br>
+                  le but du jeu est d'obtenir la somme de ce rond<br>
+                  en cliquant sur cinq boutons de la calculatrice<br></span>
             <input id="quatre" name="cal" type="radio">
             <label tabindex="0"  for="quatre">4</label>
-            <span>essaye d'obtenir 4 avec 5 valeurs!</span>
+            <span>essaye d'obtenir 4 !</span>
             <input id="soixantreize" name="cal" type="radio">
             <label tabindex="0"  for="soixantreize">73</label>
-            <span>essaye d'obtenir 73 avec 5 valeurs!</span>
+            <span>essaye d'obtenir 73 !</span>
             <input id="cinquanquatre" name="cal" type="radio">
             <label tabindex="0"  for="cinquanquatre">54</label>
-            <span>essaye d'obtenir 54 avec 5 valeurs!</span>
+            <span>essaye d'obtenir 54 !</span>
             <input id="dixsept" name="cal" type="radio">
             <label tabindex="0"  for="dixsept">17</label>
-            <span>essaye d'obtenir 17 avec 5 valeurs!</span>
+            <span>essaye d'obtenir 17 !</span>
             <input id="cinquante" name="cal" type="radio">
             <label tabindex="0"  for="cinquante">50</label>
-            <span>essaye d'obtenir 50 avec 5 valeurs!</span>
+            <span>essaye d'obtenir 50 !</span>
             <div id="clavier">
               <input id="a" type="checkbox">
               <label tabindex="0" for="a" class="soixantreize cinquante">6</label>
@@ -302,13 +313,14 @@
               <label tabindex="0" for="n" class="soixantreize">13</label>
               <input id="o" type="checkbox">
               <label tabindex="0" for="o" class="quatre">43</label>
-              <p id="win">bien ouéj !</p>
+              <button type="reset" id="win">bravo ! clique la-dessus pour remettre a zero et rejouer !</button>
+              <p id="error1">non! tu dois y arriver avec cinq boutons</p>
+              <p id="error2">mais aussi! sache qu'il y a une deuxieme solution ;-)</p>
             </div>
           </div>
 
           <div class="inputline">
-            <span id="sum">= </span>
-            <button type="reset">X</button>
+            <button type="reset" id="sum">= </button>
           </div>
       </form>
 
