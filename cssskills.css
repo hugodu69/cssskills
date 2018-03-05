@@ -859,9 +859,13 @@ form {
 	cursor: default;
 	padding: 20px;
 }
-#histoire p {
+#histoire * {
 	background-color: transparent;
 	color: rgb(200, 200, 200);
+}
+
+#histoire h2, #histoire h3 {
+	margin-top: 40px;
 }
 
 /*pour que quand on clique sur un bouton du formulaire
@@ -1325,6 +1329,9 @@ camouffle certains boutons de la calculatrice*/
 #quatre:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:checked ~ #g:not(:checked) ~ #h:checked ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error1 {
 	display: block;
 }
+#quatre:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:checked ~ #e:checked ~ #f:checked ~ #g:not(:checked) ~ #h:checked ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:checked ~ #n:checked ~ #o:not(:checked) ~ #error1 {
+	display: block;
+}
 /*premiere solution pour soixantreize*/
 #soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:checked ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #win {
 	display: block;
@@ -1339,6 +1346,10 @@ camouffle certains boutons de la calculatrice*/
 }
 /*le message qui indique l'autre solution*/
 #soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #error2 {
+	display: block;
+}
+/*les messages d'erreur pour 73*/
+#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:checked ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:checked ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #error1 {
 	display: block;
 }
 #cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:checked ~ #d:not(:checked) ~ #e:checked ~ #f:checked ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
