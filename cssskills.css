@@ -11,7 +11,7 @@ body * {
 	margin: auto;
 }
 
-a, p, h1, h2, h3, span, option, label {
+a, p, h1, h2, h3, h4, span, option, label {
 	position: relative;
 	font-family: "Courier New";
 	text-decoration: none;
@@ -721,9 +721,11 @@ sticky p {
 
 /*///////////////////////////////////////////*/
 /*la cinquieme section est remplie de formulaires :-) */
+/*reglages generaux de la section*/
 formulaire {
 	position: relative;
 	display: flex;
+	flex-direction: row;
 	width: 100%;
 	background-image: url("./ressources/pantalon.jpg");
 	background-position: 0px -600px;
@@ -732,14 +734,12 @@ formulaire {
 	background-attachment: fixed;
 	color: rgb(255, 204, 255);
 }
-
-/*suppression des pointilles automatiques lors de la selection*/
+/*/////suppression des pointilles automatiques lors de la selection*/
 formulaire * {
 	outline: none;
+	cursor: default;
 }
-
-
-/*creation d'un voile devant la photo de fond*/
+/*/////creation d'un voile devant la photo de fond*/
 formulaire:before {
 	content: "";
 	position: absolute;
@@ -751,16 +751,23 @@ formulaire:before {
 	z-index: 0;
 }
 
-/*répartir les deux zones de formulaire sur la page*/
-formulaire form:first-child {
+/*/////répartir les deux zones de formulaire sur la page*/
+#form1 {
+	border: 1px solid green;
+	position: relative;
 	width: 60%;
+	overflow: hidden;
+	margin: 0;
 }
-formulaire form:last-child {
+#form2 {
+	border: 1px solid green;
+	position: relative;
 	width: 40%;
+	margin: 0;
 }
 
-/*créer la ligne blanche de separation*/
-formulaire form:first-child:before {
+/*/////créer la ligne blanche de separation*/
+#form1:before {
 	content: "";
 	position: absolute;
 	right: 0;
@@ -770,64 +777,87 @@ formulaire form:first-child:before {
 	background-color: rgb(200, 200, 200);
 }
 
-formulaire label {
-	cursor: pointer;
+#surprise {
+	margin: auto;
+	padding: 100px 0;
 }
 
-.inputcolumn > span {
-	cursor: default;
+/*/////quand on clique sur un bouton du formulaire ou qu'on remplis un champs
+ça assombri le fond*/
+#form1:focus-within, #form2:focus-within {
+	background-color: rgba(50, 50, 50, 0.2);
 }
 
-/*les boutons "reinitialise" et "suprise ?"*/
-button {
-	background-color: rgb(255, 204, 255);
-	border: transparent;
-	border-radius: 7px 7px 7px 7px;
-	color: rgb(204, 51, 255);
-	margin: 1px;
-	padding: 5px;
+/*/////les bouts de formulaires qui doivent etre alignés en ligne*/
+.inputline {
+	display: flex;
+	flex-direction: line;
 }
-/*---pour les bords plats des deux boutons face a face */
-button[type="reset"] {
-	border-radius: 7px 0px 0px 7px;
-}
-button[type="submit"] {
-	border-radius: 0px 7px 7px 0px;
-}
-/*pour leur apparences au clic*/
-button:active {
-	box-shadow: 0 0 2px rgba(50, 50, 50, 0.8) inset;
-}
-
-/*les reglages generaux du formulaire, en direction vertivale*/
-form {
-	position: relative;
-	z-index: 1;
+/*les bouts de formulaires qui doivent etre alignés en colonnes*/
+.inputcolumn {
 	display: flex;
 	flex-direction: column;
-	padding-top: 100px;
-	padding-bottom: 100px;
-	margin: 0;
-	overflow: hidden;
 }
 
-/*l'élément surprise !*/
+/*/////formatage des textes et du curseur*/
+formulaire h4 {
+	cursor: default;
+	background-color: transparent;
+	color: rgb(255, 204, 255);
+	font-size: 12px;
+	text-align: left;
+	margin: 5px 0;
+	padding: 0;
+}
+formulaire p {
+	cursor: default;
+	background-color: transparent;
+	color: rgb(255, 204, 255);
+	font-size: 15px;
+	text-align: left;
+	margin: 5px 0;
+	padding: 0;
+
+}
+formulaire label {
+	cursor: pointer;
+	color: rgb(255, 204, 255);
+	font-size: 15px;
+	text-align: left;
+	margin: 5px 0;
+	padding: 0;
+
+}
+formulaire label p, formulaire label p em {
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+}
+formulaire button {
+	cursor: pointer;
+	color: rgb(204, 51, 255);
+	background-color: rgb(255, 204, 255);
+	font-size: 12px;
+	margin: 2px;
+	padding: 5px;
+}
+
+/*/////l'élément surprise !*/
 #camoufflage {
 	position: absolute;
 	background-color: rgba(10, 10, 10, 0.9);
 	width: 95%;
 	height: 80%;
-	top: 0;
+	top: 10%;
 	left: 100%;
 	border-radius: 10px 0 0 10px;
 	overflow: hidden;
-	margin-top: 10%;
 	z-index: 2;
 	display: flex;
 	transition: left 1s;
 }
 /*apparition de camoufflage*/
-#formulaire:target form #camoufflage {
+#formulaire:target #form1 #camoufflage {
 	left: calc(5% + 13px);
 	transition: left 1s;
 }
@@ -840,6 +870,7 @@ form {
 	text-align: justify;
 	border-radius: 10px 0 0 10px;
 	font-size: 30px;
+	cursor: pointer;
 }
 /*la fleche pour fermer*/
 #closecamoufflage:after {
@@ -868,48 +899,36 @@ form {
 	margin-top: 40px;
 }
 
-/*pour que quand on clique sur un bouton du formulaire
-ou qu'on remplisse un champs
-ça assombrisse le fond*/
-form:focus-within {
-	background-color: rgba(50, 50, 50, 0.2);
+/*/////input "pour resumer sa vie"*/
+input#life {
+	background-color: rgb(255, 204, 255);
+	padding: 5px;
+	border: transparent;
+	border-radius: 5px;
+	color: rgb(204, 51, 255);
+	font-size: 15px;
+	width: 100%;
+	margin: 20px 0;
+}
+/*changement de taille de l'input*/
+input#life:focus {
+	box-shadow: 0 0 2px rgba(50, 50, 50, 0.8) inset;
+	width: 30%;
+	transition: width 0.5s;
 }
 
-/*pour les bouts de formulaires qui doivent etre alignés en ligne*/
-.inputline {
-	display: flex;
-	flex-direction: line;
+/*/////section colorbook*/
+/*on aligne les sections vers le haut et on met de l'espace entre elles*/
+#color {
+	margin: 0 60px 0 0;
 }
-/*pour les bouts de formulaires qui doivent etre alignés en colonnes*/
-.inputcolumn {
-	display: flex;
-	flex-direction: column;
-	margin: 30px;
-	margin-top: 80px;
-	position: relative;
+#book {
+	margin: 0;
 }
-/*reglages des differents types de textes et leurs marges*/
-.inputcolumn > span {
-	margin-top: 0;
-	margin-bottom: 25px;
-	margin-left: 0;
-}
-.inputcolumn p {
-	color: rgb(255,204, 255);
-	background-color: transparent;
-	padding: 2px;
-	margin-left: 0;
-	margin-bottom: 5px;
-	border-radius: 0;
-	width: 100%;
-	text-align: left;
-	font-size: 12px;
-}
-.inputcolumn2 label {
-	margin-top: 0;
-}
-/*la ligne au dessus des zones "j'aime" et "j'aime pas"*/
-.inputcolumn .couleur:before {
+
+/*/////section de selection des couleurs
+la ligne au dessus des zones "j'aime" et "j'aime pas"*/
+.couleur:before {
 	content: "";
 	width: calc(100% - 7px);
 	background-color: rgb(255, 204, 255);
@@ -919,64 +938,27 @@ form:focus-within {
 	left: 0;
 }
 /*la fleche a la fin de la zone*/
-.inputcolumn .couleur:after {
+.couleur:after {
 	content: "V";
 	position: absolute;
 	right: 0;
 	top: -2px;
 }
-
-/*le texte explicatif du premier formulaire*/
-#check span:first-child {
-	position: absolute;
-	top: -120px;
-	left: 0;
-	padding: 5px;
-	border: transparent;
-	border-radius: 5px;
-	color: rgb(255, 204, 255);
-	font-size: 15px;
-	width: 200%;
-}
-
-/*mise en forme de l'input "pour resumer sa vie"*/
-input#life {
-	position: absolute;
-	top: -60px;
-	left: 0;
-	background-color: rgb(255, 204, 255);
-	padding: 5px;
-	border: transparent;
-	border-radius: 5px;
-	color: rgb(204, 51, 255);
-	font-size: 15px;
-	width: 200%;
-}
-/*changement de taille de l'input*/
-input#life:focus {
-	box-shadow: 0 0 2px rgba(50, 50, 50, 0.8) inset;
-	width: 60%;
-	transition: width 0.5s;
-}
-
-/*section de selection des couleurs*/
-/*on definit la couleur en la laissant transparente*/
-/*c'est juste pour adoucir l'animation avec des effets de couleurs
+/*on definit la couleur en la laissant transparente
+c'est juste pour adoucir l'animation avec des effets de couleurs
 et d'opacité*/
 #smaragdin {
 	background-color: rgba(1, 215, 88, 0);
 	width: calc(100% - 28px);
 }
-
-/*quand la couleur est selectionnée*/
-/*elle change d'ordre*/
+/*quand la couleur est selectionnée
+elle change d'ordre*/
 input:checked + #smaragdin {
 	order: 2;
 	color: rgba(255, 204, 255, 0.5);
 	background-color: rgba(1, 215, 88, 1);
 	transition: order 0s, color 0.5s, background-color 1s;
 }
-
 /*et c'est pareil pour toutes le couleurs*/
 #glauque {
 	background-color: rgba(100, 155, 136, 0);
@@ -988,7 +970,6 @@ input:checked + #glauque {
 	background-color: rgba(100, 155, 136, 1);
 	transition: order 0s, color 0.5s, background-color 1s;
 }
-
 /*couleur pelure d'oignon...*/
 #pelure {
 	background-color: rgba(213, 132, 144, 0);
@@ -1000,7 +981,6 @@ input:checked + #pelure {
 	background-color: rgba(213, 132, 144, 1);
 	transition: order 0s, color 0.5s, background-color 1s;
 }
-
 /*couleur cramoisi*/
 #cramoisi {
 	background-color: rgba(220, 20, 60, 0);
@@ -1012,7 +992,6 @@ input:checked + #cramoisi {
 	background-color: rgba(220, 20, 60, 1);
 	transition: order 0s, color 0.5s, background-color 1s;
 }
-
 /*couleur zinzolin*/
 #zinzolin {
 	background-color: rgba(108, 2, 119, 0);
@@ -1024,9 +1003,11 @@ input:checked + #zinzolin {
 	background-color: rgba(100, 2, 119, 1);
 	transition: order 0s, color 0.5s, background-color 1s;
 }
-
 /*et l'ordre des elements par defaut*/
-#check label {
+#color p {
+	order: 0;
+}
+#color label {
 	order: 4;
 	margin-left: 28px;
 }
@@ -1037,24 +1018,14 @@ input:checked + #zinzolin {
 	order: 3;
 }
 
-/*je precise la position relative des labels pour que
-la position absolue de input fonctionne*/
-/*je mets aussi leur largeur a 100% pour qu'ils remplissent
-toute la div sinon je n'arrive pas a les aligner a droite*/
-label {
-	position: relative;
-	width: 100%;
-	margin-bottom: 9px;
-}
-
-/*je cache les inputs qui ne sont pas de type text
-pour les remplacer par des personnalisés*/
+/*/////personnalisation des inputs pour les couleurs et les livres*/
+/*cacher les inputs par defaut*/
 input:not([type="text"]) {
 	visibility: hidden;
 	position: absolute;
 }
-/*d'abord le coeur pour la selection des couleurs*/
-#check label:before {
+/*dessiner le coeur pour la selection des couleurs*/
+#color label:before {
 	content: "";
 	width: 5px;
 	height: 10px;
@@ -1065,7 +1036,7 @@ input:not([type="text"]) {
 	left: -17px;
 	transform: rotate(-33deg);
 }
-#check label:after {
+#color label:after {
 	content: "";
 	width: 5px;
 	height: 10px;
@@ -1076,15 +1047,15 @@ input:not([type="text"]) {
 	left: -15px;
 	transform: rotate(37deg);
 }
-/*puis remplir le coeur en rouge*/
-#check input:checked + label:before {
+/*remplir le coeur en rouge*/
+#color input:checked + label:before {
 	background-color: rgb(204, 51, 255);
 }
-#check input:checked + label:after {
+#color input:checked + label:after {
 	background-color: rgb(204, 51, 255);
 }
-/*maintenant creation d'un carré à gauche des livres*/
-.inputcolumn2 label:before {
+/*puis creation d'un carré à gauche des livres*/
+#book label:before {
 	content: "";
 	width: 10px;
 	height: 10px;
@@ -1095,7 +1066,7 @@ input:not([type="text"]) {
 	left: -20px;
 }
 /*creation d'un rond pour quand un livre est selectionné*/
-.inputcolumn2 label:after {
+#book label:after {
 	content: "";
 	display: none;
 	width: 6px;
@@ -1106,21 +1077,20 @@ input:not([type="text"]) {
 	top: 5px;
 	left: -18px;
 }
-/*pour faire apparaitre les petits ronds quand un input est selectionné*/
-#surprise input:checked + label:after {
+/*pour faire apparaitre les petits ronds*/
+#book input:checked + label:after {
 	display: block;
 }
 
-/*pour faire apparaitre les options sous certains livres*/
-/*d'abord pour la horde du contrevent
-les options sont d'abord applatis*/
+/*/////pour faire apparaitre les options sous certains livres*/
+/*pour la horde du contrevent les options sont d'abord applatis*/
 #horde ~ #selecthorde {
 	opacity: 0;
 	margin: -2px;
 	height: 0px;
 	transition: all 1s;
 }
-/*puis s'étendent en hauteur en apparraissant*/
+/*puis s'étendent en hauteur pour apparaitre*/
 #horde:checked ~ #selecthorde {
 	opacity: 1;
 	height: 80px;
@@ -1129,13 +1099,13 @@ les options sont d'abord applatis*/
 	transition: all 1s;
 }
 /*ainsi que le sous-titre*/
-#horde + label p {
+#horde + label h4 {
 	opacity: 0;
 	margin-top: -20px;
 	transition: all 1s;
 }
 /*qui grossissent*/
-#horde:checked + label p {
+#horde:checked + label h4 {
 	opacity: 1;
 	margin-top: 10px;
 	transition: all 1s;
@@ -1153,6 +1123,30 @@ textarea {
 	height: 80px;
 	transition: all 1s;
 }
+
+/*/////les boutons "reinitialise" et "suprise ?"*/
+/*on colle les boutons ensemble au centre et on met de l'espace au dessus*/
+#button {
+	justify-content: center;
+	margin-top: 40px;
+}
+/*on redessine la bordure par defaut*/
+button {
+	border: transparent;
+}
+/*pour les bords plats des deux boutons face a face */
+button[type="reset"] {
+	border-radius: 7px 0px 0px 7px;
+}
+button[type="submit"] {
+	border-radius: 0px 7px 7px 0px;
+}
+/*pour leur apparences au clic*/
+button:active {
+	box-shadow: 0 0 2px rgba(50, 50, 50, 0.8) inset;
+}
+
+
 
 
 /*on passe au deuxieme formulaire*/
