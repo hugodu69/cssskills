@@ -75,9 +75,11 @@ p {
 .questionmark {
 	display: block;
 	position: absolute;
-	top: -30px;
-	right: -8px;
-	padding-bottom: 15px;
+	top: -20px;
+	left: 2px;
+	margin: 0;
+	padding: 0 0 10px 0;
+	font-size: 16px;
 	transform-origin: bottom center;
 	opacity: 1;
 }
@@ -133,14 +135,14 @@ p {
 	z-index: 7;
 }
 
-.circle:active ~ .tooltip, .circle:hover ~ .tooltip {
+.circle:focus ~ .tooltip, .circle:hover ~ .tooltip {
 	z-index: 6;
 	opacity: 1;
 	visibility: visible;
 	transition: opacity 0.5s;
 }
 
-.circle:active + p, .circle:hover + p {
+.circle:focus + p, .circle:hover + p {
 	opacity: 0;
 	transform: rotate(180deg);
 	transition: all 1s;
@@ -226,6 +228,32 @@ p {
 #questionLinks {
 	left: -30px;
 	top: -35px;
+}
+
+#questionForm {
+	left: 15%;
+	top: 73%;
+}
+
+#questionForm p {
+	color: rgb(255, 204, 255);
+}
+
+#questionForm div {
+	background-color: rgb(255, 204, 255);
+}
+
+#questionCalcul {
+	left: 15%;
+	top: 73%;
+}
+
+#questionCalcul p {
+	color: rgb(255, 204, 255);
+}
+
+#questionCalcul div {
+	background-color: rgb(255, 204, 255);
 }
 
 #questionSlide {
@@ -1396,7 +1424,7 @@ camouffle certains boutons carrés*/
 	visibility: visible;
 }
 /*le message qui indique les autres solutions*/
-#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:checked ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error2 {
+#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:checked ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error3 {
 	display: block;
 }
 /*deuxieme solution pour soixantreize*/
@@ -1404,7 +1432,7 @@ camouffle certains boutons carrés*/
 	visibility: visible;
 }
 /*le message qui indique les autres solutions*/
-#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #error2 {
+#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #error3 {
 	display: block;
 }
 /*troisieme solution pour soixantreize*/
@@ -1412,15 +1440,36 @@ camouffle certains boutons carrés*/
 	visibility: visible;
 }
 /*le message qui indique les autres solutions*/
-#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error2 {
+#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error3 {
 	display: block;
 }
 /*les messages d'erreur pour 73*/
 #soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:checked ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:checked ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #error1 {
 	display: block;
 }
+/*premiere solution pour cinquanquatre*/
 #cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:checked ~ #d:not(:checked) ~ #e:checked ~ #f:checked ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
 	visibility: visible;
+}
+/*le message qui indique l'autre solution*/
+#cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:checked ~ #d:not(:checked) ~ #e:checked ~ #f:checked ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #error2 {
+	display: block;
+}
+/*deuxieme solution pour cinquanquatre*/
+#cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #win {
+	visibility: visible;
+}
+/*le message qui indique l'autre solution*/
+#cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error2 {
+	display: block;
+}
+/*les messages d'erreur pour cinquanquatre*/
+#cinquanquatre:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:checked ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #error1 {
+	display: block;
+}
+/*les messages d'erreur pour cinquanquatre*/
+#cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #error1 {
+	display: block;
 }
 #dixsept:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:checked ~ #i:checked ~ #j:checked ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
 	visibility: visible;
@@ -1490,19 +1539,10 @@ slide:before {
 }
 
 @keyframes timeliner {
-	0% { width: 0%; }
-	20% { width: 100%; }
-	21% { width: 0%; }
-	25% { width: 0%; }
-	45% { width: 100%; }
-	46% { width: 0%; }
-	50% { width: 0%; }
-	70% { width: 100%; }
-	71% { width: 0%; }
-	75% { width: 0%; }
-	95% { width: 100%; }
-	96% { width: 0%; }
-	100% { width: 0%; }
+	0% { width: 35px; opacity: 1; }
+	66% { width: 80%; opacity: 1; }
+	90% { width: 80%; opacity:0 }
+	100% { width: 35px; opacity: 0; }
 }
 
 /*reglages pour mettre les trois slides cote a cote*/
@@ -1536,27 +1576,17 @@ slide:before {
 }
 
 /*pour le deuxieme slide*/
-/*j'utilise after pour faire apparaitre la zone grise dans laqeulle
-la timeline avance*/
-#cadre2:after {
-	position: absolute;
-	bottom: 10;
-	left: 0;
-	content: " ";
-	width: 100%;
-	height: 10px;
-	background-color: rgb(160, 160, 160);
-}
-
+/*l'apparition du petit encart descriptif*/
 #timeline {
 	position: absolute;
-	bottom: 10;
+	bottom: 70;
 	left: 0;
-	content: " ";
-	height: 10px;
+	padding: 5px;
+	text-align: right;
+	width: 0px;
+	color: rgb(255, 204, 255);
 	background-color: rgb(204, 51, 255);
-	width: 0;
-	animation: timeliner 10s infinite;
+	animation: timeliner 2.5s infinite;
 	z-index: 1;
 }
 

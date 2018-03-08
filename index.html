@@ -12,7 +12,7 @@
       <div id="title">
 
         <div class="question" id="questionTitre">
-          <div class="circle"></div>
+          <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
           <span class="tooltip tooltipdroite">l'ombre du texte est placée a 0 horizontal et 0 vertical, donc pile sous le texte, et utilise l'effet blur : text-shadow: 0 0 9 black</span>
         </div>
@@ -31,7 +31,7 @@
         <h3>pour avoir les codes css et html des elements de la page</h3>
 
         <div class="question" id="questionSelf">
-          <div class="circle"></div>
+          <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
           <span class="tooltip tooltipgauche">ces petits points pour expliquer le code sont fait d'une div avec un border-radius pour faire le rond, puis en position absolue un bloc de texte avec deux class, une tres generale pour les reglages communs a tous, et une autre plus precise distingant ceux qui apparaitront a gauche de ceux qui apparaitront a droite, et la petite fleche est fabriquée grace a un :after. j'ai remarqué que le hover sur le point ne fonctionne que si le z-index du point est plus élevé que celui du bloc qu'il fait apparaitre</span>
         </div>
@@ -44,7 +44,7 @@
 
     <div id="navbar1">
       <div class="question" id="questionNavbar">
-        <div class="circle"></div>
+        <div class="circle" tabindex="0"></div>
 	<p class="questionmark">?</p>
         <span class="tooltip tooltipdroite">la barre de navigation est large puis elle se réduit quand elle atteind le haut de l'écran, parce qu'elle est entourée de deux div au dessus et en dessous qui ne restent pas accrochées et donc disparaissent avec le reste de la page</span>
       </div>
@@ -58,7 +58,7 @@
       <div id="navbarSlides">
         <a class="tiret" href="#slide" alt="go to slide">slides</a>
         <div class="question" id="questionLinks">
-          <div class="circle"></div>
+          <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
           <span class="tooltip tooltipgauche">au hover une barre apparait sous les liens de la barre de navigation. elle effectue une trasition d'opacité et un "transform: translatey", on peut faire la même chose avec une valeur de bottom</span>
         </div>
@@ -75,7 +75,7 @@
         <span id="camoufle"></span>
 
         <div class="question" id="questionDisco">
-          <div class="circle"></div>
+          <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
           <span class="tooltip tooltipdroite">le bouton hover ne se transforme pas lui-même mais une autre div, qu'il fait apparaitre en passant de display: none; a display: block, grace au signe + qui ne marche que si l'element ciblé par + suit directement celui qui est en hover "bouton:hover + div"</span>
         </div>
@@ -86,7 +86,7 @@
       <div id="menu">
 
         <div class="question" id="questionMenu">
-          <div class="circle"></div>
+          <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
           <span class="tooltip tooltipdroite">ce bouton hover marche comme le précédent mais cette fois la div qui apparait est superposée ou accollée au bouton et est elle-même en hover, ce qui fait que la souris peut se ballader dessus une fois qu'elle est apparu et ça la maintient apparente. les trois div qu'elle contient changent elle-meme d'apparence avec des hover</span>
         </div>
@@ -124,7 +124,7 @@
 	<span class="bulles bull3" id="bulll"></span>
 
         <div class="question" id="questionRonds">
-          <div class="circle"></div>
+          <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
           <span class="tooltip tooltipgauche">l'option :active ne s'applique que pendant le clique qui le selectionne, par exemple pour bien montrer que la selection a marché</span>
         </div>
@@ -143,7 +143,7 @@
 
         <div id="targetposition">
           <div class="question" id="questionTarget">
-            <div class="circle"></div>
+            <div class="circle" tabindex="0"></div>
             <p class="questionmark">?</p>
             <span class="tooltip tooltipgauche">la fonction target permet de modifier l'element tant que son id correspond a celle de la fin de l'url, donc tant qu'on n'appuie pas sur un autre bouton modifiant l'url, comme par exemple une ancre, la modification apparue reste en place, par exemple une fenetre</span>
           </div>
@@ -156,7 +156,7 @@
         <p>:before<br />:after</p>
 
         <div class="question" id="questionOmbres">
-          <div class="circle"></div>
+          <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
           <span class="tooltip tooltipgauche">les pseudos element before et after permettent de créer deux nouveaux elements depuis le css. il ne faut pas oublier de mettre "content: '';" si on veut pouvoir donner des dimensions a ces nouveaux elements. ici ce sont deux nouveaux rectangles pour faire une ombre courbée sous le bouton</span>
         </div>
@@ -168,7 +168,7 @@
 
     <sticky id="sticky">
       <div class="question" id="questionSticky">
-        <div class="circle"></div>
+        <div class="circle" tabindex="0"></div>
 	<p class="questionmark">?</p>
         <span class="tooltip tooltipgauche">grace a la fonction sticky appliquée a la div de la barre de navigation, celle-ci reste bloquée contre le haut de la fenêtre jusqu'à ce qu'elle atteigne la fin de la div dans laquelle elle se trouve. c'est pourquoi j'ai dû mettre les trois section autour dans une grande div</span>
       </div>
@@ -309,6 +309,12 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
 
         <form id="surprise" class="inputcolumn" action="#formulaire" method="post">
 
+          <div class="question" id="questionForm">
+            <div class="circle" tabindex="0"></div>
+            <p class="questionmark">?</p>
+            <span class="tooltip tooltipdroite">le slide fonctionne en collant les images en un long bandeau, avec celle du debut qui se repete a la fin si on veut que le slide tourne a l'infini, et la boite qui contient ce long bandeau est mise dans un cadre en "overflow: hidden". dans la boite extra large qui contient le bandeau d'image on applique une "animation: temps-total-du-slide creer-le-nom-de-l'animation infinite", puis on definit les temps de chaque action, en l'occurence bouger d'une image sur la gauche, en pourcentage du temps total definit dans l'animation, par exemple pour deux images: "@keyframe{ 0%{left:0%} 40%{left:0%} 50%{left:-100%} 90%{left:-100%} 100%{left:-200%}}</span>
+          </div>
+
           <div id="regle">
             <p>remplis les bons champs pour voir la surprise !<br>
                indice: caracole aime les couleurs moches</p>
@@ -396,6 +402,12 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
 
       <div id="form2" class="inputcolumn">
 
+        <div class="question" id="questionCalcul">
+          <div class="circle" tabindex="0"></div>
+          <p class="questionmark">?</p>
+          <span class="tooltip tooltipdroite">le slide fonctionne en collant les images en un long bandeau, avec celle du debut qui se repete a la fin si on veut que le slide tourne a l'infini, et la boite qui contient ce long bandeau est mise dans un cadre en "overflow: hidden". dans la boite extra large qui contient le bandeau d'image on applique une "animation: temps-total-du-slide creer-le-nom-de-l'animation infinite", puis on definit les temps de chaque action, en l'occurence bouger d'une image sur la gauche, en pourcentage du temps total definit dans l'animation, par exemple pour deux images: "@keyframe{ 0%{left:0%} 40%{left:0%} 50%{left:-100%} 90%{left:-100%} 100%{left:-200%}}</span>
+        </div>
+
         <div id="reglecount">
           <p>pour commencer clique sur un rond !<br>
              le but du jeu est d'obtenir la somme de ce rond
@@ -429,7 +441,7 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
             <input id="d" type="checkbox">
             <label tabindex="0" for="d" class="dixsept">23</label>
             <input id="e" type="checkbox">
-            <label tabindex="0" for="e" class="cinquanquatre">-21</label>
+            <label tabindex="0" for="e" class="dixsept">-21</label>
             <input id="f" type="checkbox">
             <label tabindex="0" for="f" class="soixantreize cinquante">18</label>
             <input id="g" type="checkbox">
@@ -441,7 +453,7 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
             <input id="j" type="checkbox">
             <label tabindex="0" for="j" class="cinquanquatre">-7</label>
             <input id="k" type="checkbox">
-            <label tabindex="0" for="k" class="cinquante dixsept">15</label>
+            <label tabindex="0" for="k" class="cinquante cinquanquatre">15</label>
             <input id="l" type="checkbox">
             <label tabindex="0" for="l" class="quatre cinquanquatre">33</label>
             <input id="m" type="checkbox">
@@ -452,7 +464,8 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
             <label tabindex="0" for="o" class="quatre">43</label>
             <button type="reset" id="win">bravo ! clique la-dessus pour remettre a zero et rejouer !</button>
             <p id="error1">non! tu dois y arriver avec cinq boutons</p>
-            <p id="error2">mais aussi! sache qu'il y a deux autres solutions!</p>
+            <p id="error2">mais aussi! sache qu'il y a une autre solution!</p>
+            <p id="error3">mais aussi! sache qu'il y a deux autres solutions!</p>
           </div>
 
           <div class="inputline">
@@ -481,7 +494,7 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
         </div>
 
         <div class="question" id="questionSlide">
-          <div class="circle"></div>
+          <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
           <span class="tooltip tooltipdroite">le slide fonctionne en collant les images en un long bandeau, avec celle du debut qui se repete a la fin si on veut que le slide tourne a l'infini, et la boite qui contient ce long bandeau est mise dans un cadre en "overflow: hidden". dans la boite extra large qui contient le bandeau d'image on applique une "animation: temps-total-du-slide creer-le-nom-de-l'animation infinite", puis on definit les temps de chaque action, en l'occurence bouger d'une image sur la gauche, en pourcentage du temps total definit dans l'animation, par exemple pour deux images: "@keyframe{ 0%{left:0%} 40%{left:0%} 50%{left:-100%} 90%{left:-100%} 100%{left:-200%}}</span>
         </div>
@@ -495,11 +508,11 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
             <img src="./ressources/archi4.jpg" alt="archi">
             <img src="./ressources/archi1.jpg" alt="archi">
           </div>
-          <span id="timeline"></span>
+          <span id="timeline">info</span>
         </div>
 
         <div class="question" id="questionTimeline">
-          <div class="circle"></div>
+          <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
           <span class="tooltip tooltipgauche">la barre de timeline qui charge a chaque slide est faite egalement grace a l'action animation, qui est definit a gauche avec une largeur width de 0% et que la @keyframe augmente a 100% le temps de chaque slide</span>
         </div>
@@ -523,7 +536,7 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
         </div>
 
         <div class="question" id="questionPlay">
-          <div class="circle"></div>
+          <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
           <span class="tooltip tooltipgauche">les options play et pause sont une option css qu'il faut appliquer a la même boite qui contient l'animation "animation-play-state: paused/running". le switch entre les boutons se fait en faisant varier les z-index et les opacity en hover et en fonction des target, et il faut pour ca utiliser target avec le + pour un element juste apres l'element target, rien pour un element contenu par l'element target, et la tilde ~ pour un element deux positions apres l'element hover</span>
         </div>
