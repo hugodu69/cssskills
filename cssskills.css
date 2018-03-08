@@ -1151,6 +1151,7 @@ button:active {
 /*/////on met le compteur a zero*/
 #form2 form {
 	counter-reset: sum;
+	z-index: 1;
 }
 
 /*/////pour gerer tous les input les uns apres les autres on va devoir
@@ -1346,7 +1347,7 @@ camouffle certains boutons carrés*/
 #cinquante:checked ~ #clavier .cinquante,
 #dixsept:checked ~ #clavier .dixsept,
 #soixantreize:checked ~ #clavier .soixantreize {
-	z-index: 0;
+	z-index: -1;
 }
 #quatre:checked ~ #clavier .quatre:after,
 #cinquanquatre:checked ~ #clavier .cinquanquatre:after,
