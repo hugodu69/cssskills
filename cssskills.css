@@ -753,14 +753,12 @@ formulaire:before {
 
 /*/////répartir les deux zones de formulaire sur la page*/
 #form1 {
-	border: 1px solid green;
 	position: relative;
 	width: 60%;
 	overflow: hidden;
 	margin: 0;
 }
 #form2 {
-	border: 1px solid green;
 	position: relative;
 	width: 40%;
 	margin: 0;
@@ -815,7 +813,7 @@ formulaire p {
 	color: rgb(255, 204, 255);
 	font-size: 15px;
 	text-align: left;
-	margin: 5px 0;
+	margin: 10px 0;
 	padding: 0;
 
 }
@@ -934,15 +932,16 @@ la ligne au dessus des zones "j'aime" et "j'aime pas"*/
 	background-color: rgb(255, 204, 255);
 	height: 1px;
 	position: absolute;
-	top: -1px;
+	top: -3px;
 	left: 0;
 }
 /*la fleche a la fin de la zone*/
 .couleur:after {
 	content: "V";
+	font-weight: lighter;
 	position: absolute;
 	right: 0;
-	top: -2px;
+	top: -4px;
 }
 /*on definit la couleur en la laissant transparente
 c'est juste pour adoucir l'animation avec des effets de couleurs
@@ -1149,28 +1148,219 @@ button:active {
 
 
 
-/*on passe au deuxieme formulaire*/
-/**/
-#count {
+/*/////on passe au deuxieme formulaire*/
+
+/*/////on met le conteur a zero*/
+#form2 form {
 	counter-reset: sum;
-	flex-direction: column;
 }
 
+/*/////pour gerer tous les input les uns apres les autres on va devoir
+organiser la page en ligne avec wrap, attention ca va être galere*/
 #form2 {
 	position: relative;
-	display:flex;
-	flex-direction: row;
 	flex-wrap: wrap;
-	width: 350px;
-	height: 300px;
-	margin-top: 50px;
 }
-
 #clavier {
 	display: flex;
 	flex-wrap: wrap;
 }
 
+/*/////la couleur des textes des labels*/
+#form2 label {
+	color: rgb(204, 51, 255);
+}
+
+/*/////mise en page du cadre general du formulaire*/
+#form2 form {
+	width: 60%;
+	flex-wrap: wrap;
+	position: relative;
+	margin: 20px 20% 100px 20%;
+}
+
+/*/////mise en page de la zone de regles*/
+/*les espaces autour de cette zonre*/
+#reglecount {
+	margin: 100px 0 20px 0;
+}
+/*le texte*/
+#reglecount p {
+	text-align: center;
+	width: 80%;
+	margin: 0 10%;
+}
+
+/*/////mise en page de la zone des boutons ronds*/
+/*les intstructions*/
+#form2 form > p {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	left: 0;
+	top: 45px;
+	visibility: hidden;
+}
+/*quand un des cinq boutons est selectionné ça affiche le texte*/
+#form2 form input:checked + label + p {
+	visibility: visible;
+}
+/*la position et le texte des boutons ronds*/
+#form2 form > label {
+	position: relative;
+	height: 60px;
+	/*on met witdh a 20% pour que les boutons remplissent toute la largeur*/
+	width: 20%;
+	text-align: center;
+	padding-top: 10px;
+	cursor: default;
+	z-index: 1;
+}
+/*le texte des boutons ronds au clique*/
+#form2 form input:checked + label {
+	color: rgb(255, 204, 255);
+}
+/*l'apparence du cadre des boutons ronds*/
+#form2 form > label:before {
+	content: "";
+	position: absolute;
+	top: -7px;
+	left: calc(50% - 25px);
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background-color: rgb(255, 204, 255);
+	z-index: -1;
+}
+/*pour que le cercle affiche une curseur cliquable au survol
+on créer le meme bouton que before, mais transparent et au dessus du label*/
+#form2 form > label:after {
+	content: "";
+	position: absolute;
+	top: -7px;
+	left: calc(50% - 25px);
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background-color: transparent;
+	cursor: pointer;
+}
+/*l'apparence des boutons ronds au clique*/
+#form2 input:checked + label:before {
+	content: "";
+	position: absolute;
+	top: -3px;
+	left: calc(50% - 20px);
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	background-color: rgb(204, 51, 255);
+}
+
+/*/////mise en page de la zone calculette*/
+/*l'apparence des boutons de la calculette*/
+/*la disposition des boutons carrés*/
+#clavier label {
+	width: 20%;
+	text-align: center;
+	padding: 10px 0;
+	margin: 10px 0;
+	cursor: default;
+	z-index: 1;
+}
+/*le texte des boutons carrés au clique*/
+#clavier input:checked + label {
+	color: rgb(255, 204, 255);
+}
+/*l'apparence des boutons carrés*/
+#clavier label:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: calc(50% - 25px);
+	height: 100%;
+	width: 50px;
+	border-radius: 10px;
+	background-color: rgb(255, 204, 255);
+	z-index: -1;
+}
+/*l'apparence des boutons carrés au clique*/
+#clavier input:checked + label:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: calc(50% - 25px);
+	height: 100%;
+	width: 50px;
+	border-radius: 10px;
+	background-color: rgb(204, 51, 255);
+}
+/*pour que le bouton affiche une curseur cliquable au survol
+on créer le meme bouton que before, mais transparent et au dessus du label*/
+#clavier label:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: calc(50% - 25px);
+	height: 100%;
+	width: 50px;
+	border-radius: 10px;
+	background-color: transparent;
+	cursor: pointer;
+}
+/*le message quand on gagne*/
+#win {
+	visibility: hidden;
+	background-color: rgb(255, 204, 255);
+	color: rgb(204, 51, 255);
+	width: 100%;
+	border-radius: 5px;
+	margin: 0;
+}
+/*les messages d'erreur*/
+#clavier p {
+	display: none;
+	text-align: center;
+	width: 100%;
+	margin: 10px 0;
+}
+
+/*/////mise en page de la zone somme*/
+#sum {
+	padding: 10px;
+	margin: 10px;
+	border-radius: 10px;
+	border: 2px solid rgb(255, 204, 255);
+	cursor: pointer;
+	font-size: 15px;
+	background-color: transparent;
+	color: rgb(255, 204, 255);
+}
+/*le counter qui affiche la somme des boutons*/
+#sum:after {
+	height: 100%;
+	width: 100%;
+	content: counter(sum);
+}
+
+/*/////quand on selectionne un bouton rond ça
+camouffle certains boutons carrés*/
+#quatre:checked ~ #clavier .quatre,
+#cinquanquatre:checked ~ #clavier .cinquanquatre,
+#cinquante:checked ~ #clavier .cinquante,
+#dixsept:checked ~ #clavier .dixsept,
+#soixantreize:checked ~ #clavier .soixantreize {
+	z-index: 0;
+}
+#quatre:checked ~ #clavier .quatre:after,
+#cinquanquatre:checked ~ #clavier .cinquanquatre:after,
+#cinquante:checked ~ #clavier .cinquante:after,
+#dixsept:checked ~ #clavier .dixsept:after,
+#soixantreize:checked ~ #clavier .soixantreize:after {
+	background-color: rgba(50, 50, 50, 0.5);
+}
+
+/*/////attribution de la valeur aux boutons pour le conteur*/
 #a:checked { counter-increment: sum 6; }
 #b:checked { counter-increment: sum -17; }
 #c:checked { counter-increment: sum 38; }
@@ -1187,131 +1377,9 @@ button:active {
 #n:checked { counter-increment: sum 13; }
 #o:checked { counter-increment: sum 43; }
 
-#sum {
-	padding: 10px;
-	margin: 10px;
-	border-radius: 10px;
-	border: 2px solid rgb(255, 204, 255);
-	cursor: pointer;
-	font-size: 15px;
-	background-color: transparent;
-	color: rgb(255, 204, 255);
-}
-
-/*le counter qui affiche la somme des boutons*/
-#sum:after {
-	height: 100%;
-	width: 100%;
-	content: counter(sum);
-}
-
-#form2 label {
-	position: relative;
-	width: 30px;
-	height: 20px;
-	margin: 10px;
-	padding: 18px 10px 12px 10px;
-	color: rgb(204, 51, 255);
-	text-align: center;
-	vertical-align: text-bottom;
-}
-
-#clavier label {
-	margin: 10px;
-	height: 100%;
-	padding:10px;
-}
-
-#form2 label:before {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	content: "";
-	border-radius: 50%;
-	background-color: rgb(255, 204, 255);
-	z-index: -1;
-}
-
-#clavier label:before {
-	border-radius: 10px;
-}
-
-#count input:checked + label {
-	color: rgb(255, 204, 255);
-}
-
-#count input:checked + label:before {
-	background-color: rgb(204, 51, 255);
-	box-shadow: 0 0 4px rgba(100, 100, 100, 0.4) inset;
-}
-
-#form2 span:first-child {
-	position: absolute;
-	width: 450px;
-	text-align: center;
-	left: 50%;
-	transform: translateX(-50%);
-	top: -70px;
-	visibility: visible;
-}
-
-#form2 span {
-	position: absolute;
-	left: 90px;
-	top: 80px;
-	visibility: hidden;
-}
-
-#form2 > input:checked + label + span {
-	visibility: visible;
-}
-
-/*quand on selectionne un bouton rond ça
-camouffle certains boutons de la calculatrice*/
-#quatre:checked ~ #clavier .quatre,
-#cinquanquatre:checked ~ #clavier .cinquanquatre,
-#cinquante:checked ~ #clavier .cinquante,
-#dixsept:checked ~ #clavier .dixseptquatre,
-#soixantreize:checked ~ #clavier .soixantreize {
-	z-index: -1;
-}
-#quatre:checked ~ #clavier .quatre:after,
-#cinquanquatre:checked ~ #clavier .cinquanquatre:after,
-#cinquante:checked ~ #clavier .cinquante:after,
-#dixsept:checked ~ #clavier .dixsept:after,
-#soixantreize:checked ~ #clavier .soixantreize:after {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	content: "";
-	border-radius: 10px;
-	background-color: rgba(50, 50, 50, 0.5);
-	z-index: 1;
-}
-
-
-/*maintenant on affiche un message quand les bonnes valeurs sont selectionnées*/
-/*le message a afficher*/
-#win {
-	display: none;
-	background-color: rgb(255, 204, 255);
-	color: rgb(204, 51, 255);
-	width: 100%;
-	border-radius: 5px;
-}
-/*les messages pour certaines mauvaises valeurs*/
-#form2 p {
-	position: absolute;
-	bottom: -120px;
-	display: none;
-}
-/*l'affichage des messages pour les différentes combinaisons*/
+/*/////l'affichage des messages pour les différentes combinaisons*/
 #quatre:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:checked ~ #g:not(:checked) ~ #h:checked ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:checked ~ #l:not(:checked) ~ #m:checked ~ #n:not(:checked) ~ #o:not(:checked) ~ #win {
-	display: block;
+	visibility: visible;
 }
 /*les messages d'erreur pour quatre*/
 #quatre:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:checked ~ #n:not(:checked) ~ #o:not(:checked) ~ #error1 {
@@ -1328,18 +1396,26 @@ camouffle certains boutons de la calculatrice*/
 }
 /*premiere solution pour soixantreize*/
 #soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:checked ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #win {
-	display: block;
+	visibility: visible;
 }
-/*le message qui indique l'autre solution*/
+/*le message qui indique les autres solutions*/
 #soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:checked ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error2 {
 	display: block;
 }
 /*deuxieme solution pour soixantreize*/
 #soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #win {
+	visibility: visible;
+}
+/*le message qui indique les autres solutions*/
+#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #error2 {
 	display: block;
 }
-/*le message qui indique l'autre solution*/
-#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #error2 {
+/*troisieme solution pour soixantreize*/
+#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #win {
+	visibility: visible;
+}
+/*le message qui indique les autres solutions*/
+#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error2 {
 	display: block;
 }
 /*les messages d'erreur pour 73*/
@@ -1347,14 +1423,21 @@ camouffle certains boutons de la calculatrice*/
 	display: block;
 }
 #cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:checked ~ #d:not(:checked) ~ #e:checked ~ #f:checked ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
-	display: block;
+	visibility: visible;
 }
 #dixsept:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:checked ~ #i:checked ~ #j:checked ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
-	display: block;
+	visibility: visible;
 }
 #cinquante:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:checked ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
-	display: block;
+	visibility: visible;
 }
+
+
+
+
+
+
+
 
 
 /*/////////////////////////////////////*/

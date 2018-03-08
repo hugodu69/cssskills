@@ -394,67 +394,69 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
       </div>
       </div>
 
-      <div id="form2">
+      <div id="form2" class="inputcolumn">
 
-        <form id="count" action="#formulaire" method="post">
-          <div>
-            <span>pour commencer clique sur un rond !<br>
-                  le but du jeu est d'obtenir la somme de ce rond<br>
-                  en cliquant sur cinq boutons de la calculatrice<br></span>
-            <input id="quatre" name="cal" type="radio">
-            <label tabindex="0"  for="quatre">4</label>
-            <span>essaye d'obtenir 4 !</span>
-            <input id="soixantreize" name="cal" type="radio">
-            <label tabindex="0"  for="soixantreize">73</label>
-            <span>essaye d'obtenir 73 !</span>
-            <input id="cinquanquatre" name="cal" type="radio">
-            <label tabindex="0"  for="cinquanquatre">54</label>
-            <span>essaye d'obtenir 54 !</span>
-            <input id="dixsept" name="cal" type="radio">
-            <label tabindex="0"  for="dixsept">17</label>
-            <span>essaye d'obtenir 17 !</span>
-            <input id="cinquante" name="cal" type="radio">
-            <label tabindex="0"  for="cinquante">50</label>
-            <span>essaye d'obtenir 50 !</span>
-            <div id="clavier">
-              <input id="a" type="checkbox">
-              <label tabindex="0" for="a" class="soixantreize cinquante">6</label>
-              <input id="b" type="checkbox">
-              <label tabindex="0" for="b" class="cinquanquatre dixsept">-17</label>
-              <input id="c" type="checkbox">
-              <label tabindex="0" for="c" class="quatre soixantreize">38</label>
-              <input id="d" type="checkbox">
-              <label tabindex="0" for="d" class="dixsept">23</label>
-              <input id="e" type="checkbox">
-              <label tabindex="0" for="e" class="cinquanquatre">-21</label>
-              <input id="f" type="checkbox">
-              <label tabindex="0" for="f" class="soixantreize cinquante">18</label>
-              <input id="g" type="checkbox">
-              <label tabindex="0" for="g" class="quatre dixsept">41</label>
-              <input id="h" type="checkbox">
-              <label tabindex="0" for="h" class="cinquanquatre cinquante">-37</label>
-              <input id="i" type="checkbox">
-              <label tabindex="0" for="i" class="quatre cinquante">5</label>
-              <input id="j" type="checkbox">
-              <label tabindex="0" for="j" class="cinquanquatre">-7</label>
-              <input id="k" type="checkbox">
-              <label tabindex="0" for="k" class="cinquante dixsept">15</label>
-              <input id="l" type="checkbox">
-              <label tabindex="0" for="l" class="quatre cinquanquatre">33</label>
-              <input id="m" type="checkbox">
-              <label tabindex="0" for="m" class="soixantreize dixsept">25</label>
-              <input id="n" type="checkbox">
-              <label tabindex="0" for="n" class="soixantreize">13</label>
-              <input id="o" type="checkbox">
-              <label tabindex="0" for="o" class="quatre">43</label>
-              <button type="reset" id="win">bravo ! clique la-dessus pour remettre a zero et rejouer !</button>
-              <p id="error1">non! tu dois y arriver avec cinq boutons</p>
-              <p id="error2">mais aussi! sache qu'il y a une deuxieme solution ;-)</p>
-            </div>
+        <div id="reglecount">
+          <p>pour commencer clique sur un rond !<br>
+             le but du jeu est d'obtenir la somme de ce rond
+             en cliquant sur cinq boutons de la calculatrice<br>
+          </p>
+        </div>
 
-            <div class="inputline">
-              <button type="reset" id="sum">= </button>
-            </div>
+        <form id="count" class="inputline" action="#formulaire" method="post">
+          <input id="quatre" name="cal" type="radio">
+          <label tabindex="0"  for="quatre">4</label>
+          <p>essaye d'obtenir 4 !</p>
+          <input id="soixantreize" name="cal" type="radio">
+          <label tabindex="0"  for="soixantreize">73</label>
+          <p>essaye d'obtenir 73 !</p>
+          <input id="cinquanquatre" name="cal" type="radio">
+          <label tabindex="0"  for="cinquanquatre">54</label>
+          <p>essaye d'obtenir 54 !</p>
+          <input id="dixsept" name="cal" type="radio">
+          <label tabindex="0"  for="dixsept">17</label>
+          <p>essaye d'obtenir 17 !</p>
+          <input id="cinquante" name="cal" type="radio">
+          <label tabindex="0"  for="cinquante">50</label>
+          <p>essaye d'obtenir 50 !</p>
+          <div id="clavier" class="inputline">
+            <input id="a" type="checkbox">
+            <label tabindex="0" for="a" class="soixantreize cinquante">6</label>
+            <input id="b" type="checkbox">
+            <label tabindex="0" for="b" class="cinquanquatre dixsept">-17</label>
+            <input id="c" type="checkbox">
+            <label tabindex="0" for="c" class="quatre soixantreize">38</label>
+            <input id="d" type="checkbox">
+            <label tabindex="0" for="d" class="dixsept">23</label>
+            <input id="e" type="checkbox">
+            <label tabindex="0" for="e" class="cinquanquatre">-21</label>
+            <input id="f" type="checkbox">
+            <label tabindex="0" for="f" class="soixantreize cinquante">18</label>
+            <input id="g" type="checkbox">
+            <label tabindex="0" for="g" class="quatre dixsept">41</label>
+            <input id="h" type="checkbox">
+            <label tabindex="0"for="h"class="cinquanquatre cinquante">-37</label>
+            <input id="i" type="checkbox">
+            <label tabindex="0" for="i" class="quatre cinquante">5</label>
+            <input id="j" type="checkbox">
+            <label tabindex="0" for="j" class="cinquanquatre">-7</label>
+            <input id="k" type="checkbox">
+            <label tabindex="0" for="k" class="cinquante dixsept">15</label>
+            <input id="l" type="checkbox">
+            <label tabindex="0" for="l" class="quatre cinquanquatre">33</label>
+            <input id="m" type="checkbox">
+            <label tabindex="0" for="m" class="soixantreize dixsept">25</label>
+            <input id="n" type="checkbox">
+            <label tabindex="0" for="n" class="soixantreize">13</label>
+            <input id="o" type="checkbox">
+            <label tabindex="0" for="o" class="quatre">43</label>
+            <button type="reset" id="win">bravo ! clique la-dessus pour remettre a zero et rejouer !</button>
+            <p id="error1">non! tu dois y arriver avec cinq boutons</p>
+            <p id="error2">mais aussi! sache qu'il y a deux autres solutions!</p>
+          </div>
+
+          <div class="inputline">
+            <button type="reset" id="sum">= </button>
           </div>
         </form>
       </div>
