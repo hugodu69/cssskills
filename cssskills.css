@@ -117,7 +117,7 @@ p {
 	z-index: 6;
 	opacity: 1;
 	visibility: visible;
-	transition: opacity 1s;
+	transition: all 1s 0.5s;
 }
 
 .circle:focus + p, .circle:hover + p {
@@ -1514,8 +1514,53 @@ slide:before {
 	width: 200px;
 }
 
-/*la trame temporelle pour le déroulement des slides*/
+/*/////la trame temporelle pour le déroulement des slides*/
 @keyframes slidy {
+	0% { left: 0%; }
+	20% { left: 0%; }
+	25% { left: -100%; }
+	45% { left: -100%; }
+	50% { left: -200%; }
+	70% { left: -200%; }
+	75% { left: -300%; }
+	95% { left: -300%; }
+	100% { left: -400%; }
+}
+/*les quatre keyframes pour les quatre boutons*/
+@keyframes slidyone {
+	0% { left: 0%; }
+	20% { left: 0%; }
+	25% { left: -100%; }
+	45% { left: -100%; }
+	50% { left: -200%; }
+	70% { left: -200%; }
+	75% { left: -300%; }
+	95% { left: -300%; }
+	100% { left: -400%; }
+}
+@keyframes slidytwo {
+	0% { left: 0%; }
+	20% { left: 0%; }
+	25% { left: -100%; }
+	45% { left: -100%; }
+	50% { left: -200%; }
+	70% { left: -200%; }
+	75% { left: -300%; }
+	95% { left: -300%; }
+	100% { left: -400%; }
+}
+@keyframes slidythree {
+	0% { left: 0%; }
+	20% { left: 0%; }
+	25% { left: -100%; }
+	45% { left: -100%; }
+	50% { left: -200%; }
+	70% { left: -200%; }
+	75% { left: -300%; }
+	95% { left: -300%; }
+	100% { left: -400%; }
+}
+@keyframes slidyfour {
 	0% { left: 0%; }
 	20% { left: 0%; }
 	25% { left: -100%; }
@@ -1548,7 +1593,8 @@ slide:before {
 	position: relative;
 	width: 400px;
 	height: 400px;
-	overflow: hidden;
+	overflow-y: visible;
+	overflow-x: hidden;
 }
 
 /*taille des images*/
@@ -1562,10 +1608,53 @@ slide:before {
 	justify-content: flex-start;
 	position: relative;
 	width: 500%;
-	animation: 10s slidy infinite;
+	animation: 10s slidy infinite -9.7s;
 }
 
-/*pour le deuxieme slide*/
+/*/////pour le premier slide*/
+/*les boutons qui permettent de selectionner directement une image du slide*/
+.goto {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: rgb(255, 204, 255);
+	bottom: 10px;
+	outline: none;
+}
+/*l'apparence au clique*/
+.goto:focus {
+	background-color: rgb(204, 51, 255);
+}
+/*la position pour chaque bouton*/
+/*ils sont positionnés dans le cadre parce que c'est teeeeeellement plus simple*/
+#gotoone {
+	left: calc(50% - 30px);
+}
+#gototwo {
+	left: calc(50% - 10px);
+}
+#gotothree {
+	left: calc(50% + 10px);
+}
+#gotofour {
+	left: calc(50% + 30px);
+}
+
+/*/////pour aller directement a l'image selectionnée du slide*/
+#gotoone:focus ~ .boite {
+	animation: 10s slidyone infinite -9.7s;
+}
+#gototwo:focus ~ .boite {
+	animation: 10s slidytwo infinite -2.2s;
+}
+#gotothree:focus ~ .boite {
+	animation: 10s slidythree infinite -4.7s;
+}
+#gotofour:focus + .boite {
+	animation: 10s slidyfour infinite -7.2s;
+}
+
+/*/////pour le deuxieme slide*/
 /*l'apparition du petit encart descriptif*/
 #timeline {
 	position: absolute;
@@ -1580,7 +1669,7 @@ slide:before {
 	z-index: 1;
 }
 
-/*pour le troisieme slide*/
+/*/////pour le troisieme slide*/
 /*c'est la creation des boutons play et pause*/
 #playbtn, #pausebtn {
 	position: absolute;
