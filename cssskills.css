@@ -56,7 +56,7 @@ p {
 }
 
 .circle {
-	z-index: 5;
+	z-index: 4;
 	position: relative;
 	width: 14px;
 	height: 14px;
@@ -66,7 +66,7 @@ p {
 }
 
 .question p {
-	z-index: 4;
+	z-index: 3;
 	background-color: transparent;
 	color: rgb(204, 51, 255);
 	cursor: default;
@@ -85,50 +85,28 @@ p {
 }
 
 .tooltip {
-	display: block;
 	opacity: 0;
 	visibility: hidden;
-	position: absolute;
+	position: fixed;
 	z-index: 0;
-	bottom: 10;
-	transform: translateY(50%);
-	width: 300px;
+	top: 3%;
+	left: calc(50% - 250px);
+	width: 500px;
+	height: 90%;
 	padding: 10px;
+	overflow: hidden;
 	border-radius: 10px;
-	background-color: rgba(150, 150, 150, 0.9);
-	color: white;
-	margin-left: 40px;
-	margin-right: 40px;
+	background-color: rgba(50, 50, 50, 0.9);
 	transition: all 0.5s;
 }
-
-.tooltipgauche {
-	right: 0px;
-}
-
-.tooltipdroite {
-	left: 0px;
-}
-
-/*la petite fleche*/
-.tooltipdroite:after {
-	content: "";
-	position: absolute;
-	top: calc(50% - 5px);
-	left: -20px;
-	border-width: 10px 10px;
-	border-style: solid;
-	border-color: transparent rgba(150, 150, 150, 0.9) transparent transparent;
-}
-
-.tooltipgauche:after {
-	content: "";
-	position: absolute;
-	top: calc(50% - 5px);
-	right: -20px;
-	border-width: 10px 10px;
-	border-style: solid;
-	border-color: transparent transparent transparent rgba(150, 150, 150, 0.9);
+.tooltip p {
+	overflow-y: scroll;
+	height: 100%;
+	width: 100%;
+	padding: 0 20px 0 0;
+	margin: 0 0 0 5px;
+	text-align: left;
+	color: rgb(200, 200, 200);
 }
 
 .circle:hover {
@@ -139,7 +117,7 @@ p {
 	z-index: 6;
 	opacity: 1;
 	visibility: visible;
-	transition: opacity 0.5s;
+	transition: opacity 1s;
 }
 
 .circle:focus + p, .circle:hover + p {
@@ -161,7 +139,7 @@ p {
 	top: -10px;
 }
 
-#questionSelf p {
+#questionSelf > p {
 	color: rgb(255, 204, 255);
 }
 
@@ -174,7 +152,7 @@ p {
 	top: -20px;
 }
 
-#questionTitre p {
+#questionTitre > p {
 	color: rgb(255, 204, 255);
 }
 
@@ -182,9 +160,30 @@ p {
 	background-color: rgb(255, 204, 255);
 }
 
+#questionLinks {
+	right: 15%;
+	top: 55px;
+}
+
+#questionLinks .circle:focus ~ .tooltip, .circle:hover ~ .tooltip {
+	z-index: 9;
+}
+
+#questionLinks .tooltip:hover {
+	z-index: 9;
+}
+
 #questionNavbar {
 	left: 400px;
 	top: 150px;
+}
+
+#questionNavbar .circle:focus ~ .tooltip, .circle:hover ~ .tooltip {
+	z-index: 9;
+}
+
+#questionNavbar .tooltip:hover {
+	z-index: 9;
 }
 
 #questionDisco {
@@ -217,7 +216,7 @@ p {
 	top: 64%;
 }
 
-#questionSticky p {
+#questionSticky > p {
 	color: rgb(255, 204, 255);
 }
 
@@ -225,17 +224,12 @@ p {
 	background-color: rgb(255, 204, 255);
 }
 
-#questionLinks {
-	left: -30px;
-	top: -35px;
-}
-
 #questionForm {
-	left: 15%;
-	top: 73%;
+	left: 75%;
+	top: 83%;
 }
 
-#questionForm p {
+#questionForm > p {
 	color: rgb(255, 204, 255);
 }
 
@@ -244,11 +238,11 @@ p {
 }
 
 #questionCalcul {
-	left: 15%;
-	top: 73%;
+	left: 10%;
+	top: 53%;
 }
 
-#questionCalcul p {
+#questionCalcul > p {
 	color: rgb(255, 204, 255);
 }
 
@@ -317,6 +311,7 @@ navbarZone {
 	display: flex;
 	flex-direction: column;
 	position: relative;
+	z-index: 5;
 }
 
 /*grace a la position sticky elle va rester accrocher en haut de la div
@@ -329,7 +324,7 @@ navbar {
 	height: 50px;
 	position: sticky;
 	top: 0;
-	z-index: 3;
+	z-index: 6;
 }
 
 #navbarSlides {
@@ -337,7 +332,6 @@ navbar {
 }
 
 #navbar1 {
-	position: absolute;
 	height: 70px;
 	width: 100%;
 	top: -65px;
@@ -345,12 +339,10 @@ navbar {
 }
 
 #navbar2 {
-	position: absolute;
 	height: 70px;
 	width: 100%;
 	top: 45px;
 	background-color: rgb(255, 204, 255);
-	z-index: 2;
 }
 
 /*cette transition est utilisée dans la navbar
@@ -388,7 +380,6 @@ pseudo {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	z-index: 1;
 }
 
 /*grace a ce before je met une couleur transparente au dessus de l'image de fond*/
@@ -496,12 +487,10 @@ pseudo p {
 
 /*le troisieme pseudo element*/
 #focus {
-	z-index: 5;
 	position: relative;
 }
 
 #bull {
-	z-index: -1;
 	border-radius: 5px;
 	position: absolute;
 	width: 100%;
@@ -517,6 +506,7 @@ pseudo p {
 #focus > p {
 	background-color: transparent;
 	margin: 0;
+	z-index: 2;
 }
 
 .bulles {
@@ -607,7 +597,7 @@ pseudo p {
 }
 
 
-/*en cinquieme pseudo element j'ai mis un target*/
+/*/////en cinquieme pseudo element j'ai mis un target*/
 #targetposition {
 	position: relative;
 }
@@ -637,7 +627,8 @@ pseudo p {
 	text-align: justify;
 }
 
-/*le bouton, juste la lettre x, pour fermer le target, c'est a dire juste changer l'irl en cliquant sur le x*/
+/*le bouton, juste la lettre x, pour fermer le target, c'est a dire
+juste changer l'irl en cliquant sur le x*/
 #close {
 	margin: 5px;
 	font-size: 30px;
@@ -664,11 +655,10 @@ pseudo p {
 	display: block;
 }
 
-/*ce sixieme et dernier pseudo element est en fait deux pseudos elements,
+/*/////ce sixieme et dernier pseudo element est en fait deux pseudos elements,
 before et after, que j'utilise ici pour faire une ombre tordue*/
 #beforeafter {
 	position: relative;
-	z-index: 5;
 	outline: none;
 }
 
@@ -681,7 +671,6 @@ before et after, que j'utilise ici pour faire une ombre tordue*/
 	position: absolute;
 	content: "";
 	bottom: 23px;
-	z-index: -1;
 	width: 43%;
 	height: 3px;
 	background-color: transparent;
@@ -702,18 +691,18 @@ before et after, que j'utilise ici pour faire une ombre tordue*/
 
 #beforeafter:focus:after {
 	bottom: -50px;
-	right: 50%;
-	transform: rotate(-180deg);
+	right: 53%;
+	transform: rotate(-171deg);
 	transform-origin: right;
-	transition: all 1s;
+	transition: all 0.5s linear;
 }
 
 #beforeafter:focus:before {
 	bottom: -50px;
-	left: 50%;
-	transform: rotate(180deg);
+	left: 53%;
+	transform: rotate(171deg);
 	transform-origin: left;
-	transition: all 1s;
+	transition: all 0.5s linear;
 }
 
 
@@ -1540,8 +1529,9 @@ slide:before {
 
 @keyframes timeliner {
 	0% { width: 35px; opacity: 1; }
-	66% { width: 80%; opacity: 1; }
-	90% { width: 80%; opacity:0 }
+	50% { width: 80%; opacity: 1; }
+	70% { width: 80%; opacity: 1; }
+	90% { width: 80%; opacity: 0; }
 	100% { width: 35px; opacity: 0; }
 }
 
