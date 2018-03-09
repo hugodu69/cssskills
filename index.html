@@ -306,6 +306,12 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
           </div>
         </div>
 
+        <!--je precise l'action du formulaire pour qu'il l'ajoute
+            a la barre d'adresse et que je puisse utiliser le target
+            sur id=form1, par contre je n'ai pas mis de methode tout
+            comme je n'ai pas mis de type submit un peu plus bas au
+            button puisque je n'envois pas le formulaire au serveur
+            donc sinon j'aurais une error 405-->
         <form id="surprise" class="inputcolumn" action="#form1">
 
           <div class="question" id="questionForm">
@@ -396,7 +402,7 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
             <!--je ne precise pas que le button est de type="submit"
                 car je n'envois pas le formulaire en back, je ne le
                 soumet pas, le button seul suffit donc-->
-            <button type="submit">surprise ?</button>
+            <button>surprise ?</button>
           </div>
         </form>
       </div>
