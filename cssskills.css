@@ -866,12 +866,12 @@ formulaire button {
 	left: 100%;
 	border-radius: 10px 0 0 10px;
 	overflow: hidden;
-	z-index: 2;
+	z-index: 5;
 	display: flex;
 	transition: left 1s;
 }
 /*apparition de camoufflage*/
-#formulaire:target #form1 #camoufflage {
+#form1:target #camoufflage {
 	left: calc(5% + 13px);
 	transition: left 1s;
 }
