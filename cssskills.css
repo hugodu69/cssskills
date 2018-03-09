@@ -1148,13 +1148,11 @@ textarea {
 /*on redessine la bordure par defaut*/
 button {
 	border: transparent;
+	border-radius: 0px 7px 7px 0px;
 }
 /*pour les bords plats des deux boutons face a face */
 button[type="reset"] {
 	border-radius: 7px 0px 0px 7px;
-}
-button[type="submit"] {
-	border-radius: 0px 7px 7px 0px;
 }
 /*pour leur apparences au clic*/
 button:active {
