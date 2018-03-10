@@ -1490,11 +1490,7 @@ slide {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
-
-slide #question {
-	overflow: visible;
-}
-
+/*le voile translucide devant l'image de fond*/
 slide:before {
 	position: absolute;
 	content: "";
@@ -1504,8 +1500,8 @@ slide:before {
 	left: 0;
 	background-color: rgba(100, 100, 100, 0.7);
 }
-
-/*la petite dedicace a morgan sur l'ecran d'ordinateur duquel j'ai vu trois slides cote a cote, inspiration*/
+/*la petite dedicace a morgan sur l'ecran d'ordinateur duquel
+j'ai vu trois slides cote a cote, inspiration*/
 #dedi {
 	margin-bottom: 100px;
 	border-radius: 0;
@@ -1570,7 +1566,7 @@ slide:before {
 	95% { left: -300%; }
 	100% { left: -400%; }
 }
-
+/*la keyframe pour le cadre info qui apparait sur le deuxieme slide*/
 @keyframes timeliner {
 	0% { width: 35px; opacity: 1; }
 	50% { width: 80%; opacity: 1; }
@@ -1583,7 +1579,6 @@ slide:before {
 #slideall {
 	display: flex;
 	margin: 20;
-	flex-wrap: wrap;
 }
 
 
@@ -1591,7 +1586,9 @@ slide:before {
 .cadre {
 	position: relative;
 	width: 400px;
-	height: 400px;
+	/*on met height en auto pour garder le ratio*/
+	height: auto;
+	margin: 20px;
 	overflow-y: visible;
 	overflow-x: hidden;
 }
