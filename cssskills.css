@@ -98,6 +98,7 @@ p {
 	border-radius: 10px;
 	background-color: rgba(50, 50, 50, 0.9);
 	transition: all 0.5s;
+	transition: opacity 0.5s, visibility 0.5s, z-index 0.1s 0.5s;
 }
 .tooltip p {
 	overflow-y: scroll;
@@ -117,7 +118,7 @@ p {
 	z-index: 6;
 	opacity: 1;
 	visibility: visible;
-	transition: all 1s 0.5s;
+	transition: opacity 1s 0.5s, z-index 0.1s 0.5s;
 }
 
 .circle:focus + p, .circle:hover + p {
