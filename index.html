@@ -492,6 +492,12 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
       <div id="slideall">
 
         <div class="cadre" id="cadre1">      
+          <div class="question" id="questionSlide">
+            <div class="circle" tabindex="0"></div>
+            <p class="questionmark">?</p>
+            <span class="tooltip"><p>le slide fonctionne en collant les images en un long bandeau, avec celle du debut qui se repete a la fin si on veut que le slide tourne a l'infini, et la boite qui contient ce long bandeau est mise dans un cadre en "overflow: hidden". dans la boite extra large qui contient le bandeau d'image on applique une "animation: temps-total-du-slide creer-le-nom-de-l'animation infinite", puis on definit les temps de chaque action, en l'occurence bouger d'une image sur la gauche, en pourcentage du temps total definit dans l'animation, par exemple pour deux images: "@keyframe{ 0%{left:0%} 40%{left:0%} 50%{left:-100%} 90%{left:-100%} 100%{left:-200%}}</p></span>
+          </div>
+
           <span id="gotoone" class="goto" tabindex="0"></span>
           <span id="gototwo" class="goto" tabindex="0"></span>
           <span id="gotothree" class="goto" tabindex="0"></span>
@@ -506,14 +512,13 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
           </div>
         </div>
 
-        <div class="question" id="questionSlide">
-          <div class="circle" tabindex="0"></div>
-          <p class="questionmark">?</p>
-          <span class="tooltip"><p>le slide fonctionne en collant les images en un long bandeau, avec celle du debut qui se repete a la fin si on veut que le slide tourne a l'infini, et la boite qui contient ce long bandeau est mise dans un cadre en "overflow: hidden". dans la boite extra large qui contient le bandeau d'image on applique une "animation: temps-total-du-slide creer-le-nom-de-l'animation infinite", puis on definit les temps de chaque action, en l'occurence bouger d'une image sur la gauche, en pourcentage du temps total definit dans l'animation, par exemple pour deux images: "@keyframe{ 0%{left:0%} 40%{left:0%} 50%{left:-100%} 90%{left:-100%} 100%{left:-200%}}</p></span>
-        </div>
-
-
         <div class="cadre" id="cadre2">      
+          <div class="question" id="questionTimeline">
+            <div class="circle" tabindex="0"></div>
+            <p class="questionmark">?</p>
+            <span class="tooltip"><p>la barre de timeline qui charge a chaque slide est faite egalement grace a l'action animation, qui est definit a gauche avec une largeur width de 0% et que la @keyframe augmente a 100% le temps de chaque slide</p></span>
+          </div>
+
           <div class="boite">
             <img src="./ressources/archi1.jpg" alt="archi">
             <img src="./ressources/archi2.jpg" alt="archi">
@@ -524,18 +529,17 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
           <span id="timeline">info</span>
         </div>
 
-        <div class="question" id="questionTimeline">
-          <div class="circle" tabindex="0"></div>
-          <p class="questionmark">?</p>
-          <span class="tooltip"><p>la barre de timeline qui charge a chaque slide est faite egalement grace a l'action animation, qui est definit a gauche avec une largeur width de 0% et que la @keyframe augmente a 100% le temps de chaque slide</p></span>
-        </div>
-
-
         <div class="cadre">      
           <span id="play" class="command"></span>
           <span id="pause" class="command"></span>
 
           <div id="cadre3">
+            <div class="question" id="questionPlay">
+              <div class="circle" tabindex="0"></div>
+              <p class="questionmark">?</p>
+              <span class="tooltip"><p>les options play et pause sont une option css qu'il faut appliquer a la même boite qui contient l'animation "animation-play-state: paused/running". le switch entre les boutons se fait en faisant varier les z-index et les opacity en hover et en fonction des target, et il faut pour ca utiliser target avec le + pour un element juste apres l'element target, rien pour un element contenu par l'element target, et la tilde ~ pour un element deux positions apres l'element hover</p></span>
+            </div>
+
             <a id="playbtn" class ="btn" href="#play" title="play"></a>
             <a id="pausebtn" class="btn" href="#pause" title="pause"></a>
             <div class="boite">
@@ -546,12 +550,6 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
               <img src="./ressources/archi1.jpg" alt="archi">
             </div>
           </div>
-        </div>
-
-        <div class="question" id="questionPlay">
-          <div class="circle" tabindex="0"></div>
-          <p class="questionmark">?</p>
-          <span class="tooltip"><p>les options play et pause sont une option css qu'il faut appliquer a la même boite qui contient l'animation "animation-play-state: paused/running". le switch entre les boutons se fait en faisant varier les z-index et les opacity en hover et en fonction des target, et il faut pour ca utiliser target avec le + pour un element juste apres l'element target, rien pour un element contenu par l'element target, et la tilde ~ pour un element deux positions apres l'element hover</p></span>
         </div>
 
       </div>
