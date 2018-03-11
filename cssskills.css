@@ -92,6 +92,7 @@ p {
 	top: 10vh;
 	left: calc(50% - 250px);
 	width: 500px;
+	max-width: 80vw;
 	height: 80vh;
 	padding: 10px;
 	overflow: hidden;
@@ -99,6 +100,12 @@ p {
 	background-color: rgba(50, 50, 50, 0.9);
 	transition: all 0.5s;
 	transition: opacity 0.5s, visibility 0.5s, z-index 0.1s 0.5s;
+}
+/*pou la posiion au milieu de l'ecran quand il devient petit*/
+@media screen and (max-width: 600px){
+	.tooltip {
+	left: 7%;
+	}
 }
 .tooltip p {
 	overflow-y: scroll;
