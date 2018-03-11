@@ -102,7 +102,7 @@ p {
 	transition: opacity 0.5s, visibility 0.5s, z-index 0.1s 0.5s;
 }
 /*pou la posiion au milieu de l'ecran quand il devient petit*/
-@media screen and (max-width: 600px){
+@media only screen and (max-width: 600px){
 	.tooltip {
 	left: 7%;
 	}
@@ -146,130 +146,102 @@ p {
 	right: 45px;
 	top: -30px;
 }
-
 #questionSelf > p {
 	color: rgb(255, 204, 255);
 }
-
 #questionSelf div {
 	background-color: rgb(255, 204, 255);
 }
-
 #questionTitre {
 	left: 40px;
 	top: -20px;
 }
-
 #questionTitre > p {
 	color: rgb(255, 204, 255);
 }
-
 #questionTitre div {
 	background-color: rgb(255, 204, 255);
 }
-
 #questionLinks {
 	right: 15%;
 	top: 55px;
 }
-
 #questionLinks .circle:focus ~ .tooltip, .circle:hover ~ .tooltip {
 	z-index: 9;
 }
-
 #questionLinks .tooltip:hover {
 	z-index: 9;
 }
-
 #questionNavbar {
 	left: 30%;
 	top: 150px;
 }
-
 #questionNavbar .circle:focus ~ .tooltip, .circle:hover ~ .tooltip {
 	z-index: 9;
 }
-
 #questionNavbar .tooltip:hover {
 	z-index: 9;
 }
-
 #questionDisco {
 	left: 90px;
 	top: 80px;
 }
-
 #questionMenu {
 	left: -40px;
 	top: 30px;
 }
-
 #questionRonds {
 	left: 25px;
 	top: 75px;
 }
-
 #questionTarget {
 	left: -20px;
 	top: -70px;
 }
-
 #questionOmbres {
 	left: 95px;
 	top: 54px;
 }
-
 #questionSticky {
 	left: 86%;
 	top: 54%;
 }
-
 #questionSticky > p {
 	color: rgb(255, 204, 255);
 }
-
 #questionSticky div {
 	background-color: rgb(255, 204, 255);
 }
-
 #questionForm {
 	left: 75%;
 	top: 83%;
 }
-
 #questionForm > p {
 	color: rgb(255, 204, 255);
 }
-
 #questionForm div {
 	background-color: rgb(255, 204, 255);
 }
-
 #questionCalcul {
 	left: 10%;
 	top: 33%;
 }
-
 #questionCalcul > p {
 	color: rgb(255, 204, 255);
 }
-
 #questionCalcul div {
 	background-color: rgb(255, 204, 255);
 }
-
 #questionSlide {
 	left: 15%;
 	top: 73%;
 }
-
 #questionTimeline {
-	left: 56%;
-	top: 54%;
-}
-
-#questionPlay {
 	left: 84%;
+	top: 44%;
+}
+#questionPlay {
+	left: 56%;
 	top: 68%;
 }
 
@@ -375,7 +347,7 @@ c'est juste une petit trait qui apparait quand on passe la souris sur la cible*/
 	transform: translateY(0);
 }
 
-@media screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
 	.tiret {
 		font-size: 10px;
 	}
@@ -723,7 +695,7 @@ before et after, que j'utilise ici pour faire une ombre tordue*/
 
 
 /*/////pour les ecrans de tablettes en position horizontale*/
-@media screen and (max-width: 900px) {
+@media only screen and (max-width: 900px) {
 	pseudo {
 		flex-direction: column;
 		padding: 100px 0;
@@ -1507,7 +1479,7 @@ camouffle certains boutons carrés*/
 
 
 /*/////pour les ecrans de tablettes en position horizontale*/
-@media screen and (max-width: 1200px) {
+@media only screen and (max-width: 1200px) {
 	formulaire {
 		flex-direction: column;
 	}
@@ -1525,7 +1497,7 @@ camouffle certains boutons carrés*/
 	}
 }
 /*/////pour les ecrans de tablettes en position verticale*/
-@media screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
 	#form1 #colorbook {
 		flex-direction: column;
 	}
@@ -1533,7 +1505,7 @@ camouffle certains boutons carrés*/
 		width: 50%;
 	}
 }
-@media screen and (max-width: 400px) {
+@media only screen and (max-width: 400px) {
 	#form2 form {
 		width: 230px;
 	}
@@ -1865,7 +1837,7 @@ j'ai vu trois slides cote a cote, inspiration*/
 
 
 
-@media screen and (max-width: 900px) {
+@media only screen and (max-width: 900px) {
 	#slideall {
 		flex-direction: column;
 		margin: auto;
