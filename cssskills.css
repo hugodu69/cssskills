@@ -273,7 +273,7 @@ titre {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 200 0 200 0;
+	padding: 200px 20px 200px 20px;
 	overflow: hidden;
 	background-image: url("./ressources/cosmonaute.jpg");
 	background-position: 0px -200px;
@@ -368,6 +368,12 @@ c'est juste une petit trait qui apparait quand on passe la souris sur la cible*/
 	transform: translateY(0);
 }
 
+@media screen and (max-width: 600px) {
+	.tiret {
+		font-size: 10px;
+	}
+}
+
 /*///////////////////////////////////////////*/
 /*troisieme section, les pseudos elements*/
 pseudo {
@@ -401,17 +407,6 @@ pseudo p {
 	margin: 5px;
 	padding: 5px;
 	cursor: pointer;
-}
-
-/*/////pour les ecrans de tablettes en position horizontale*/
-@media screen and (max-width: 900px) {
-	pseudo {
-		flex-direction: column;
-		padding: 100px 0;
-	}
-	pseudo > div {
-		margin: 90px auto;
-	}
 }
 
 
@@ -628,6 +623,7 @@ pseudo p {
 	display: none;
 	position: absolute;
 	width: 400px;
+	max-width: 80%;
 	top: 50%;
 	left: 50%;
 	padding: 200px 0;
@@ -719,6 +715,26 @@ before et after, que j'utilise ici pour faire une ombre tordue*/
 }
 
 
+/*/////pour les ecrans de tablettes en position horizontale*/
+@media screen and (max-width: 900px) {
+	pseudo {
+		flex-direction: column;
+		padding: 100px 0;
+	}
+	pseudo > div {
+		margin: 90px auto;
+	}
+	#windowsextended {
+		left: calc(50% - 100px);
+	}
+}
+
+
+
+
+
+
+
 /*//////////////////////////////////////*/
 /*la quatrieme section est juste un zone pour prevenir que la navbar va partir*/
 sticky {
@@ -747,6 +763,8 @@ sticky:before {
 sticky p {
 	background-color: transparent;
 }
+
+
 
 
 /*///////////////////////////////////////////*/
@@ -1836,4 +1854,16 @@ j'ai vu trois slides cote a cote, inspiration*/
 
 #play:target ~ #cadre3 #playbtn {
 	cursor: default;
+}
+
+
+
+@media screen and (max-width: 900px) {
+	#slideall {
+		flex-direction: column;
+		margin: auto;
+	}
+	.cadre {
+		max-width: 80vw;
+	}
 }
