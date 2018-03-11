@@ -102,7 +102,7 @@ p {
 	transition: opacity 0.5s, visibility 0.5s, z-index 0.1s 0.5s;
 }
 /*pou la posiion au milieu de l'ecran quand il devient petit*/
-@media only screen and (max-width: 600px){
+@media screen and (max-width: 600px){
 	.tooltip {
 	left: 7%;
 	}
@@ -347,7 +347,7 @@ c'est juste une petit trait qui apparait quand on passe la souris sur la cible*/
 	transform: translateY(0);
 }
 
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
 	.tiret {
 		font-size: 10px;
 	}
@@ -695,7 +695,7 @@ before et after, que j'utilise ici pour faire une ombre tordue*/
 
 
 /*/////pour les ecrans de tablettes en position horizontale*/
-@media only screen and (max-width: 900px) {
+@media screen and (max-width: 900px) {
 	pseudo {
 		flex-direction: column;
 		padding: 100px 0;
@@ -1479,7 +1479,7 @@ camouffle certains boutons carrés*/
 
 
 /*/////pour les ecrans de tablettes en position horizontale*/
-@media only screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
 	formulaire {
 		flex-direction: column;
 	}
@@ -1497,7 +1497,7 @@ camouffle certains boutons carrés*/
 	}
 }
 /*/////pour les ecrans de tablettes en position verticale*/
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
 	#form1 #colorbook {
 		flex-direction: column;
 	}
@@ -1505,7 +1505,7 @@ camouffle certains boutons carrés*/
 		width: 50%;
 	}
 }
-@media only screen and (max-width: 400px) {
+@media screen and (max-width: 400px) {
 	#form2 form {
 		width: 230px;
 	}
@@ -1837,7 +1837,7 @@ j'ai vu trois slides cote a cote, inspiration*/
 
 
 
-@media only screen and (max-width: 900px) {
+@media screen and (max-width: 900px) {
 	#slideall {
 		flex-direction: column;
 		margin: auto;
