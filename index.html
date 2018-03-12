@@ -1,6 +1,12 @@
 <html>
   <head>
     <meta charset="UTF8">
+    <!--pour que les mediaqueries qui rendent le site responsive fonctionnent
+        sur les telephones et tablettes il faut que celles-ci utilisent leurs
+        veritables dimensions, ce qu'elles ne font pas par defaut, elles
+        un viwport qui correspond aux dimensions d'un ecran d'ordinateur,
+        plutôt que de le preciser ici on pourrait aussi dans le css a chaque
+        fois ecrire (min-device-width) au lieu de (min-width)-->
     <meta name="viewport" content="width=device-width">
     <title>my css skills</title>
     <link href="./cssskills.css" type="text/css" rel="stylesheet">
@@ -13,6 +19,11 @@
       <div id="title">
 
         <div class="question" id="questionTitre">
+          <!--par defaut seul les elements d'input et les liens sont
+              receptif au focus, pour rendre cette div focussable
+              on ajoute tabindex=0 qui force le curseur a selectionner
+              cet element, ou pourrait aussi mettre contenteditable, mais
+              du coup le contenu serait editable-->
           <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
           <span class="tooltip"><p>l'ombre du texte est placée a 0 horizontal et 0 vertical, donc pile sous le texte, et utilise l'effet blur : text-shadow: 0 0 9 black</p></span>

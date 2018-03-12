@@ -1,16 +1,22 @@
+
+/*/////////////////////////////////*/
 /*general settings*/
 * {margin: 0;}
-
 body {
 	margin: 0;
 	padding: 0;
+	/*lorsque la page scroll automatiquement, vers une ancre par exemple
+	elle y va doucement*/
 	scroll-behavior: smooth;
+	/*specialement pour les telephones pour que cliquer en dehors d'une
+	fenetre apparue permette de l'eteindre*/
+	cursor: pointer;
 }
-
 body * {
 	margin: auto;
 }
 
+/*/////les apparences des textes dans le site*/
 a, p, h1, h2, h3, h4, span, option, label {
 	position: relative;
 	font-family: "Courier New";
@@ -18,28 +24,22 @@ a, p, h1, h2, h3, h4, span, option, label {
 	text-align: center;
 	z-index: 1;
 }
-
 span, option, label {
 	text-align: left;
 	font-size: 15px;
 }
-
 button {
 	font-size: 13px;
 }
-
 a, h1, h2, h3 {
 	color: rgb(204, 51, 255);
 }
-
 h1, h2 {
 	text-shadow: 0px 0px 9px black;
 }
-
 a, p, h3 {
 	font-size: 15px;
 }
-
 p {
 	position: relative;
 	background-color: rgba(204, 51, 255, 0.8);
@@ -48,13 +48,40 @@ p {
 	color: rgb(255, 204, 255);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*//////////////////////////////////////*/
-/*mise ne place des petits boutons pour expliquer le code*/
+/*mise en place des petits boutons pour expliquer le code*/
+/*elles sont placés de manniere absolute un peu partout sur la page*/
 .question {
 	display: block;
 	position: absolute;
 }
-
+/*dessin du rond*/
 .circle {
 	z-index: 4;
 	position: relative;
@@ -64,26 +91,30 @@ p {
 	background-color: rgba(204, 51, 255, 0.8);
 	cursor: pointer;
 }
-
-.question p {
-	z-index: 3;
-	background-color: transparent;
-	color: rgb(204, 51, 255);
-	cursor: default;
-}
-
+/*apparence du point d'interrogation qui tourne, un peu en dessous du rond pour
+ne pas empecher de cliquer dessus, avec un padding inférieur qui descend jusqu'au
+milieu du rond pour être le centre de rotation*/
 .questionmark {
 	display: block;
 	position: absolute;
 	top: -20px;
 	left: 2px;
+	z-index: 3;
 	margin: 0;
 	padding: 0 0 10px 0;
 	font-size: 16px;
+	background-color: transparent;
+	color: rgb(204, 51, 255);
 	transform-origin: bottom center;
+	cursor: default;
 	opacity: 1;
 }
-
+/*le cadre qui apparait avec les transitions de visibility et d'opacity
+qui permettent d'avoir une transition a l'apparition contrairement
+au display:none mais d'avoir un element inexistant tant qu'il n'est pas visible
+pour eviter qu'il apparaisse quand on passe la souris au dessus, ainsi qu'une
+variation du z-index pour qu'il ne bloque pas les elements au-dessus duquel
+il se trouve avant l'apparition et qu'il soit le plus elevé après*/
 .tooltip {
 	opacity: 0;
 	visibility: hidden;
@@ -101,12 +132,19 @@ p {
 	transition: all 0.5s;
 	transition: opacity 0.5s, visibility 0.5s, z-index 0.1s 0.5s;
 }
-/*pou la posiion au milieu de l'ecran quand il devient petit*/
+
+/*mettre max-width n'est pas suffisant generalement sur les telephones
+car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils
+se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant
+max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute
+dans les meta du html avec name="viewport" et content="width=device-width"*/
+/*pour la position au milieu de l'ecran quand il devient petit*/
 @media screen and (max-width: 600px){
 	.tooltip {
 	left: 7%;
 	}
 }
+/*le texte dans le cadre qui apparait*/
 .tooltip p {
 	overflow-y: scroll;
 	height: 100%;
@@ -114,34 +152,40 @@ p {
 	padding: 0 20px 0 0;
 	margin: 0 0 0 5px;
 	text-align: left;
+	background-color: transparent;
 	color: rgb(200, 200, 200);
 }
-
+/*quand la souris passe au dessus du rond sa position augmente, c'est
+necessaire pour que la position des elements qui apparaissent puisse
+être elevé aussi, car ils sont dépendant de cet element parent et
+n'iront donc jamais plus haut*/
 .circle:hover {
 	z-index: 7;
 }
-
+/*quand la souris passe au dessus du point ou clique dessus la fenetre apparait
+doucement, avec un delay specialement pour le z-index afin de laisser le temps
+au point d'interrogation de faire son animation même quand la fenetre apparaitra
+au dessus de lui*/
 .circle:focus ~ .tooltip, .circle:hover ~ .tooltip {
 	z-index: 6;
 	opacity: 1;
 	visibility: visible;
 	transition: opacity 1s 0.5s, z-index 0.1s 0.5s;
 }
-
+/*animation du point d'interrogation*/
 .circle:focus + p, .circle:hover + p {
 	opacity: 0;
 	transform: rotate(180deg);
 	transition: all 1s;
 }
-
+/*une fois la fenetre apparu, on la maintient presente si la souris passe dessus*/
 .tooltip:hover {
 	z-index: 6;
 	opacity: 1;
 	visibility: visible;
 } 
 
-/*positionnement des questions*/
-
+/*/////positionnement des questions*/
 #questionSelf {
 	right: 45px;
 	top: -30px;
@@ -245,6 +289,27 @@ p {
 	top: 68%;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*///////////////////////////////////*/
 /*premiere section : le titre*/
 titre {
@@ -260,11 +325,10 @@ titre {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
-
 titre h3 {
 	color: rgb(255, 204, 255);
 }
-
+/*le voile blanc au dessus de l'image de fond*/
 titre:after {
 	width: 100%;
 	height: 100%;
@@ -275,12 +339,13 @@ titre:after {
 	content: "";
 	z-index: 0;
 }
-
+/*espace sous le titre*/
 #title {
 	position: relative;
 	margin-bottom: 100px;
 }
-
+/*pour que la position absolute du point d'interrogation de cette section
+fonctionne on precise la position relative*/
 #instructions {
 	position: relative;
 }
@@ -293,10 +358,10 @@ navbarZone {
 	position: relative;
 	z-index: 5;
 }
-
-/*grace a la position sticky elle va rester accrocher en haut de la div
-c'est pour ça que j'ai vais la div navbarzone plus grande que simplement
-la section navbar, elle englobe aussi les pseudos et le section sticky*/
+/*grace a la position sticky elle va rester accrochee en haut de la div
+c'est pour ça que la div navbarzone est plus grande que simplement
+la section navbar, elle englobe toute la zone sur laquelle la navbar devra
+rester sticky, donc aussi les pseudos et le section sticky*/
 navbar {
 	display: flex;
 	width: 100%;
@@ -306,18 +371,18 @@ navbar {
 	top: 0;
 	z-index: 6;
 }
-
+/*position relative precisee pour les positions absolute des enfants*/
 #navbarSlides {
 	position: relative;
 }
-
+/*la navbar est entourée de deux navbar qui ne sont pas sticky et lui
+donnent une apparance epaisse avant de disparaitre avec le scroll*/
 #navbar1 {
 	height: 70px;
 	width: 100%;
 	top: -65px;
 	background-color: rgb(255, 204, 255);
 }
-
 #navbar2 {
 	height: 70px;
 	width: 100%;
@@ -325,8 +390,7 @@ navbar {
 	background-color: rgb(255, 204, 255);
 }
 
-/*cette transition est utilisée dans la navbar
-c'est juste une petit trait qui apparait quand on passe la souris sur la cible*/
+/*/////le petit trait qui apparait quand on passe la souris sur la cible*/
 /*mise en place du petit trait animé*/
 .tiret:after {
 	content: "";
@@ -340,21 +404,44 @@ c'est juste une petit trait qui apparait quand on passe la souris sur la cible*/
 	transform: translateY(5px);
 	transition: all 0.4s;
 }
-
 /*animation du petit trait*/
 .tiret:hover:after {
 	opacity: 0.6;
 	transform: translateY(0);
 }
 
+/*/////quand l'ecran est trop petit la navbar diminue de taille simplement*/
+/*mettre max-width n'est pas suffisant generalement sur les telephones
+car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils
+se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant
+max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute
+dans les meta du html avec name="viewport" et content="width=device-width"*/
 @media screen and (max-width: 600px) {
 	.tiret {
 		font-size: 10px;
 	}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*///////////////////////////////////////////*/
-/*troisieme section, les pseudos elements*/
+/*/////troisieme section, les pseudos elements*/
+/*reglages generaux*/
 pseudo {
 	position: relative;
 	display: flex;
@@ -367,7 +454,6 @@ pseudo {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
-
 /*le voile translucide au dessus de l'image de fond*/
 pseudo:before {
 	position: absolute;
@@ -377,27 +463,30 @@ pseudo:before {
 	height: 100%;
 	width: 100%;
 }
-
+/*pour que le curseur ne change pas en passant au dessus des elements opacity=0*/
 pseudo * {
 	cursor: default;
 }
-
+/*pour les cadres violets autour du texte*/
 pseudo p {
 	margin: 5px;
 	padding: 5px;
 	cursor: pointer;
 }
 
-
-/*ce bouton clignote grace a une transition sur le z-index : au hover de l'élément, le bouton change d'apparence, et un autre element caché derriere augmente son z-index au dessus en 1s, et une fois arrivé devant le hover ne marche plus, donc la transition fait repasser l'élément caché en 1s en dessous du coup le hover re-marche, etc...*/
+/*/////premier element*/
+/*ce bouton clignote grace a une transition sur le z-index : au hover
+de l'élément, le bouton change d'apparence, et un autre element caché
+derriere augmente son z-index au dessus en 1s, et une fois arrivé devant
+le hover ne marche plus, donc la transition fait repasser l'élément caché
+en 1s en dessous du coup le hover re-marche, etc...*/
 #clignote {
 	position: relative;
 }
-
 #disco {
 	z-index: 5;
 }
-
+/*le z-index est inférieur au bouton*/
 #camoufle {
 	position: absolute;
 	content: "";
@@ -408,33 +497,36 @@ pseudo p {
 	z-index: 4;
 	transition: z-index 1s;
 }
-
+/*quand on passe au dessus du bouton il change de couleur*/
 #disco:hover {
 	background-color: rgba(255, 204, 255, 0.8);
 	color: rgb(204, 51, 255);
 	cursor: default;
 }
-
+/*et quand on passe au dessus du bouton, l'objet #camouffle
+passe au dessus du bouton*/
 #disco:hover + #camoufle {
 	z-index: 6;
 	transition: z-index 1s;
 }
 
-/*le deuxieme est comme le premier mais la div est collée au p et est aussi en hover donc elle reste apparente tant que la souris est desus*/
+/*/////le deuxieme bouton est un hover comme le premier mais la div
+qui apparrait est collée au p et est aussi en hover donc elle reste
+apparente tant que la souris est dessus*/
 #menu {
 	position: relative;
 }
-
+/*le bouton*/
 #hoverextended {
 	z-index: 5;
 	position: relative;
 }
-
+/*quand la souris passe au dessus des sous menus ils changent de couleur*/
 #hoverextended #phover:hover {
 	color: rgb(204, 51, 255);
 	background-color: rgba(255, 204, 255, 0.8);
 }
-
+/*la fenêtre qui apparait*/
 #windowsextended {
 	visibility: hidden;
 	opacity: 0;
@@ -450,33 +542,44 @@ pseudo p {
 	z-index: -1;
 	transition: all 0.3s;
 }
-
 #windowsextended p {
 	text-align: justify;
 }
-
-#hoverextended:hover, #hoverextended:focus {
-	z-index: 7;
-	outline: none;
-}
-
+/*en cliquant ou passant sur le bouton la fenetre des menus apparait*/
 #hoverextended:hover #windowsextended, #hoverextended:focus #windowsextended {
 	visibility: visible;
 	opacity: 1;
 	transition: all 0.3s;
 }
-
+/*quand on passe au dessus de la fenêtre qui apparait elle reste visible*/
+#hoverextended:hover {
+	z-index: 7;
+	outline: none;
+}
 /*la div est aussi en hover pour rester apparente*/
 #windowsextended:hover {
 	visibility: visible;
 	opacity: 1;
 }
 
-/*le troisieme pseudo element*/
+
+/*/////le troisieme pseudo element*/
+/*/////en cliquant sur le bouton des bulles apparaissent
+pour que au clique sur le bouton un autre element, ici les bulles, subissent
+une action, ce n'est pas aussi simple que le hover ou le active, il faut
+ajouter un tabindex="0" a cet element pour que ses enfants soient touchés*/
 #focus {
 	position: relative;
 }
-
+/*/////le cadre du bouton*/
+/*on enleve le cadre habituel car on veut que le cadre soit indépendant
+du texte pour se transformer en bulle*/
+#focus > p {
+	background-color: transparent;
+	margin: 0;
+	z-index: 2;
+}
+/*dessin du cadre*/
 #bull {
 	border-radius: 5px;
 	position: absolute;
@@ -490,12 +593,7 @@ pseudo p {
 	background-color: rgba(204, 51, 255, 0.8);
 }
 
-#focus > p {
-	background-color: transparent;
-	margin: 0;
-	z-index: 2;
-}
-
+/*/////l'apparence générale des bulles, qui sont petites et vont grossir au focus*/
 .bulles {
 	position: absolute;
 	width: 0px;
@@ -505,47 +603,38 @@ pseudo p {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-color: transparent;
+	background-color: rgba(255, 204, 255, 0.8);
 	transition: all 0.3s;
 }
-
+/*la position et taille de chaque bulle*/
 #bulla {top: -210px;}
-
 #bullb {right: -210px;}
-
 #bullc {bottom: -210px;}
-
 #bulld {left: -210px;}
-
-
 #bulle {top: -350px;}
-
 #bullf {right: -350px;}
-
 #bullg {bottom: -350px;}
-
 #bullh {left: -350px;}
-
-
 #bulli {top: -460px;}
-
 #bullj {right: -460px;}
-
 #bullk {bottom: -460px;}
-
 #bulll {left: -460px;}
 
-
+/*/////l'activation des bulles*/
+/*pour que les bulles passent au premier plan quand elles sont activées*/
 #focus:focus {
 	outline: none;
 	z-index: 7;
 }
-
+/*la couleur du text du bouton*/
 #focus:focus > p {
 	color: rgb(204, 51, 255);
 	z-index: 6;
 }
 
+/*/////l'apparition des bulles en cliquant sur le bouton, toujours grace au
+tabindex="0" sur le bouton pour que le focus marche sur les enfants*/
+/*chaque bulle */
 #focus:focus #bull {
 	width: 100px;
 	height: 100px;
@@ -558,37 +647,42 @@ pseudo p {
 	background-color: rgba(255, 204, 255, 0.8);
 	transition: all 0.3s;
 }
-
+/*la taille de chaque bulle est définis au moment de l'apparition, avec
+un leger delay pour chaque rang de bulle*/
 #focus:focus .bull1 {
 	width: 60px;
 	height: 60px;
-	background-color: rgba(255, 204, 255, 0.8);
 	transition: all 0.4s;
 	transition-delay: 0.1s;
 }
-
 #focus:focus .bull2 {
 	width: 45px;
 	height: 45px;
-	background-color: rgba(255, 204, 255, 0.8);
 	transition: all 0.4s;
 	transition-delay: 0.2s;
 }
-
 #focus:focus .bull3 {
 	width: 35px;
 	height: 35px;
-	background-color: rgba(255, 204, 255, 0.8);
 	transition: all 0.4s;
 	transition-delay: 0.3s;
 }
 
 
 /*/////en cinquieme pseudo element j'ai mis un target*/
+/*/////le principe c'est que le bouton est un lien <a> et quand on clique
+dessus il renvoit le href="#quelqueChose", ce qui ajoute #quelqueChose a
+l'url de navigation, puis, lorsqu'on applique le pseudo element target,
+quelqueChose:target, les actions précisés dans le code css s'activent pour
+l'element quelqueChose dès que l'url est transformée*/
+/*ici c'est une fenêtre qui passe de display:none a display:block au target*/
+/*il faut bien placer l'ancre  #target parce que la page va scroller dessus*/
 #targetposition {
 	position: relative;
 }
 
+/*/////les reglages principaux*/
+/*le texte du lien*/
 #windowstarget > a {
 	position: relative;
 	background-color: rgba(204, 51, 255, 0.8);
@@ -597,7 +691,7 @@ pseudo p {
 	color: rgb(255, 204, 255);
 	cursor: pointer;
 }
-
+/*la fenetre qui apparaitra*/
 #target {
 	display: none;
 	position: absolute;
@@ -610,13 +704,20 @@ pseudo p {
 	background-color: transparent;
 	z-index: 7;
 }
-
+/*le texte dans la fenetre*/
 #target p {
 	text-align: justify;
 }
+/*le fond de la fenêtre, translucide*/
+#target #autour {
+	padding: 5px;
+	background-color: rgba(100, 100, 100, 0.4);
+	border: 1px solid #777;
+	border-radius: 10px;
+}
 
-/*le bouton, juste la lettre x, pour fermer le target, c'est a dire
-juste changer l'irl en cliquant sur le x*/
+/*/////le bouton, juste la lettre x, pour fermer le target, c'est a dire
+juste changer l'url en cliquant sur le x*/
 #close {
 	margin: 5px;
 	font-size: 30px;
@@ -625,36 +726,34 @@ juste changer l'irl en cliquant sur le x*/
 	color: rgb(204, 51, 255);
 	background-color: transparent;
 }
-
+/*le bouton change d'apparence au clic*/
 #close:hover, #close:focus {
 	color: rgb(255, 204, 255);
 	cursor: pointer;
+	/*pour empecher le soulignement automatique des liens par le navigateur*/
 	text-decoration: none;
 }
 
-#target #autour {
-	padding: 5px;
-	background-color: rgba(100, 100, 100, 0.4);
-	border: 1px solid #777;
-	border-radius: 10px;
-}
-
+/*/////quand l'url se termine par #target, l'action target s'active, ici faire
+apparaitre la fenetre*/
 #target:target {
 	display: block;
 }
 
+
+
 /*/////ce sixieme et dernier pseudo element est en fait deux pseudos elements,
 before et after, que j'utilise ici pour faire une ombre tordue*/
+/*/////regalges generaux*/
 #beforeafter {
 	position: relative;
 	outline: none;
 }
-
 #beforeafter p {
 	text-align: left;
 }
 
-
+/*/////le dessin des deux ombres qui forment l'ombre courbée*/
 #beforeafter:before, #beforeafter:after {
 	position: absolute;
 	content: "";
@@ -662,21 +761,22 @@ before et after, que j'utilise ici pour faire une ombre tordue*/
 	width: 43%;
 	height: 3px;
 	background-color: transparent;
-	/*je definis deux ombres*/
-	box-shadow: /*0 20px 3px rgba(0, 0, 0, 0.4),*/ 0 18px 5px rgba(0, 0, 0, 1);
+	/*je definis deux ombres, pour affiner l'effet*/
+	box-shadow: 0 20px 3px rgba(0, 0, 0, 0.4), 0 18px 5px rgba(0, 0, 0, 1);
 	transition: all 0.5s;
 }
-
+/*l'ombre de droite*/
 #beforeafter:after {
 	right: 5px;
 	transform: rotate(9deg);
 }
-
+/*l'ombre de gauche*/
 #beforeafter:before {
 	left: 5px;
 	transform: rotate(-9deg);
 }
 
+/*/////l'animation au clic pour montrer les deux ombres*/
 #beforeafter:focus:after {
 	bottom: -50px;
 	right: 53%;
@@ -684,7 +784,6 @@ before et after, que j'utilise ici pour faire une ombre tordue*/
 	transform-origin: right;
 	transition: all 0.5s linear;
 }
-
 #beforeafter:focus:before {
 	bottom: -50px;
 	left: 53%;
@@ -694,19 +793,40 @@ before et after, que j'utilise ici pour faire une ombre tordue*/
 }
 
 
+/*mettre max-width n'est pas suffisant generalement sur les telephones
+car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils
+se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant
+max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute
+dans les meta du html avec name="viewport" et content="width=device-width"*/
 /*/////pour les ecrans de tablettes en position horizontale*/
 @media screen and (max-width: 900px) {
+	/*pour aligner les boutons verticalement*/
 	pseudo {
 		flex-direction: column;
+		/*on change le padding haut et bas en plus petit*/
 		padding: 100px 0;
+		/*pour les bulles qui apparaissent et sortent du cadre*/
+		overflow: hidden;
 	}
+	/*pour mettre de l'espace entre les boutons*/
 	pseudo > div {
 		margin: 90px auto;
 	}
-	#windowsextended {
-		left: calc(50% - 100px);
+	/*elargissement des boutons quand ils sont dans la position verticale*/
+	#disco, #hoverextended > p, #focus > p, #windowstarget > a, #beforeafter > p {
+		padding: 10px 50px;
 	}
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -728,7 +848,6 @@ sticky {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
-
 /*toujours le before pour mettre un voile sur l'image de fond*/
 sticky:before {
 	position: absolute;
@@ -738,10 +857,30 @@ sticky:before {
 	height: 100%;
 	width: 100%;
 }
-
+/*pour enlever le fond violet du texte*/
 sticky p {
 	background-color: transparent;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1478,6 +1617,11 @@ camouffle certains boutons carrés*/
 
 
 
+/*mettre max-width n'est pas suffisant generalement sur les telephones
+car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils
+se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant
+max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute
+dans les meta du html avec name="viewport" et content="width=device-width"*/
 /*/////pour les ecrans de tablettes en position horizontale*/
 @media screen and (max-width: 1200px) {
 	formulaire {
@@ -1570,6 +1714,17 @@ camouffle certains boutons carrés*/
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 /*/////////////////////////////////////*/
 /*la sixieme et derniere section montre des techniques pour les slides*/
 /*general setting de la section*/
@@ -1617,7 +1772,8 @@ j'ai vu trois slides cote a cote, inspiration*/
 	95% { left: -300%; }
 	100% { left: -400%; }
 }
-/*les quatre keyframes pour les quatre boutons*/
+/*les quatre keyframes pour les quatre boutons, ce n'est pas tres
+propre mais je n'ai pas trouvé mieux et je fatigue !*/
 @keyframes slidyone {
 	0% { left: 0%; }
 	20% { left: 0%; }
@@ -1671,30 +1827,31 @@ j'ai vu trois slides cote a cote, inspiration*/
 	100% { width: 35px; opacity: 0; }
 }
 
-/*reglages pour mettre les trois slides cote a cote*/
+/*/////reglages pour mettre les trois slides cote a cote avec un petit espace
+entre eux lorsqu'on reduit la fenetre*/
 #slideall {
 	display: flex;
 	margin: 20;
 }
 
-
-/*taille des cadres*/
+/*/////taille des cadres*/
 .cadre {
 	position: relative;
 	width: 400px;
-	/*on met height en auto pour garder le ratio*/
+	/*on met height en auto pour garder le ratio lorsque la fenetre reduit
+	car elle peut reduire malgré la width definit puisqu'on est en flex*/
 	height: auto;
 	margin: 20px;
 	overflow-y: visible;
 	overflow-x: hidden;
 }
 
-/*taille des images*/
+/*/////taille des images, il y en a cinq donc on met 20%*/
 .boite img {
 	width: 20%;
 }
 
-/*la boite (invisible) qui contient toutes les imges et qui defile*/
+/*/////la boite (invisible) qui contient toutes les images et qui defile*/
 .boite {
 	display: flex;
 	justify-content: flex-start;
@@ -1731,8 +1888,7 @@ j'ai vu trois slides cote a cote, inspiration*/
 #gotofour {
 	left: calc(50% + 30px);
 }
-
-/*/////pour aller directement a l'image selectionnée du slide*/
+/*pour aller directement a l'image selectionnée du slide*/
 #gotoone:focus ~ .boite {
 	animation: 10s slidyone infinite -9.7s;
 }
@@ -1774,7 +1930,7 @@ j'ai vu trois slides cote a cote, inspiration*/
 	z-index: 2;
 }
 
-/*dessin du bouton pause*/
+/*/////dessin du bouton pause*/
 #pausebtn:after, #pausebtn:before {
 	position: absolute;
 	display: block;
@@ -1784,16 +1940,15 @@ j'ai vu trois slides cote a cote, inspiration*/
 	background-color: rgba(204, 51, 255, 0.7);
 	z-index: 2;
 }
-
+/*position des deux rectangle du bouton*/
 #pausebtn:before {
 	left: 0;
 }
-
 #pausebtn:after {
 	right: 0;
 }
 
-/*dessin du bouton play*/
+/*/////dessin du bouton play*/
 #playbtn {
 	width: 1px;
 	height: 1px;
@@ -1804,39 +1959,38 @@ j'ai vu trois slides cote a cote, inspiration*/
 	z-index:2;
 }
 
-
-/*stopper le slide*/
+/*/////stopper le slide*/
 .command:target ~ #cadre3 .boite {
 	animation-play-state: paused;
 }
-
 /*redémarrer le slide*/
 #play:target ~ #cadre3 .boite {
 	animation-play-state: running;
 }
 
 
-/*switch entre les boutons*/
+/*/////switch entre les boutons*/
 #cadre3:hover #pausebtn {
 	opacity: 1;
 }
-
 #pause:target ~ #cadre3 #pausebtn {
 	opacity: 0;
 	cursor: default;
 	z-index: 1;
 }
-
 #pause:target ~ #cadre3:hover #playbtn {
 	opacity: 1;
 }
-
 #play:target ~ #cadre3 #playbtn {
 	cursor: default;
 }
 
 
-
+/*mettre max-width n'est pas suffisant generalement sur les telephones
+car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils
+se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant
+max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute
+dans les meta du html avec name="viewport" et content="width=device-width"*/
 @media screen and (max-width: 900px) {
 	#slideall {
 		flex-direction: column;
