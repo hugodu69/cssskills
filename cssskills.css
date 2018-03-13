@@ -777,7 +777,9 @@ before et after, que j'utilise ici pour faire une ombre tordue*/
 	width: 43%;
 	height: 3px;
 	background-color: transparent;
-	/*je definis deux ombres, pour affiner l'effet*/
+	/*je definis deux ombres, pour affiner l'effet
+	dans l'ordre les valeurs correspondents à : deplacement horizontal,
+	deplacement vertical, effet blur, et la couleur*/
 	box-shadow: 0 20px 3px rgba(0, 0, 0, 0.4), 0 18px 5px rgba(0, 0, 0, 1);
 	transition: all 0.5s;
 }
@@ -1878,9 +1880,6 @@ entre eux lorsqu'on reduit la fenetre*/
 .cadre {
 	position: relative;
 	width: 400px;
-	/*on met height en auto pour garder le ratio lorsque la fenetre reduit
-	car elle peut reduire malgré la width definit puisqu'on est en flex*/
-	height: auto;
 	margin: 20px;
 	overflow-y: visible;
 	overflow-x: hidden;
@@ -1890,12 +1889,14 @@ entre eux lorsqu'on reduit la fenetre*/
 /*/////taille des images, il y en a cinq donc on met 20%*/
 .boite img {
 	width: 20%;
+	margin: 0;
 }
 
 /*/////la boite (invisible) qui contient toutes les images et qui defile*/
 .boite {
 	display: flex;
 	position: relative;
+	top: 0;
 	width: 500%;
 	height: 100%;
 	animation: 10s slidy infinite -9.7s;
