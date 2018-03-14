@@ -95,6 +95,7 @@ p {
 .question {
 	display: block;
 	position: absolute;
+	cursor: pointer;
 }
 /*dessin du rond*/
 .circle {
