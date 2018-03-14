@@ -1675,6 +1675,11 @@ dans les meta du html avec name="viewport" et content="width=device-width"*/
 		width: 60%;
 		height: 1px;
 	}
+	/*sur les telephones le texte est un peu collé a droite si la taille de
+          la scroll barre est trop petite, donc je rajoute un padding*/
+	#histoire {
+		padding-right: 50px;
+	}
 }
 /*/////pour les ecrans de tablettes en position verticale*/
 @media screen and (max-width: 600px) {
