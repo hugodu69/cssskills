@@ -23,6 +23,7 @@ dans les meta du html avec name="viewport" et content="width=device-width"*/
 	/*specialement pour les telephones pour que cliquer en dehors d'une
 	fenetre apparue permette de l'eteindre*/
 	body {
+          cursor: pointer;
 	}
 }
 
@@ -95,7 +96,6 @@ p {
 .question {
 	display: block;
 	position: absolute;
-	cursor: pointer;
 }
 /*dessin du rond*/
 .circle {
