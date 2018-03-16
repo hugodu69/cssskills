@@ -1882,6 +1882,16 @@ propre mais je n'ai pas trouvé mieux et je fatigue !*/
 
 /*/////reglages pour mettre les trois slides cote a cote avec un petit espace
 entre eux lorsqu'on reduit la fenetre*/
+/*pour que les trois slides reduisent avec la fenetre en gardant le ratio, il
+faut utiliser le padding-top, car les paddings ont la propriété d'etre determines
+en fonction de la width de leur element parent, donc en donnant la hauteur d'une
+div avec son padding-top on lui donne sa hauteur en fonction de la largeur de
+l'element parent, donc si les elements parents sont bien reglés, en fonction de
+la largeur de la fenetre*/
+/*malheureusement firefox bug, il ne definit pas le padding en fonction du width
+de l'element parent, sauf si c'est le body directement, c'est pour ca qu'on
+organise toute la div slide en mettant slide en padding et donc tout le contenu
+en position absolute avec les problemes d'organisation que ça provoque*/
 #slideall {
 	display: flex;
 	position: absolute;
