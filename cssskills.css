@@ -365,6 +365,15 @@ fonctionne on precise la position relative*/
 	position: relative;
 }
 
+
+
+
+
+
+
+
+
+
 /*//////////////////////////////////*/
 /*deuxieme section : la nav bar*/
 navbarZone {
@@ -383,6 +392,7 @@ navbar {
 	background-color: rgb(255, 204, 255);
 	height: 50px;
 	position: sticky;
+	position: -webkit-sticky;
 	top: 0;
 	z-index: 6;
 }
@@ -1773,9 +1783,7 @@ slide {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	width: 100%;
-	padding: 100 0;
-	overflow: hidden;
+	padding-top: 66%;
 	background-image: url("./ressources/genevieve.jpg");
 	background-position: center;
 	background-size: cover;
@@ -1795,8 +1803,9 @@ slide:before {
 /*la petite dedicace a morgan sur l'ecran d'ordinateur duquel
 j'ai vu trois slides cote a cote, inspiration*/
 #dedi {
-	margin-bottom: 100px;
-	border-radius: 0;
+	position: absolute;
+	top: 20%;
+	left: calc(50% - 100px);
 	background-color: rgba(160, 160, 160, 0.7);
 	width: 200px;
 }
@@ -1872,39 +1881,41 @@ propre mais je n'ai pas trouvé mieux et je fatigue !*/
 entre eux lorsqu'on reduit la fenetre*/
 #slideall {
 	display: flex;
-	/*en definissant la marge on donne une largeur a la div et la fonction
-	nowrap s'active d'office, ce qui fait qu'en reduisant la fenetre on
-	reduit aussi les slides, on aurait pu mettre width=100% par exemple
-	ca aurait aussi marché*/
-	margin: 20px;
+	position: absolute;
+	/*on descend la section de div pour laisser la place a la
+	spe dedi de morgan*/
+	top: 40%;
+	left: 0;
+	width: 100%;
+	/*c'est la hauteur par rapport a la section entiere
+	donc on met 50% puisque la section a été calculée deux fois
+	trop grande afin de laisser la place a la spé dedi de morgan*/
+	height: 50%;
 	border: 2px solid green;
 }
-
 /*/////taille des cadres*/
 .cadre {
 	position: relative;
-	width: 400px;
-	margin: 20px;
-	overflow-y: visible;
-	overflow-x: hidden;
+	width: 30%;
+	margin: 20px 2%;
+	overflow: hidden;
 	border: 2px solid blue;
+}
+
+/*/////la boite (invisible) qui contient toutes les images et qui defile*/
+.boite {
+	display: flex;
+	position: absolute;
+	top: 0;
+	width: 500%;
+	height: 100%;
+	animation: 10s slidy infinite -9.7s;
 }
 
 /*/////taille des images, il y en a cinq donc on met 20%*/
 .boite img {
 	width: 20%;
 	margin: 0;
-}
-
-/*/////la boite (invisible) qui contient toutes les images et qui defile*/
-.boite {
-	display: flex;
-	position: relative;
-	top: 0;
-	width: 500%;
-	height: 100%;
-	animation: 10s slidy infinite -9.7s;
-	border: 2px solid red;
 }
 /*/////pour le premier slide*/
 /*les boutons qui permettent de selectionner directement une image du slide*/
@@ -1952,7 +1963,7 @@ entre eux lorsqu'on reduit la fenetre*/
 /*l'apparition du petit encart descriptif*/
 #timeline {
 	position: absolute;
-	bottom: 70;
+	bottom: 70px;
 	left: 0;
 	padding: 5px;
 	text-align: right;
