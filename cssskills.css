@@ -13,24 +13,6 @@ body * {
 	margin: auto;
 }
 
-/*mettre max-width n'est pas suffisant generalement sur les telephones
-car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils
-se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant
-max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute
-dans les meta du html avec name="viewport" et content="width=device-width"*/
-/*pour la position au milieu de l'ecran quand il devient petit*/
-@media screen and (max-width: 900px){
-	/*specialement pour les telephones pour que cliquer en dehors d'une
-	fenetre apparue permette de l'eteindre*/
-	body {
-	}
-}
-
-
-
-
-
-
 /*/////les apparences des textes dans le site*/
 a, p, h1, h2, h3, h4, span, option, label {
 	position: relative;
