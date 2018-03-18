@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF8">
-<!--pour que les mediaqueries qui rendent le site responsive fonctionnent sur les telephones et tablettes il faut que celles-ci utilisent leurs veritables dimensions, ce qu'elles ne font pas par defaut, elles ont un viewport qui correspond aux dimensions d'un ecran d'ordinateur, plutôt que de le preciser ici on pourrait aussi dans le css a chaque fois ecrire (min-device-width) au lieu de (min-width)-->
+<!--pour que les mediaqueries qui rendent le site responsive fonctionnent sur les telephones et tablettes il faut que celles-ci utilisent leurs veritables dimensions, ce qu'elles ne font pas par defaut, elles ont un viewport qui correspond aux dimensions d'un ecran d'ordinateur, plutot que de le preciser ici on pourrait aussi dans le css a chaque fois ecrire (min-device-width) au lieu de (min-width)-->
 <meta name="viewport" content="width=device-width">
 <title>my css skills</title>
 <link href="./cssskills.css" type="text/css" rel="stylesheet">
@@ -15,7 +15,7 @@
 		margin: 0;
 		padding: 0;
 	/*lorsque la page scroll automatiquement, vers une ancre par exemple elle y va doucement*/
-	scroll-behavior: smooth;
+		scroll-behavior: smooth;
 	}
 	body * {
 		margin: auto;
@@ -53,6 +53,8 @@
 	}
 </style>
 </head>
+
+
 <body>
 	<!--ce n'est pas du css pure, mais pour que les boutons marchent sur les telephones et tablettes apple il faut rajouter onclick, sur les boutons mais aussi sur la div generale pour pouvoir cliquer en dehors du bouton pour fermer son action-->
 	<titre onclick="">

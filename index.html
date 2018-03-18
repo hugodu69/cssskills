@@ -34,7 +34,90 @@
               du coup le contenu serait editable-->
           <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
-          <span class="tooltip"><p>l'ombre du texte est placée a 0 horizontal et 0 vertical, donc pile sous le texte, et utilise l'effet blur : text-shadow: 0 0 9 black</p></span>
+          <div class="tooltip">
+            <div class="questionScroll">
+
+
+<p>&lt;!DOCTYPE html&gt;</p>
+<p><span id="comment">&lt;!--sans le doctype html les differents navigateurs ont des comportements etranges, comme par exemple chrome qui ne reconnait pas le padding pour l'element body--&gt;</span></p>
+<p><span id="sign">&lt;</span><span id="tag">html</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p><span id="sign">&lt;</span><span id="tag">head</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p><span id="sign">&lt;</span><span id="tag">meta</span><span id="special"> charset="UTF8"</span><span id="sign">&gt;</span></p>
+<p><span id="comment">&lt;!--pour que les mediaqueries qui rendent le site responsive fonctionnent sur les telephones et tablettes il faut que celles-ci utilisent leurs veritables dimensions, ce qu'elles ne font pas par defaut, elles ont un viewport qui correspond aux dimensions d'un ecran d'ordinateur, plutot que de le preciser ici on pourrait aussi dans le css a chaque fois ecrire (min-device-width) au lieu de (min-width)--&gt;</span></p>
+<p><span id="sign">&lt;</span><span id="tag">meta</span><span id="special"> name="viewport" content="width=device-width"</span><span id="sign">&gt;</span></p>
+<p><span id="sign">&lt;</span><span id="tag">title</span><span id="special"></span><span id="sign">&gt;</span>my css skills<span id="sign">&lt;</span><span id="sign">/</span><span id="tag">title</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p><span id="sign">&lt;</span><span id="tag">link</span><span id="special"> href="./cssskills.css" type="text/css" rel="stylesheet"</span><span id="sign">&gt;</span></p>
+<p><span id="sign">&lt;</span><span id="tag">style</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp<span id="comment">/*general settings*/</span></p>
+<p><span id="selec">&nbsp&nbsp&nbsp* </span><span id="sign">{</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">margin</span>: 0;</p>
+<p>&nbsp&nbsp&nbsp<span id="sign">}</span></p>
+<p><span id="selec">&nbsp&nbsp&nbspbody </span><span id="sign">{</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">margin</span>: 0;</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">padding</span>: 0;</p>
+<p>&nbsp&nbsp&nbsp<span id="comment">/*lorsque la page scroll automatiquement, vers une ancre par exemple elle y va doucement*/</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">scroll-behavior</span>: smooth;</p>
+<p>&nbsp&nbsp&nbsp<span id="sign">}</span></p>
+<p><span id="selec">&nbsp&nbsp&nbspbody * </span><span id="sign">{</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">margin</span>: auto;</p>
+<p>&nbsp&nbsp&nbsp<span id="sign">}</span></p>
+<p>&nbsp&nbsp&nbsp<span id="comment">/*les apparences des textes dans le site*/</span></p>
+<p><span id="selec">&nbsp&nbsp&nbspa, p, h1, h2, h3, h4, span, option, label </span><span id="sign">{</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">position</span>: relative;</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">font-family</span>: "Courier New";</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">text-decoration</span>: none;</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">text-align</span>: center;</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">z-index</span>: 1;</p>
+<p>&nbsp&nbsp&nbsp<span id="sign">}</span></p>
+<p><span id="selec">&nbsp&nbsp&nbspspan, option, label </span><span id="sign">{</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">text-align</span>: left;</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">font-size</span>: 15px;</p>
+<p>&nbsp&nbsp&nbsp<span id="sign">}</span></p>
+<p><span id="selec">&nbsp&nbsp&nbspbutton </span><span id="sign">{</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">font-size</span>: 13px;</p>
+<p>&nbsp&nbsp&nbsp<span id="sign">}</span></p>
+<p><span id="selec">&nbsp&nbsp&nbspa, h1, h2, h3 </span><span id="sign">{</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">color</span>: rgb(204, 51, 255);</p>
+<p>&nbsp&nbsp&nbsp<span id="sign">}</span></p>
+<p><span id="selec">&nbsp&nbsp&nbsph1, h2 </span><span id="sign">{</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">text-shadow</span>: 0px 0px 9px black;</p>
+<p>&nbsp&nbsp&nbsp<span id="sign">}</span></p>
+<p><span id="selec">&nbsp&nbsp&nbspa, p, h3 </span><span id="sign">{</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">font-size</span>: 15px;</p>
+<p>&nbsp&nbsp&nbsp<span id="sign">}</span></p>
+<p><span id="selec">&nbsp&nbsp&nbspp </span><span id="sign">{</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">position</span>: relative;</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">background-color</span>: rgba(204, 51, 255, 0.8);</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">border-radius</span>: 5px;</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">padding</span>: 10px;</p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="action">color</span>: rgb(255, 204, 255);</p>
+<p>&nbsp&nbsp&nbsp<span id="sign">}</span></p>
+<p><span id="sign">&lt;</span><span id="sign">/</span><span id="tag">style</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p><span id="sign">&lt;</span><span id="sign">/</span><span id="tag">head</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p><br></p>
+<p><br></p>
+<p><span id="sign">&lt;</span><span id="tag">body</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp<span id="comment">&lt;!--ce n'est pas du css pure, mais pour que les boutons marchent sur les telephones et tablettes apple il faut rajouter onclick, sur les boutons mais aussi sur la div generale pour pouvoir cliquer en dehors du bouton pour fermer son action--&gt;</span></p>
+<p>&nbsp&nbsp&nbsp<span id="sign">&lt;</span><span id="tag">titre</span><span id="special"> onclick=""</span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp<span id="sign">&lt;</span><span id="tag">div</span><span id="special"> id="title"</span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="sign">&lt;</span><span id="tag">h1</span><span id="special"></span><span id="sign">&gt;</span>my skills in css<span id="sign">&lt;</span><span id="sign">/</span><span id="tag">h1</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="sign">&lt;</span><span id="tag">h2</span><span id="special"></span><span id="sign">&gt;</span>boom<span id="sign">&lt;</span><span id="tag">br</span><span id="special"></span><span id="sign">&gt;</span>&nbsp<span id="sign">&lt;</span><span id="sign">/</span><span id="tag">h2</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="sign">&lt;</span><span id="tag">h2</span><span id="special"></span><span id="sign">&gt;</span>ce site vous fait mal aux yeux<span id="sign">&lt;</span><span id="sign">/</span><span id="tag">h2</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="sign">&lt;</span><span id="tag">h2</span><span id="special"></span><span id="sign">&gt;</span>sans meme vous toucher<span id="sign">&lt;</span><span id="sign">/</span><span id="tag">h2</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="sign">&lt;</span><span id="tag">h2</span><span id="special"></span><span id="sign">&gt;</span>c'est ca l'intelligence artificielle<span id="sign">&lt;</span><span id="sign">/</span><span id="tag">h2</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="sign">&lt;</span><span id="tag">h2</span><span id="special"></span><span id="sign">&gt;</span>on est dans le dualisme corps esprit<span id="sign">&lt;</span><span id="sign">/</span><span id="tag">h2</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="sign">&lt;</span><span id="tag">h2</span><span id="special"></span><span id="sign">&gt;</span>a fond<span id="sign">&lt;</span><span id="sign">/</span><span id="tag">h2</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp<span id="sign">&lt;</span><span id="sign">/</span><span id="tag">div</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp<span id="sign">&lt;</span><span id="tag">div</span><span id="special"> id="instructions"</span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="sign">&lt;</span><span id="tag">h3</span><span id="special"></span><span id="sign">&gt;</span>cliquez ou survolez ces petits points d'interrogation<span id="sign">&lt;</span><span id="sign">/</span><span id="tag">h3</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="sign">&lt;</span><span id="tag">h3</span><span id="special"></span><span id="sign">&gt;</span>pour avoir les codes css et html des elements de la page<span id="sign">&lt;</span><span id="sign">/</span><span id="tag">h3</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp<span id="sign">&lt;</span><span id="sign">/</span><span id="tag">div</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p>&nbsp&nbsp&nbsp<span id="sign">&lt;</span><span id="sign">/</span><span id="tag">titre</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p><span id="sign">&lt;</span><span id="sign">/</span><span id="tag">body</span><span id="special"></span><span id="sign">&gt;</span></p>
+<p><span id="sign">&lt;</span><span id="sign">/</span><span id="tag">html</span><span id="special"></span><span id="sign">&gt;</span></p>
+
+            </div>
+          </div>
         </div>
 
         <h1>my skills in css</h1>
@@ -53,7 +136,13 @@
         <div class="question" onclick="" id="questionSelf">
           <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
-          <span class="tooltip"><p>ces petits points pour expliquer le code sont fait d'une div avec un border-radius pour faire le rond, puis en position absolue un bloc de texte avec deux class, une tres generale pour les reglages communs a tous, et une autre plus precise distingant ceux qui apparaitront a gauche de ceux qui apparaitront a droite, et la petite fleche est fabriquée grace a un :after. j'ai remarqué que le hover sur le point ne fonctionne que si le z-index du point est plus élevé que celui du bloc qu'il fait apparaitre<p></span>
+          <div class="tooltip">
+            <div class="questionScroll">
+
+
+
+            </div>
+          </div>
         </div>
       </div>
 
@@ -71,13 +160,25 @@
       <div class="question" onclick="" id="questionLinks">
         <div class="circle" tabindex="0"></div>
         <p class="questionmark">?</p>
-        <span class="tooltip"><p>au hover une barre apparait sous les liens de la barre de navigation. elle effectue une trasition d'opacité et un "transform: translatey", on peut faire la même chose avec une valeur de bottom</p></span>
+        <div class="tooltip">
+          <div class="questionScroll">
+
+
+
+          </div>
+        </div>
       </div>
 
       <div class="question" onclick="" id="questionNavbar">
         <div class="circle" tabindex="0"></div>
 	<p class="questionmark">?</p>
-        <span class="tooltip"><p>la barre de navigation est large puis elle se réduit quand elle atteind le haut de l'écran, parce qu'elle est entourée de deux div au dessus et en dessous qui ne restent pas accrochées et donc disparaissent avec le reste de la page</p></span>
+        <div class="tooltip">
+          <div class="questionScroll">
+
+
+
+          </div>
+        </div>
       </div>
     </div>
 
@@ -100,7 +201,13 @@
         <div class="question" onclick="" id="questionDisco">
           <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
-          <span class="tooltip"><p>le bouton hover ne se transforme pas lui-même mais une autre div, qu'il fait apparaitre en passant de display: none; a display: block, grace au signe + qui ne marche que si l'element ciblé par + suit directement celui qui est en hover "bouton:hover + div"</p></span>
+          <div class="tooltip">
+            <div class="questionScroll">
+
+
+
+            </div>
+          </div>
         </div>
 
       </div>
@@ -111,7 +218,13 @@
         <div class="question" onclick="" id="questionMenu">
           <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
-          <span class="tooltip"><p>ce bouton hover marche comme le précédent mais cette fois la div qui apparait est superposée ou accollée au bouton et est elle-même en hover, ce qui fait que la souris peut se ballader dessus une fois qu'elle est apparu et ça la maintient apparente. les trois div qu'elle contient changent elle-meme d'apparence avec des hover</p></span>
+          <div class="tooltip">
+            <div class="questionScroll">
+
+
+
+            </div>
+          </div>
         </div>
 
         <div id="hoverextended" tabindex="0">
@@ -149,7 +262,13 @@
         <div class="question" onclick="" id="questionRonds">
           <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
-          <span class="tooltip"><p>l'option :active ne s'applique que pendant le clique qui le selectionne, par exemple pour bien montrer que la selection a marché</p></span>
+          <div class="tooltip">
+            <div class="questionScroll">
+
+
+
+            </div>
+          </div>
         </div>
 
       </div>
@@ -168,7 +287,13 @@
           <div class="question" onclick="" id="questionTarget">
             <div class="circle" tabindex="0"></div>
             <p class="questionmark">?</p>
-            <span class="tooltip"><p>la fonction target permet de modifier l'element tant que son id correspond a celle de la fin de l'url, donc tant qu'on n'appuie pas sur un autre bouton modifiant l'url, comme par exemple une ancre, la modification apparue reste en place, par exemple une fenetre</p></span>
+            <div class="tooltip">
+              <div class="questionScroll">
+
+
+
+              </div>
+            </div>
           </div>
         </div>
 
@@ -181,7 +306,13 @@
         <div class="question" onclick="" id="questionOmbres">
           <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
-          <span class="tooltip"><p>les pseudos element before et after permettent de créer deux nouveaux elements depuis le css. il ne faut pas oublier de mettre "content: '';" si on veut pouvoir donner des dimensions a ces nouveaux elements. ici ce sont deux nouveaux rectangles pour faire une ombre courbée sous le bouton</p></span>
+          <div class="tooltip">
+            <div class="questionScroll">
+
+
+
+            </div>
+          </div>
         </div>
 
       </div>
@@ -193,7 +324,13 @@
       <div class="question" onclick="" id="questionSticky">
         <div class="circle" tabindex="0"></div>
 	<p class="questionmark">?</p>
-        <span class="tooltip"><p>grace a la fonction sticky appliquée a la div de la barre de navigation, celle-ci reste bloquée contre le haut de la fenêtre jusqu'à ce qu'elle atteigne la fin de la div dans laquelle elle se trouve. c'est pourquoi j'ai dû mettre les trois section autour dans une grande div</p></span>
+        <div class="tooltip">
+          <div class="questionScroll">
+
+
+
+          </div>
+        </div>
       </div>
       <p><em><strong>au dessus</strong></em> de cette limite la nav bar est visible</p>
       <p><em><strong>en dessous</strong></em> de cette limite la nav bar est cachée</p>
@@ -345,7 +482,13 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
           <div class="question" onclick="" id="questionForm">
             <div class="circle" tabindex="0"></div>
             <p class="questionmark">?</p>
-            <span class="tooltip"><p>le slide fonctionne en collant les images en un long bandeau, avec celle du debut qui se repete a la fin si on veut que le slide tourne a l'infini, et la boite qui contient ce long bandeau est mise dans un cadre en "overflow: hidden". dans la boite extra large qui contient le bandeau d'image on applique une "animation: temps-total-du-slide creer-le-nom-de-l'animation infinite", puis on definit les temps de chaque action, en l'occurence bouger d'une image sur la gauche, en pourcentage du temps total definit dans l'animation, par exemple pour deux images: "@keyframe{ 0%{left:0%} 40%{left:0%} 50%{left:-100%} 90%{left:-100%} 100%{left:-200%}}</p></span>
+            <div class="tooltip">
+              <div class="questionScroll">
+
+
+
+              </div>
+            </div>
           </div>
 
           <div id="regle">
@@ -441,7 +584,13 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
         <div class="question" onclick="" id="questionCalcul">
           <div class="circle" tabindex="0"></div>
           <p class="questionmark">?</p>
-          <span class="tooltip"><p>le slide fonctionne en collant les images en un long bandeau, avec celle du debut qui se repete a la fin si on veut que le slide tourne a l'infini, et la boite qui contient ce long bandeau est mise dans un cadre en "overflow: hidden". dans la boite extra large qui contient le bandeau d'image on applique une "animation: temps-total-du-slide creer-le-nom-de-l'animation infinite", puis on definit les temps de chaque action, en l'occurence bouger d'une image sur la gauche, en pourcentage du temps total definit dans l'animation, par exemple pour deux images: "@keyframe{ 0%{left:0%} 40%{left:0%} 50%{left:-100%} 90%{left:-100%} 100%{left:-200%}}</p></span>
+          <div class="tooltip">
+            <div class="questionScroll">
+
+
+
+            </div>
+          </div>
         </div>
 
         <div id="reglecount">
@@ -527,7 +676,13 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
           <div class="question" onclick="" id="questionSlide">
             <div class="circle" tabindex="0"></div>
             <p class="questionmark">?</p>
-            <span class="tooltip"><p>le slide fonctionne en collant les images en un long bandeau, avec celle du debut qui se repete a la fin si on veut que le slide tourne a l'infini, et la boite qui contient ce long bandeau est mise dans un cadre en "overflow: hidden". dans la boite extra large qui contient le bandeau d'image on applique une "animation: temps-total-du-slide creer-le-nom-de-l'animation infinite", puis on definit les temps de chaque action, en l'occurence bouger d'une image sur la gauche, en pourcentage du temps total definit dans l'animation, par exemple pour deux images: "@keyframe{ 0%{left:0%} 40%{left:0%} 50%{left:-100%} 90%{left:-100%} 100%{left:-200%}}</p></span>
+            <div class="tooltip">
+              <div class="questionScroll">
+
+
+
+              </div>
+            </div>
           </div>
 
           <span id="gotoone" class="goto" tabindex="0"></span>
@@ -548,7 +703,13 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
           <div class="question" onclick="" id="questionTimeline">
             <div class="circle" tabindex="0"></div>
             <p class="questionmark">?</p>
-            <span class="tooltip"><p>la barre de timeline qui charge a chaque slide est faite egalement grace a l'action animation, qui est definit a gauche avec une largeur width de 0% et que la @keyframe augmente a 100% le temps de chaque slide</p></span>
+            <div class="tooltip">
+              <div class="questionScroll">
+
+
+
+              </div>
+            </div>
           </div>
 
           <div class="boite">
@@ -569,7 +730,13 @@ Martin Cooper met au point le premier telephone portable, il fait 1,2 kg et a 20
             <div class="question" onclick="" id="questionPlay">
               <div class="circle" tabindex="0"></div>
               <p class="questionmark">?</p>
-              <span class="tooltip"><p>les options play et pause sont une option css qu'il faut appliquer a la même boite qui contient l'animation "animation-play-state: paused/running". le switch entre les boutons se fait en faisant varier les z-index et les opacity en hover et en fonction des target, et il faut pour ca utiliser target avec le + pour un element juste apres l'element target, rien pour un element contenu par l'element target, et la tilde ~ pour un element deux positions apres l'element hover</p></span>
+              <div class="tooltip">
+                <div class="questionScroll">
+
+
+
+                </div>
+              </div>
             </div>
 
             <a id="playbtn" class ="btn" href="#play" title="play"></a>

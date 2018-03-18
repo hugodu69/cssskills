@@ -88,9 +88,9 @@ p {
 	background-color: rgba(204, 51, 255, 0.8);
 	cursor: pointer;
 }
-/*apparence du point d'interrogation qui tourne, un peu en dessous du rond pour
-ne pas empecher de cliquer dessus, avec un padding inférieur qui descend jusqu'au
-milieu du rond pour être le centre de rotation*/
+/*apparence du point d'interrogation qui tourne, un peu en dessous du
+rond pour ne pas empecher de cliquer dessus, avec un padding inférieur
+qui descend jusqu'au milieu du rond pour être le centre de rotation*/
 .questionmark {
 	display: block;
 	position: absolute;
@@ -108,10 +108,11 @@ milieu du rond pour être le centre de rotation*/
 }
 /*le cadre qui apparait avec les transitions de visibility et d'opacity
 qui permettent d'avoir une transition a l'apparition contrairement
-au display:none mais d'avoir un element inexistant tant qu'il n'est pas visible
-pour eviter qu'il apparaisse quand on passe la souris au dessus, ainsi qu'une
-variation du z-index pour qu'il ne bloque pas les elements au-dessus duquel
-il se trouve avant l'apparition et qu'il soit le plus elevé après*/
+au display:none mais d'avoir un element inexistant tant qu'il n'est pas
+visible pour eviter qu'il apparaisse quand on passe la souris au dessus,
+ainsi qu'une variation du z-index pour qu'il ne bloque pas les elements
+au-dessus duquel il se trouve avant l'apparition et qu'il soit le plus
+elevé après*/
 .tooltip {
 	opacity: 0;
 	visibility: hidden;
@@ -141,18 +142,44 @@ dans les meta du html avec name="viewport" et content="width=device-width"*/
 	left: 7%;
 	}
 }
-/*le texte dans le cadre qui apparait*/
-.tooltip p {
-	overflow-y: scroll;
+/*/////le texte dans le cadre qui apparait*/
+.questionScroll {
 	height: 100%;
-	width: 100%;
-	padding: 0 20px 0 0;
-	margin: 0 0 0 5px;
-	text-align: left;
-	background-color: transparent;
-	color: rgb(200, 200, 200);
+	width: calc(100% + 25px);
+	box-sizing: border-box;
+	padding-right: 10px;
+	overflow-y: scroll;
 }
-/*quand la souris passe au dessus du rond sa position augmente, c'est
+.questionScroll p {
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	text-align: left;
+	color: #d3d3d3;
+}
+.questionScroll #tag {
+	color: #669999;
+}
+.questionScroll #sign {
+	color: white;
+}
+.questionScroll #action {
+	color: #cc66cc;
+}
+.questionScroll #selec {
+	color: #ff6633;
+}
+.questionScroll #pseudo {
+	color: yellow;
+}
+.questionScroll #special {
+	color: #8585ad;
+}
+.questionScroll #comment {
+	color: #909090;
+}
+
+/*////quand la souris passe au dessus du rond sa position augmente, c'est
 necessaire pour que la position des elements qui apparaissent puisse
 être elevé aussi, car ils sont dépendant de cet element parent et
 n'iront donc jamais plus haut*/
@@ -190,7 +217,7 @@ au dessus de lui*/
 #questionSelf > p {
 	color: rgb(255, 204, 255);
 }
-#questionSelf div {
+#questionSelf .circle {
 	background-color: rgb(255, 204, 255);
 }
 #questionTitre {
@@ -200,7 +227,7 @@ au dessus de lui*/
 #questionTitre > p {
 	color: rgb(255, 204, 255);
 }
-#questionTitre div {
+#questionTitre .circle {
 	background-color: rgb(255, 204, 255);
 }
 #questionLinks {
@@ -250,7 +277,7 @@ au dessus de lui*/
 #questionSticky > p {
 	color: rgb(255, 204, 255);
 }
-#questionSticky div {
+#questionSticky .circle {
 	background-color: rgb(255, 204, 255);
 }
 #questionForm {
@@ -260,7 +287,7 @@ au dessus de lui*/
 #questionForm > p {
 	color: rgb(255, 204, 255);
 }
-#questionForm div {
+#questionForm .circle {
 	background-color: rgb(255, 204, 255);
 }
 #questionCalcul {
@@ -270,7 +297,7 @@ au dessus de lui*/
 #questionCalcul > p {
 	color: rgb(255, 204, 255);
 }
-#questionCalcul div {
+#questionCalcul .circle {
 	background-color: rgb(255, 204, 255);
 }
 #questionSlide {
@@ -293,7 +320,8 @@ au dessus de lui*/
 
 
 
-
+/*//////////////////////////////////////*/
+/*le texte dans le cadre*/
 
 
 
