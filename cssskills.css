@@ -73,7 +73,7 @@ p {
 
 /*//////////////////////////////////////*/
 /*mise en place des petits boutons pour expliquer le code*/
-/*elles sont placés de manniere absolute un peu partout sur la page*/
+/*ils sont placés de manniere absolute un peu partout sur la page*/
 .question {
 	display: block;
 	position: absolute;
