@@ -1,0 +1,70 @@
+<html>
+<head>
+<style>
+	/*le deuxieme bouton est un hover comme le premier mais la div qui apparrait est collee au p et est aussi en hover donc elle reste apparente tant que la souris est dessus*/
+	#menu {
+		position: relative;
+	}
+	/*le bouton*/
+	#hoverextended {
+		z-index: 5;
+		position: relative;
+	}
+	/*quand la souris passe au dessus des sous menus ils changent de couleur*/
+	#hoverextended #phover:hover {
+		color: rgb(204, 51, 255);
+		background-color: rgba(255, 204, 255, 0.8);
+	}
+	/*la fenetre qui apparait*/
+	#windowsextended {
+		visibility: hidden;
+		opacity: 0;
+		position: absolute;
+		top: -10px;
+		left: -5px;
+		overflow: hidden;
+		background-color: rgba(100, 100, 100, 0.4);
+		padding: 70px 5px 5px 5px;
+		border: 1px solid #777;
+		border-radius: 10px;
+		width: 200px;
+		z-index: -1;
+		transition: all 0.3s;
+	}
+	#windowsextended p {
+		text-align: justify;
+	}
+	/*en cliquant ou passant sur le bouton la fenetre des menus apparait*/
+	#hoverextended:hover #windowsextended, #hoverextended:focus #windowsextended {
+		visibility: visible;
+		opacity: 1;
+		transition: all 0.3s;
+	}
+	/*quand on passe au dessus de la fenetre qui apparait elle reste visible*/
+	#hoverextended:hover {
+		z-index: 7;
+		outline: none;
+	}
+	/*la div est aussi en hover pour rester apparente*/
+	#windowsextended:hover {
+		visibility: visible;
+		opacity: 1;
+	}
+</style>
+</head>
+
+
+<body>
+<div id="menu">
+	<div id="hoverextended" tabindex="0">
+	<p>:hover<br>menu</p>
+	<div id="windowsextended">
+		<p id="phover">premier sous menu</p>
+		<p id="phover">deuxieme sous menu</p>
+		<p id="phover">troisieme sous menu</p>
+		<p id="phover">etc ...</p>
+	</div>
+	</div>
+</div>
+</body>
+</html>
