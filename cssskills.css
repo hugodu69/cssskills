@@ -240,16 +240,6 @@ au dessus de lui*/
 #questionLinks .tooltip:hover {
 	z-index: 9;
 }
-#questionNavbar {
-	left: 30%;
-	top: 150px;
-}
-#questionNavbar .circle:focus ~ .tooltip, .circle:hover ~ .tooltip {
-	z-index: 9;
-}
-#questionNavbar .tooltip:hover {
-	z-index: 9;
-}
 #questionDisco {
 	left: 60px;
 	top: 90px;
@@ -320,8 +310,6 @@ au dessus de lui*/
 
 
 
-/*//////////////////////////////////////*/
-/*le texte dans le cadre*/
 
 
 

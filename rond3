@@ -1,0 +1,82 @@
+<html>
+<head>
+<style>
+	/*la section de la nav bar englobe les deux sections suivantes, les pseudos et la sticky zone, car c'est sur toute cette etendue que la navbar doit rester sticky, c'est la navbarZone*/
+	navbarZone {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		z-index: 5;
+	}
+	/*grace a la position sticky elle va rester accrochee en haut de la div c'est pour ça que la div navbarzone est plus grande que simplement la section navbar, elle englobe toute la zone sur laquelle la navbar devra rester sticky, donc aussi les pseudos et le section sticky*/
+	navbar {
+		display: flex;
+		width: 100%;
+		background-color: rgb(255, 204, 255);
+		height: 50px;
+		position: sticky;
+		position: -webkit-sticky;
+		top: 0;
+		z-index: 6;
+	}
+	/*position relative precisee pour les positions absolute des enfants*/
+	#navbarSlides {
+		position: relative;
+	}
+	/*la navbar est entouree de deux navbar qui ne sont pas sticky et lui donnent une apparance epaisse avant de disparaitre avec le scroll*/
+	#navbar1 {
+		height: 70px;
+		width: 100%;
+		top: -65px;
+		background-color: rgb(255, 204, 255);
+	}
+	#navbar2 {
+		height: 70px;
+		width: 100%;
+		top: 45px;
+		background-color: rgb(255, 204, 255);
+	}
+	/*le petit trait qui apparait quand on passe la souris sur la cible*/
+	.tiret:after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		right: 10px;
+		left: 10px;
+		height: 2px;
+		background-color: rgb(204, 51, 255);
+		opacity: 0;
+		transform: translateY(5px);
+		transition: all 0.4s;
+	}
+	/*animation du petit trait*/
+	.tiret:hover:after {
+		opacity: 0.6;
+		transform: translateY(0);
+	}
+	/*quand l'ecran est trop petit la navbar diminue de taille simplement*/
+	@media screen and (max-width: 600px) {
+		.tiret {
+			font-size: 10px;
+		}
+	}
+</style>
+</head>
+
+
+<body>
+<!--ce n'est pas du css pure, mais pour que les boutons marchent sur les telephones et tablettes apple il faut rajouter onclick, sur les boutons mais aussi sur la div generale pour pouvoir cliquer en dehors du bouton pour fermer son action-->
+<navbarZone onclick="">
+<div id="navbar1">
+	<navbar>
+		<a class="tiret" href="#pseudo" alt="go to pseudos">pseudos<br>elements</a>
+		<a class="tiret" href="#sticky" alt="got to sticky">sticky<br>nav bar</a>
+		<a class="tiret" href="#formulaire" alt="go to transition">formulaire</a>
+		<a class="tiret" href="#slide" alt="go to slide">slides</a>
+	</navbar>
+	<div id="navbar2"></div>
+	<pseudo></pseudo>
+	<sticky></sticky>
+</div>
+</body>
+</html>
