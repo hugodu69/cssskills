@@ -1,8 +1,8 @@
 <html>
 <head>
 <style>
-	/*/////mise en place des petits boutons pour expliquer le code*/
-	/*ils sont placés de manniere absolute un peu partout sur la page*/
+	/*mise en place des petits boutons pour expliquer le code*/
+	/*ils sont places de manniere absolute un peu partout sur la page*/
 	.question {
 		display: block;
 		position: absolute;
@@ -17,7 +17,7 @@
 		background-color: rgba(204, 51, 255, 0.8);
 		cursor: pointer;
 	}
-	/*apparence du point d'interrogation qui tourne, un peu en dessous du rond pour ne pas empecher de cliquer dessus, avec un padding inférieur qui descend jusqu'au milieu du rond pour être le centre de rotation*/
+	/*apparence du point d'interrogation qui tourne, un peu en dessous du rond pour ne pas empecher de cliquer dessus, avec un padding inferieur qui descend jusqu'au milieu du rond pour etre le centre de rotation*/
 	.questionmark {
 		display: block;
 		position: absolute;
@@ -33,7 +33,7 @@
 		cursor: default;
 		opacity: 1;
 	}
-	/*le cadre qui apparait avec les transitions de visibility et d'opacity qui permettent d'avoir une transition a l'apparition contrairement au display:none mais d'avoir un element inexistant tant qu'il n'est pas visible pour eviter qu'il apparaisse quand on passe la souris au dessus, ainsi qu'une variation du z-index pour qu'il ne bloque pas les elements au-dessus duquel il se trouve avant l'apparition et qu'il soit le plus elevé après*/
+	/*le cadre qui apparait avec les transitions de visibility et d'opacity qui permettent d'avoir une transition a l'apparition contrairement au display:none mais d'avoir un element inexistant tant qu'il n'est pas visible pour eviter qu'il apparaisse quand on passe la souris au dessus, ainsi qu'une variation du z-index pour qu'il ne bloque pas les elements au-dessus duquel il se trouve avant l'apparition et qu'il soit le plus eleve apres*/
 	.tooltip {
 		opacity: 0;
 		visibility: hidden;
@@ -51,13 +51,13 @@
 		transition: all 0.5s;
 		transition: opacity 0.5s, visibility 0.5s, z-index 0.1s 0.5s;
 	}
-	/*/////mettre max-width n'est pas suffisant generalement sur les telephones car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute dans les meta du html avec name="viewport" et content="width=device-width"*/
+	/*mettre max-width n'est pas suffisant generalement sur les telephones car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute dans les meta du html avec name="viewport" et content="width=device-width"*/
 	@media screen and (max-width: 600px){
 		.tooltip {
-		left: 7%;
+			left: 7%;
 		}
 	}
-	/*/////le texte dans le cadre qui apparait*/
+	/*le texte dans le cadre qui apparait*/
 	.questionScroll {
 		height: 100%;
 		width: calc(100% + 25px);
@@ -93,11 +93,11 @@
 	.questionScroll #comment {
 		color: #909090;
 	}
-	/*////quand la souris passe au dessus du rond sa position augmente, c'est necessaire pour que la position des elements qui apparaissent puisse être elevé aussi, car ils sont dépendant de cet element parent et n'iront donc jamais plus haut*/
+	/*quand la souris passe au dessus du rond sa position augmente, c'est necessaire pour que la position des elements qui apparaissent puisse etre elevee aussi, car ils sont dépendant de cet element parent et n'iront donc jamais plus haut*/
 	.circle:hover {
 		z-index: 7;
 	}
-	/*quand la souris passe au dessus du point ou clique dessus la fenetre apparait doucement, avec un delay specialement pour le z-index afin de laisser le temps au point d'interrogation de faire son animation même quand la fenetre apparaitra au dessus de lui*/
+	/*quand la souris passe au dessus du point ou clique dessus la fenetre apparait doucement, avec un delay specialement pour le z-index afin de laisser le temps au point d'interrogation de faire son animation meme quand la fenetre apparaitra au dessus de lui*/
 	.circle:focus ~ .tooltip, .circle:hover ~ .tooltip {
 		z-index: 6;
 		opacity: 1;
@@ -116,13 +116,13 @@
 		opacity: 1;
 		visibility: visible;
 	} 
-	/*/////positionnement des questions*/
-	/*les divs avec toutes les elements necessaires pour le fonctionnement de ces quesitons sont placées un peu partout dans la page et c'est ici qu'on gere toutes les positions*/
+	/*positionnement des questions*/
+	/*les divs avec toutes les elements necessaires pour le fonctionnement de ces quesitons sont placees un peu partout dans la page et c'est ici qu'on gere toutes les positions*/
 	#questionOne {
 		right: 45%;
 		top: 30%;
 	}
-	/*la couleur de fond est foncé alors on change la couleur du point d'interrogation*/
+	/*la couleur de fond est fonce alors on change la couleur du point d'interrogation*/
 	#questionOne > p {
 		color: rgb(255, 204, 255);
 	}
