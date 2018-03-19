@@ -1,0 +1,79 @@
+<html>
+<head>
+<style>
+	/*le principe c'est que le bouton est un lien <a> et quand on clique dessus il renvoit le href="#quelqueChose", ce qui ajoute #quelqueChose a l'url de navigation, puis, lorsqu'on applique le pseudo element target, quelqueChose:target, les actions précisees dans le code css s'activent pour l'element quelqueChose des que l'url est transformee*/
+	/*ici c'est une fenetre qui passe de display:none a display:block au target*/
+	/*il faut bien placer l'ancre  #target parce que la page va scroller dessus*/
+	#targetposition {
+		position: relative;
+	}
+	/*les reglages principaux*/
+	/*le texte du lien*/
+	#windowstarget > a {
+		position: relative;
+		background-color: rgba(204, 51, 255, 0.8);
+		border-radius: 5px;
+		padding: 5px;
+		color: rgb(255, 204, 255);
+		cursor: pointer;
+	}
+	/*la fenetre qui apparaitra*/
+	#target {
+		display: none;
+		position: absolute;
+		width: 400px;
+		max-width: 80%;
+		top: 50%;
+		left: 50%;
+		padding: 200px 0;
+		transform: translate(-50%, -50%);
+		background-color: transparent;
+		z-index: 7;
+	}
+	/*le texte dans la fenetre*/
+	#target p {
+		text-align: justify;
+	}
+	/*le fond de la fenetre, translucide*/
+	#target #autour {
+		padding: 5px;
+		background-color: rgba(100, 100, 100, 0.4);
+		border: 1px solid #777;
+		border-radius: 10px;
+	}
+	/*le bouton, juste la lettre x, pour fermer le target, c'est a dire juste changer l'url en cliquant sur le x*/
+	#close {
+		margin: 5px;
+		font-size: 30px;
+		font-weight: bold;
+		text-decoration: none;
+		color: rgb(204, 51, 255);
+		background-color: transparent;
+	}
+	/*le bouton change d'apparence au clic*/
+	#close:hover, #close:focus {
+		color: rgb(255, 204, 255);
+		cursor: pointer;
+		/*pour empecher le soulignement automatique des liens par le navigateur*/
+		text-decoration: none;
+	}
+	/*quand l'url se termine par #target, l'action target s'active, ici faire apparaitre la fenetre*/
+	#target:target {
+		display: block;
+	}
+</style>
+</head>
+
+
+<body>
+<div id="windowstarget">
+	<a href="#target" title="target">:target</a>
+	<div id="target">
+		<div id="autour">
+		<a href="#pseudo" id="close">x</a>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

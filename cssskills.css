@@ -260,16 +260,6 @@ au dessus de lui*/
 	left: 95px;
 	top: 94px;
 }
-#questionSticky {
-	left: 86%;
-	top: 54%;
-}
-#questionSticky > p {
-	color: rgb(255, 204, 255);
-}
-#questionSticky .circle {
-	background-color: rgb(255, 204, 255);
-}
 #questionForm {
 	left: 75%;
 	top: 83%;
@@ -692,7 +682,7 @@ un leger delay pour chaque rang de bulle*/
 }
 
 
-/*/////en cinquieme pseudo element j'ai mis un target*/
+/*/////en quatrieme pseudo element j'ai mis un target*/
 /*/////le principe c'est que le bouton est un lien <a> et quand on clique
 dessus il renvoit le href="#quelqueChose", ce qui ajoute #quelqueChose a
 l'url de navigation, puis, lorsqu'on applique le pseudo element target,
@@ -765,8 +755,8 @@ apparaitre la fenetre*/
 
 
 
-/*/////ce sixieme et dernier pseudo element est en fait deux pseudos elements,
-before et after, que j'utilise ici pour faire une ombre tordue*/
+/*/////ce cinquieme et dernier pseudo element est en fait deux pseudos
+elements, before et after, que j'utilise ici pour faire une ombre tordue*/
 /*/////regalges generaux*/
 #beforeafter {
 	position: relative;

@@ -1,0 +1,61 @@
+<html>
+<head>
+<style>
+	/*on utilise ici deux pseudos elements, before et after, pour faire une ombre tordue*/
+	/*reglages generaux*/
+	#beforeafter {
+		position: relative;
+		outline: none;
+	}
+	#beforeafter p {
+		text-align: left;
+	}
+	/*le dessin des deux ombres qui forment l'ombre courbee*/
+	#beforeafter:before, #beforeafter:after {
+		position: absolute;
+		content: "";
+		bottom: 23px;
+		width: 43%;
+		height: 3px;
+		background-color: transparent;
+		/*je definis deux ombres, pour affiner l'effet
+		dans l'ordre les valeurs correspondents à : deplacement horizontal,
+		deplacement vertical, effet blur, et la couleur*/
+		box-shadow: 0 20px 3px rgba(0, 0, 0, 0.4), 0 18px 5px rgba(0, 0, 0, 1);
+		transition: all 0.5s;
+	}
+	/*l'ombre de droite*/
+	#beforeafter:after {
+		right: 5px;
+		transform: rotate(9deg);
+	}
+	/*l'ombre de gauche*/
+	#beforeafter:before {
+		left: 5px;
+		transform: rotate(-9deg);
+	}
+	/*l'animation au clic pour montrer les deux ombres*/
+	#beforeafter:focus:after {
+		bottom: -50px;
+		right: 53%;
+		transform: rotate(-171deg);
+		transform-origin: right;
+		transition: all 0.5s linear;
+	}
+	#beforeafter:focus:before {
+		bottom: -50px;
+		left: 53%;
+		transform: rotate(171deg);
+		transform-origin: left;
+		transition: all 0.5s linear;
+	}
+</style>
+</head>
+
+
+<body>
+<div id="beforeafter" tabindex="0">
+	<p>:before<br />:after</p>
+</div>
+</body>
+</html>

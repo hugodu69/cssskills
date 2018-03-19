@@ -1,0 +1,514 @@
+<html>
+<head>
+<style>
+	/*section remplie de formulaires :-) */
+	/*reglages generaux de la section*/
+	formulaire {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		background-image: url("./ressources/pantalon.jpg");
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		color: rgb(255, 204, 255);
+	}
+	/*suppression des pointilles automatiques lors de la selection*/
+	formulaire * {
+		outline: none;
+		cursor: default;
+	}
+	/*creation d'un voile devant la photo de fond*/
+	formulaire:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(50, 50, 50, 0.5);
+	}
+	/*repartir les deux zones de formulaire sur la page*/
+	#form1 {
+		position: relative;
+		width: 60%;
+		overflow: hidden;
+		margin: 0;
+	}
+	#form2 {
+		position: relative;
+		width: 40%;
+		margin: 0;
+	}
+	/*creer la ligne blanche de separation*/
+	#form1:before {
+		content: "";
+		position: absolute;
+		right: 0;
+		bottom: 20%;
+		height: 60%;
+		width: 1px;
+		background-color: rgb(200, 200, 200);
+	}
+	/*quand on clique sur un bouton du formulaire ou qu'on remplis un champs ça assombri le fond*/
+	#form1:focus-within, #form2:focus-within {
+		background-color: rgba(50, 50, 50, 0.2);
+	}
+	/*les bouts de formulaires qui doivent etre alignes en ligne*/
+	.inputline {
+		display: flex;
+		flex-direction: line;
+	}
+	/*les bouts de formulaires qui doivent etre alignés en colonnes*/
+	.inputcolumn {
+		display: flex;
+		flex-direction: column;
+	}
+	/*formatage des textes et du curseur*/
+	formulaire h4 {
+		cursor: default;
+		background-color: transparent;
+		color: rgb(255, 204, 255);
+		font-size: 12px;
+		text-align: left;
+		margin: 5px 0;
+		padding: 0;
+	}
+	formulaire p {
+		cursor: default;
+		background-color: transparent;
+		color: rgb(255, 204, 255);
+		font-size: 15px;
+		text-align: left;
+		margin: 10px 0;
+		padding: 0;
+	}
+	#regle > p {
+		margin-top: 100px;
+	}
+	formulaire label {
+		cursor: pointer;
+		color: rgb(255, 204, 255);
+		font-size: 15px;
+		text-align: left;
+		margin: 5px 0;
+		padding: 0;
+	}
+	formulaire label p, formulaire label p em {
+		cursor: pointer;
+		margin: 0;
+		padding: 0;
+	}
+	formulaire button {
+		cursor: pointer;
+		color: rgb(204, 51, 255);
+		background-color: rgb(255, 204, 255);
+		font-size: 12px;
+		margin: 2px;
+		padding: 5px;
+	}
+	/*l'élément surprise*/
+	#camoufflage {
+		position: absolute;
+		background-color: rgba(10, 10, 10, 0.9);
+		/*width=100% designe 100% de la largeur du formulaire de gauche mais on ne veut que 95% de cette largeur puisqu'on ne fera apparaitre la fenetre que jusqu'a 5% du bord gauche*/
+		width: 95%;
+		/*la taille est 80% de la hauteur du formulaire, sauf si l'ecran est plus petit, alors c'est 80% de l'ecran, soit 80vh*/
+		height: 80%;
+		max-height: 80vh;
+		top: 10%;
+		/*quand la fenetre est rentree a droite, elle est repoussee jusqu'a 100% de la largeur du form1 par rapport au bord gauche*/
+		left: 100%;
+		border-radius: 10px 0 0 10px;
+		/*ce overflow cache la scroll bar qui depasse en bas, mais pas a droite puisque la scroll bar est attachee au texte et que la zone de texte fait 100% de la largeur de la fenetre, car la largeur du texte est facile a reduire mais tres difficile a augmenter au dessus de 100% donc pas possible de faire sortir la scroll bar par ce biais la, son epaisseur a elle est prise en compte dans le calcul de la position de left quand on target #form1 ci-dessous et c'est form1 qui a un overflow aussi*/
+		overflow: hidden;
+		z-index: 5;
+		display: flex;
+		transition: left 1s;
+	}
+	/*apparition de camoufflage*/
+	#form1:target #camoufflage {
+		/*on fait apparaitre le cadre vers la gauche mais pas jusqu'au bout,
+		a 5% plus l'epaisseur du la barre de scroll avec une marge parce
+		qu'elle varie suivant le navigateurs*/
+		left: calc(5% + 20px);
+		transition: left 1s;
+	}
+	/*bouton-barre pour refermer camoufflage*/
+	#closecamoufflage {
+		position: relative;
+		height: 100%;
+		width: 20px;
+		background-color: rgba(100, 100, 100, 0.2);
+		border-radius: 10px 0 0 10px;
+		cursor: pointer;
+	}
+	/*la fleche pour fermer*/
+	#closecamoufflage:after {
+		position: absolute;
+		content: "";
+		top: calc(50% - 8px);
+		left: 2px;
+		border-width: 10px 0px 10px 16px;
+		border-style: solid;
+		border-color: transparent rgb(200, 200, 200);
+	}
+	/*zone de texte*/
+	#histoire {
+		padding: 20px;
+		width: 100%;
+		/*la hauteur fait 100% de la fenetre moins 40px pour le padding de 20px
+		en haut et en bas, plus 20px pour a peu pres l'epaisseur de la scroll
+		bar a cacher en bas*/
+		height: calc(100% - 20px);
+		overflow: scroll;
+		cursor: default;
+	}
+	#histoire * {
+		background-color: transparent;
+		color: rgb(200, 200, 200);
+	}
+	#histoire h2, #histoire h3 {
+		margin-top: 40px;
+	}
+	/*input "pour resumer sa vie"*/
+	input#life {
+		background-color: rgb(255, 204, 255);
+		padding: 5px;
+		border: transparent;
+		border-radius: 5px;
+		color: rgb(204, 51, 255);
+		font-size: 15px;
+		width: 100%;
+		margin: 20px 0;
+	}
+	/*changement de taille de l'input*/
+	input#life:focus {
+		box-shadow: 0 0 2px rgba(50, 50, 50, 0.8) inset;
+		width: 30%;
+		transition: width 0.5s;
+	}
+	/*section colorbook*/
+	/*on aligne les sections vers le haut et on met de l'espace entre elles*/
+	#color {
+		margin: 0 60px 60px 0;
+	}
+	#book {
+		margin: 0;
+	}
+	/*on déplaces les labels vers la droite par rapport aux titres*/
+	#colorbook label {
+		margin-left: 28px;
+	}
+	/*section de selection des couleurs
+	la ligne au dessus des zones "j'aime" et "j'aime pas"*/
+	.couleur:before {
+		content: "";
+		width: calc(100% - 7px);
+		background-color: rgb(255, 204, 255);
+		height: 1px;
+		position: absolute;
+		top: -3px;
+		left: 0;
+	}
+	/*la fleche a la fin de la zone*/
+	.couleur:after {
+		content: "V";
+		font-weight: lighter;
+		position: absolute;
+		right: 0;
+		top: -4px;
+	}
+	/*on definit la couleur en la laissant transparente c'est juste pour adoucir l'animation avec des effets de couleurs et d'opacité*/
+	#smaragdin {
+		background-color: rgba(1, 215, 88, 0);
+		width: calc(100% - 28px);
+	}
+	/*quand la couleur est selectionnee elle change d'ordre*/
+	input:checked + #smaragdin {
+		order: 2;
+		color: rgba(255, 204, 255, 0.5);
+		background-color: rgba(1, 215, 88, 1);
+		transition: order 0s, color 0.5s, background-color 1s;
+	}
+	/*et c'est pareil pour toutes le couleurs*/
+	#glauque {
+		background-color: rgba(100, 155, 136, 0);
+		width: calc(100% - 28px);
+	}
+	input:checked + #glauque {
+		order: 2;
+		color: rgba(255, 204, 255, 0.5);
+		background-color: rgba(100, 155, 136, 1);
+		transition: order 0s, color 0.5s, background-color 1s;
+	}
+	/*couleur pelure d'oignon...*/
+	#pelure {
+		background-color: rgba(213, 132, 144, 0);
+		width: calc(100% - 28px);
+	}
+	input:checked + #pelure {
+		order: 2;
+		color: rgba(255, 204, 255, 0.5);
+		background-color: rgba(213, 132, 144, 1);
+		transition: order 0s, color 0.5s, background-color 1s;
+	}
+	/*couleur cramoisi*/
+	#cramoisi {
+		background-color: rgba(220, 20, 60, 0);
+		width: calc(100% - 28px);
+	}
+	input:checked + #cramoisi {
+		order: 2;
+		color: rgba(255, 204, 255, 0.5);
+		background-color: rgba(220, 20, 60, 1);
+		transition: order 0s, color 0.5s, background-color 1s;
+	}
+	/*couleur zinzolin*/
+	#zinzolin {
+		background-color: rgba(108, 2, 119, 0);
+		width: calc(100% - 28px);
+	}
+	input:checked + #zinzolin {
+		order: 2;
+		color: rgba(255, 204, 255, 0.5);
+		background-color: rgba(100, 2, 119, 1);
+		transition: order 0s, color 0.5s, background-color 1s;
+	}
+	/*et l'ordre des elements par defaut*/
+	#color p {
+		order: 0;
+	}
+	#color label {
+		order: 4;
+	}
+	#jaime {
+		order: 1;
+	}
+	#jaimepas {
+		order: 3;
+	}
+	/*personnalisation des inputs pour les couleurs et les livres*/
+	/*cacher les inputs par defaut*/
+	input:not([type="text"]) {
+		visibility: hidden;
+		position: absolute;
+	}
+	/*dessiner le coeur pour la selection des couleurs*/
+	#color label:before {
+		content: "";
+		width: 5px;
+		height: 10px;
+		border-radius: 4px 4px 9px 0px / 4px 5px 10px 10px;
+		background-color: rgb(255, 204, 255);
+		position: absolute;
+		top: 3px;
+		left: -17px;
+		transform: rotate(-33deg);
+	}
+	#color label:after {
+		content: "";
+		width: 5px;
+		height: 10px;
+		border-radius: 5px 4px 0px 9px / 4px 4px 10px 10px;
+		background-color: rgb(255, 204, 255);
+		position: absolute;
+		top: 3px;
+		left: -15px;
+		transform: rotate(37deg);
+	}
+	/*remplir le coeur en rouge*/
+	#color input:checked + label:before {
+		background-color: rgb(204, 51, 255);
+	}
+	#color input:checked + label:after {
+		background-color: rgb(204, 51, 255);
+	}
+	/*puis creation d'un carre a gauche des livres*/
+	#book label:before {
+		content: "";
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background-color: rgb(255, 204, 255);
+		position: absolute;
+		top: 3px;
+		left: -20px;
+	}
+	/*creation d'un rond pour quand un livre est selectionne*/
+	#book label:after {
+		content: "";
+		display: none;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background-color: rgb(204, 51, 255);
+		position: absolute;
+		top: 5px;
+		left: -18px;
+	}
+	/*pour faire apparaitre les petits ronds*/
+	#book input:checked + label:after {
+		display: block;
+	}
+	/*pour faire apparaitre les options sous certains livres*/
+	/*pour la horde du contrevent les options sont d'abord applaties*/
+	#horde ~ #selecthorde {
+		opacity: 0;
+		margin: -2px;
+		height: 0px;
+		transition: all 1s;
+	}
+	/*puis s'etendent en hauteur pour apparaitre*/
+	#horde:checked ~ #selecthorde {
+		opacity: 1;
+		height: 80px;
+		margin: 0;
+		margin-bottom: 9px;
+		transition: all 1s;
+	}
+	/*ainsi que le sous-titre*/
+	#horde + label h4 {
+		opacity: 0;
+		margin-top: -20px;
+		transition: all 1s;
+	}
+	/*qui grossissent*/
+	#horde:checked + label h4 {
+		opacity: 1;
+		margin-top: 10px;
+		transition: all 1s;
+	}
+	/*la meme pour city*/
+	textarea {
+		visibility: hidden;
+		margin: 0;
+		height: 0px;
+		transition: all 1s;
+	}
+	/*qui grossis aussi*/
+	#city:checked ~ #textecity {
+		visibility: visible;
+		height: 80px;
+		transition: all 1s;
+	}
+	/*les boutons "reinitialise" et "suprise ?"*/
+	/*on colle les boutons ensemble au centre et on met de l'espace au dessus*/
+	#button {
+		justify-content: center;
+		margin-top: 50px;
+		margin-bottom: 70px;
+	}
+	/*on redessine la bordure par defaut*/
+	button {
+		border: transparent;
+		border-radius: 0px 7px 7px 0px;
+	}
+	/*pour les bords plats des deux boutons face a face */
+	button[type="reset"] {
+		border-radius: 7px 0px 0px 7px;
+	}
+	/*pour leur apparences au clic*/
+	button:active {
+		box-shadow: 0 0 2px rgba(50, 50, 50, 0.8) inset;
+	}
+</style>
+</head>
+
+
+<body>
+<formulaire id="formulaire" class="inputline" onclick="">
+<div id="form1">
+<div id="camoufflage">
+	<a href="#surprise" id="closecamoufflage"></a>
+	<div id="histoire">
+	<p>du texte</p>
+	</div>
+</div>
+<!--je precise l'action du formulaire pour qu'il l'ajoute a la barre d'adresse et que je puisse utiliser le target sur id=form1, par contre je n'ai pas mis de methode tout comme je n'ai pas mis de type submit un peu plus bas au button puisque je n'envois pas le formulaire au serveur donc sinon j'aurais une error 405-->
+<form id="surprise" class="inputcolumn" action="#form1">
+	<div id="regle">
+		<p>remplis les bons champs pour voir la surprise !<br>indice: caracole aime les couleurs moches</p>
+		<input type="text" id="life" list="resume" placeholder="resume ta vie en un mot" required>
+		<datalist id="resume">
+			<option value="prairie">
+			<option value="simplon">
+			<option value="css">
+			<option value="javascript">
+		</datalist>
+		<div id="colorbook" class="inputline">
+			<div id="color" class="inputcolumn">
+				<p>quelles couleurs aimes-tu ?</p>
+				<h4 class="couleur" id="jaime">j'aime :</h4>
+				<h4 class="couleur" id="jaimepas">j'aime pas :</h4>
+				<input type="checkbox" name="couleur" id="smaragdin">
+				<label tabindex="0"id="smaragdin" for="smaragdin">smaragdin</label>
+				<input type="checkbox" name="couleur" id="glauque" required>
+				<label tabindex="0" id="glauque" for="glauque">glauque</label>
+				<input type="checkbox" name="couleur" id="pelure" required>
+				<label tabindex="0"id="pelure" for="pelure">pelure d'oignon</label>
+				<input type="checkbox" name="couleur" id="cramoisi" required>
+				<label tabindex="0" id="cramoisi" for="cramoisi">cramoisi</label>
+				<input type="checkbox" name="couleur" id="zinzolin">
+				<label tabindex="0" id="zinzolin" for="zinzolin">zinzolin</label>
+			</div>
+			<div id="book" class="inputcolumn">
+				<p>quel bouquin preferes-tu ?</p>
+				<input type="radio" name="livre" id="horde">
+				<label tabindex="0" for="horde">
+					<p><em>la horde du contrevent</em><br>de Alain Damasio</p>
+					<h4>ton héro-ine ?</h4>
+				</label>
+				<select id="selecthorde" name"horde" size="5" required>
+					<option value="" style="display:none">golgoth</option>
+					<option value="horde">golgoth</option>
+					<option id="caracole" value="horde">caracole</option>
+					<option value="horde">oroshi</option>
+					<option value="horde">sov</option>
+					<option value="horde">erg</option>
+					<option value="horde">talweg</option>
+					<option value="horde">firost</option>
+					<option value="horde">tourse</option>
+					<option value="horde">steppe</option>
+					<option value="horde">arval</option>
+					<option value="horde">darbon</option>
+					<option value="horde">horst</option>
+					<option value="horde">pietro</option>
+					<option value="horde">alme</option>
+					<option value="horde">aoi</option>
+					<option value="horde">larco</option>
+					<option value="horde">learch</option>
+					<option value="horde">callirhoe</option>
+					<option value="horde">boscavo</option>
+					<option value="horde">coriolis</option>
+					<option value="horde">sveziest</option>
+					<option value="horde">barbak</option>
+				</select>
+				<input type="radio" name="livre" id="ya">
+				<label tabindex="0" for="ya">
+					<p><em>ja</em><br>de Thomas Bernard</p>
+				</label>
+				<input type="radio" name="livre" id="city">
+				<label tabindex="0" for="city">
+					<p><em>city</em><br>de Clifford D. Simak</p>
+				</label>
+				<textarea id="textecity" name="livre">pourquoi ??</textarea>
+				<input type="radio" name="livre" id="dirk">
+				<label tabindex="0" for="dirk">
+					<p><em>Dirk Gently</em><br>de Douglas Adams</p>
+				</label>
+			</div>
+		</div>
+		<div id="button" class="inputline">
+			<button type="reset">reinitialise</button>
+			<!--je ne precise pas que le button est de type="submit" car je n'envois pas le formulaire en back, je ne le soumet pas, le button seul suffit donc-->
+			<button>surprise ?</button>
+		</div>
+	</div>
+</form>
+</div>
+</formulaire>
+</body>
+</html>

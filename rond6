@@ -1,0 +1,122 @@
+<html>
+<head>
+<style>
+	/*en cliquant sur le bouton des bulles apparaissent pour que au clique sur le bouton un autre element, ici les bulles, subissent une action, ce n'est pas aussi simple que le hover ou le active, il faut ajouter un tabindex="0" a cet element pour que ses enfants soient touchees*/
+	#focus {
+		position: relative;
+	}
+	/*le cadre du bouton*/
+	/*on enleve le cadre habituel car on veut que le cadre soit indépendant
+	du texte pour se transformer en bulle*/
+	#focus > p {
+		background-color: transparent;
+		margin: 0;
+		z-index: 2;
+	}
+	/*dessin du cadre*/
+	#bull {
+		border-radius: 5px;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		margin-left: -50%;
+		transition: all 0.3s;
+		background-color: rgba(204, 51, 255, 0.8);
+	}
+	/*l'apparence generale des bulles, qui sont petites et vont grossir au focus*/
+	.bulles {
+		position: absolute;
+		width: 0px;
+		height: 0px;
+		border-radius: 50%;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba(255, 204, 255, 0.8);
+		transition: all 0.3s;
+	}
+	/*la position et taille de chaque bulle*/
+	#bulla {top: -210px;}
+	#bullb {right: -210px;}
+	#bullc {bottom: -210px;}
+	#bulld {left: -210px;}
+	#bulle {top: -350px;}
+	#bullf {right: -350px;}
+	#bullg {bottom: -350px;}
+	#bullh {left: -350px;}
+	#bulli {top: -460px;}
+	#bullj {right: -460px;}
+	#bullk {bottom: -460px;}
+	#bulll {left: -460px;}
+	/*l'activation des bulles*/
+	/*pour que les bulles passent au premier plan quand elles sont activees*/
+	#focus:focus {
+		outline: none;
+		z-index: 7;
+	}
+	/*la couleur du text du bouton*/
+	#focus:focus > p {
+		color: rgb(204, 51, 255);
+		z-index: 6;
+	}
+	/*l'apparition des bulles en cliquant sur le bouton, toujours grace au
+	tabindex="0" sur le bouton pour que le focus marche sur les enfants*/
+	/*chaque bulle*/
+	#focus:focus #bull {
+		width: 100px;
+		height: 100px;
+		top: 0;
+		z-index: 5;
+		bottom: 0;
+		left: 50%;
+		margin-left: -50px;
+		border-radius: 50%;
+		background-color: rgba(255, 204, 255, 0.8);
+		transition: all 0.3s;
+	}
+	/*la taille de chaque bulle est definis au moment de l'apparition, avec un leger delay pour chaque rang de bulle*/
+	#focus:focus .bull1 {
+		width: 60px;
+		height: 60px;
+		transition: all 0.4s;
+		transition-delay: 0.1s;
+	}
+	#focus:focus .bull2 {
+		width: 45px;
+		height: 45px;
+		transition: all 0.4s;
+		transition-delay: 0.2s;
+	}
+	#focus:focus .bull3 {
+		width: 35px;
+		height: 35px;
+		transition: all 0.4s;
+		transition-delay: 0.3s;
+	}
+</style>
+</head>
+
+
+<body>
+<div id="focus" tabindex="0">
+	<p>:focus</p>
+	<span id="bull"></span>
+	<span class="bulles bull1" id="bulla"></span>
+	<span class="bulles bull1" id="bullb"></span>
+	<span class="bulles bull1" id="bullc"></span>
+	<span class="bulles bull1" id="bulld"></span>
+	<span class="bulles bull2" id="bulle"></span>
+	<span class="bulles bull2" id="bullf"></span>
+	<span class="bulles bull2" id="bullg"></span>
+	<span class="bulles bull2" id="bullh"></span>
+	<span class="bulles bull3" id="bulli"></span>
+	<span class="bulles bull3" id="bullj"></span>
+	<span class="bulles bull3" id="bullk"></span>
+	<span class="bulles bull3" id="bulll"></span>
+</div>
+</body>
+</html>
