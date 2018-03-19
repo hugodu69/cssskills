@@ -1925,6 +1925,7 @@ en position absolute avec les problemes d'organisation que ça provoque*/
 	background-color: rgb(255, 204, 255);
 	bottom: 10px;
 	outline: none;
+	cursor: pointer;
 }
 /*l'apparence au clique*/
 .goto:focus {

@@ -1,0 +1,173 @@
+<html>
+<head>
+<style>
+	/*cette section montre des techniques pour les slides*/
+	/*general setting de la section*/
+	slide {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		padding-top: 66%;
+	}
+	/*la trame temporelle pour le deroulement des slides*/
+	@keyframes slidy {
+		0% { left: 0%; }
+		20% { left: 0%; }
+		25% { left: -100%; }
+		45% { left: -100%; }
+		50% { left: -200%; }
+		70% { left: -200%; }
+		75% { left: -300%; }
+		95% { left: -300%; }
+		100% { left: -400%; }
+	}
+	/*les quatre keyframes pour les quatre boutons, ce n'est pas tres propre mais je n'ai pas trouve mieux et je fatigue !*/
+	@keyframes slidyone {
+		0% { left: 0%; }
+		20% { left: 0%; }
+		25% { left: -100%; }
+		45% { left: -100%; }
+		50% { left: -200%; }
+		70% { left: -200%; }
+		75% { left: -300%; }
+		95% { left: -300%; }
+		100% { left: -400%; }
+	}
+	@keyframes slidytwo {
+		0% { left: 0%; }
+		20% { left: 0%; }
+		25% { left: -100%; }
+		45% { left: -100%; }
+		50% { left: -200%; }
+		70% { left: -200%; }
+		75% { left: -300%; }
+		95% { left: -300%; }
+		100% { left: -400%; }
+	}
+	@keyframes slidythree {
+		0% { left: 0%; }
+		20% { left: 0%; }
+		25% { left: -100%; }
+		45% { left: -100%; }
+		50% { left: -200%; }
+		70% { left: -200%; }
+		75% { left: -300%; }
+		95% { left: -300%; }
+		100% { left: -400%; }
+	}
+	@keyframes slidyfour {
+		0% { left: 0%; }
+		20% { left: 0%; }
+		25% { left: -100%; }
+		45% { left: -100%; }
+		50% { left: -200%; }
+		70% { left: -200%; }
+		75% { left: -300%; }
+		95% { left: -300%; }
+		100% { left: -400%; }
+	}
+	/*reglages pour mettre les trois slides cote a cote avec un petit espace entre eux lorsqu'on reduit la fenetre*/
+	/*pour que les trois slides reduisent avec la fenetre en gardant le ratio, il faut utiliser le padding-top, car les paddings ont la propriete d'etre determines en fonction de la width de leur element parent, donc en donnant la hauteur d'une div avec son padding-top on lui donne sa hauteur en fonction de la largeur de l'element parent, donc si les elements parents sont bien regles, en fonction de la largeur de la fenetre*/
+	/*malheureusement firefox bug, il ne definit pas le padding en fonction du width de l'element parent, sauf si c'est le body directement, c'est pour ca qu'on organise toute la div slide en mettant slide en padding et donc tout le contenu en position absolute avec les problemes d'organisation que ça provoque*/
+	#slideall {
+		display: flex;
+		position: absolute;
+		/*on descend la section de div pour laisser la place a la spe dedi de morgan*/
+		top: 10%;
+		left: 0;
+		width: 100%;
+		/*c'est la hauteur par rapport a la section entiere donc on met 50% puisque la section a ete calculee deux fois trop grande afin de laisser la place a la spe dedi de morgan*/
+		height: 50%;
+	}
+	/*taille des cadres*/
+	.cadre {
+		position: relative;
+		width: 30%;
+		margin: 20px 2%;
+		overflow: hidden;
+		/*cette ligne n'est pas dans le vrai code c'est juste pour voir mieux celui-ci si vous le copiez*/
+		border: 1px solid black;
+	}
+	/*la boite (invisible) qui contient toutes les images et qui defile*/
+	.boite {
+		display: flex;
+		position: absolute;
+		top: 0;
+		width: 500%;
+		height: 100%;
+		animation: 10s slidy infinite -9.7s;
+	}
+	/*taille des images, il y en a cinq donc on met 20%*/
+	.boite img {
+		width: 20%;
+		margin: 0;
+	}
+	/*pour le premier slide*/
+	/*les boutons qui permettent de selectionner directement une image du slide*/
+	.goto {
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		background-color: rgb(255, 204, 255);
+		bottom: 10px;
+		outline: none;
+		cursor: pointer;
+		/*ces deux lignes ne sont pas dans le vrai code c'est juste pour voir mieux celui-ci si vous le copiez*/
+		border: 1px solid black;
+		z-index: 1;
+	}
+	/*l'apparence au clic*/
+	.goto:focus {
+		background-color: rgb(204, 51, 255);
+	}
+	/*la position pour chaque bouton*/
+	/*ils sont positionnes dans le cadre parce que c'est teeeeellement plus simple*/
+	#gotoone {
+		left: calc(50% - 30px);
+	}
+	#gototwo {
+		left: calc(50% - 10px);
+	}
+	#gotothree {
+		left: calc(50% + 10px);
+	}
+	#gotofour {
+		left: calc(50% + 30px);
+	}
+	/*pour aller directement a l'image selectionnee du slide*/
+	#gotoone:focus ~ .boite {
+		animation: 10s slidyone infinite -9.7s;
+	}
+	#gototwo:focus ~ .boite {
+		animation: 10s slidytwo infinite -2.2s;
+	}
+	#gotothree:focus ~ .boite {
+		animation: 10s slidythree infinite -4.7s;
+	}
+	#gotofour:focus + .boite {
+		animation: 10s slidyfour infinite -7.2s;
+	}
+</style>
+</head>
+
+
+<body>
+<slide id="slide" onclick="">
+<div id="slideall">
+<div class="cadre" id="cadre1">      
+	<span id="gotoone" class="goto" tabindex="0"></span>
+	<span id="gototwo" class="goto" tabindex="0"></span>
+	<span id="gotothree" class="goto" tabindex="0"></span>
+	<span id="gotofour" class="goto" tabindex="0"></span>
+	<div class="boite">
+		<img src="./ressources/archi1.jpg" alt="archi">
+		<img src="./ressources/archi2.jpg" alt="archi">
+		<img src="./ressources/archi3.jpg" alt="archi">
+		<img src="./ressources/archi4.jpg" alt="archi">
+		<img src="./ressources/archi1.jpg" alt="archi">
+	</div>
+</div>
+</div>
+</slide>
+</body>
+</html>

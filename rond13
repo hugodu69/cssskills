@@ -1,0 +1,143 @@
+<html>
+<head>
+<style>
+	/*cette section montre des techniques pour les slides*/
+	/*general setting de la section*/
+	slide {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		padding-top: 66%;
+	}
+	/*la trame temporelle pour le deroulement des slides*/
+	@keyframes slidy {
+		0% { left: 0%; }
+		20% { left: 0%; }
+		25% { left: -100%; }
+		45% { left: -100%; }
+		50% { left: -200%; }
+		70% { left: -200%; }
+		75% { left: -300%; }
+		95% { left: -300%; }
+		100% { left: -400%; }
+	}
+	/*reglages pour mettre les trois slides cote a cote avec un petit espace entre eux lorsqu'on reduit la fenetre (mieux detaille dans la premiere slide)*/
+	#slideall {
+		display: flex;
+		position: absolute;
+		top: 40%;
+		left: 0;
+		width: 100%;
+		height: 50%;
+	}
+	/*taille des cadres*/
+	.cadre {
+		position: relative;
+		width: 30%;
+		margin: 20px 2%;
+		overflow: hidden;
+		/*cette ligne n'est pas dans le vrai code c'est juste pour voir mieux celui-ci si vous le copiez*/
+		border: 1px solid black;
+	}
+	/*la boite (invisible) qui contient toutes les images et qui defile*/
+	.boite {
+		display: flex;
+		position: absolute;
+		top: 0;
+		width: 500%;
+		height: 100%;
+		animation: 10s slidy infinite -9.7s;
+	}
+	/*taille des images, il y en a cinq donc on met 20%*/
+	.boite img {
+		width: 20%;
+		margin: 0;
+	}
+	/*pour la troisieme slide*/
+	/*c'est la creation des boutons play et pause*/
+	#playbtn, #pausebtn {
+		position: absolute;
+		top: 25px;
+		right: 25px;
+		opacity: 0;
+		width: 22px;
+		height: 22px;
+		transition: opacity 1s;
+		z-index: 2;
+	}
+	/*dessin du bouton pause*/
+	#pausebtn:after, #pausebtn:before {
+		position: absolute;
+		display: block;
+		content: " ";
+		width: 38%;
+		height: 22px;
+		background-color: rgba(204, 51, 255, 0.7);
+		z-index: 2;
+	}
+	/*position des deux rectangle du bouton*/
+	#pausebtn:before {
+		left: 0;
+	}
+	#pausebtn:after {
+		right: 0;
+	}
+	/*dessin du bouton play*/
+	#playbtn {
+		width: 1px;
+		height: 1px;
+		/*ce sont les transparences qui dessinent les deux triangles*/
+		border-top: 10px solid transparent;
+		border-bottom: 10px solid transparent;
+		border-left: 20px solid rgba(204, 51, 255, 0.7);
+		z-index:2;
+	}
+	/*stopper le slide*/
+	.command:target ~ #cadre3 .boite {
+		animation-play-state: paused;
+	}
+	/*redemarrer le slide*/
+	#play:target ~ #cadre3 .boite {
+		animation-play-state: running;
+	}
+	/*switch entre les boutons*/
+	#cadre3:hover #pausebtn {
+		opacity: 1;
+	}
+	#pause:target ~ #cadre3 #pausebtn {
+		opacity: 0;
+		cursor: default;
+		z-index: 1;
+	}
+	#pause:target ~ #cadre3:hover #playbtn {
+		opacity: 1;
+	}
+	#play:target ~ #cadre3 #playbtn {
+		cursor: default;
+	}
+</style>
+</head>
+
+
+<body>
+<slide id="slide" onclick="">
+<div id="slideall">
+<div class="cadre">      
+	<span id="play" class="command"></span>
+	<span id="pause" class="command"></span>
+	<div id="cadre3">
+		<a id="playbtn" class ="btn" href="#play" title="play"></a>
+		<a id="pausebtn" class="btn" href="#pause" title="pause"></a>
+		<div class="boite">
+			<img src="./ressources/archi1.jpg" alt="archi">
+			<img src="./ressources/archi2.jpg" alt="archi">
+			<img src="./ressources/archi3.jpg" alt="archi">
+			<img src="./ressources/archi4.jpg" alt="archi">
+			<img src="./ressources/archi1.jpg" alt="archi">
+		</div>
+	</div>
+</div>
+</div>
+</slide>
+</body>
+</html>

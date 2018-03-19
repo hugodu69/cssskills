@@ -1,308 +1,300 @@
 <html>
 <head>
 <style>
-/*/////on met le compteur a zero*/
-#form2 form {
-	counter-reset: sum;
-}
-
-/*/////pour gerer tous les input les uns apres les autres on va devoir
-organiser la page en ligne avec wrap, attention ca va être galere*/
-#form2 {
-	position: relative;
-	flex-wrap: wrap;
-}
-#clavier {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-/*/////la couleur des textes des labels*/
-#form2 label {
-	color: rgb(204, 51, 255);
-}
-
-/*/////mise en page du cadre general du formulaire*/
-#form2 form {
-	width: 60%;
-	width: 350px;
-	flex-wrap: wrap;
-	position: relative;
-	margin: 20px auto 100px auto;
-	/*ce z-index permet de positionner le formulaire au bon niveau pour
-	que les boutons puissent être caché en dessous*/
-	z-index: 1;
-}
-
-/*/////mise en page de la zone de regles*/
-/*les espaces autour de cette zonre*/
-#reglecount {
-	margin: 100px 0 20px 0;
-}
-/*le texte*/
-#reglecount p {
-	text-align: center;
-	width: 80%;
-	margin: 0 10%;
-}
-
-/*/////mise en page de la zone des boutons ronds*/
-/*les intstructions*/
-#form2 form > p {
-	position: absolute;
-	width: 100%;
-	text-align: center;
-	left: 0;
-	top: 45px;
-	visibility: hidden;
-}
-/*quand un des cinq boutons est selectionné ça affiche le texte*/
-#form2 form input:checked + label + p {
-	visibility: visible;
-}
-/*la position et le texte des boutons ronds*/
-#form2 form > label {
-	position: relative;
-	height: 60px;
-	/*on met width a 20% pour que les boutons remplissent toute la largeur*/
-	width: 20%;
-	text-align: center;
-	padding-top: 10px;
-	cursor: default;
-}
-/*le texte des boutons ronds au clique*/
-#form2 form input:checked + label {
-	color: rgb(255, 204, 255);
-}
-/*l'apparence du cadre des boutons ronds*/
-#form2 form > label:before {
-	content: "";
-	position: absolute;
-	top: -7px;
-	left: calc(50% - 25px);
-	height: 50px;
-	width: 50px;
-	border-radius: 50%;
-	background-color: rgb(255, 204, 255);
-	z-index: -1;
-}
-/*pour que le cercle affiche une curseur cliquable au survol
-on créer le meme bouton que before, mais transparent et au dessus du label*/
-#form2 form > label:after {
-	content: "";
-	position: absolute;
-	top: -7px;
-	left: calc(50% - 25px);
-	height: 50px;
-	width: 50px;
-	border-radius: 50%;
-	background-color: transparent;
-	cursor: pointer;
-}
-/*l'apparence des boutons ronds au clique*/
-#form2 input:checked + label:before {
-	content: "";
-	position: absolute;
-	top: -3px;
-	left: calc(50% - 20px);
-	height: 40px;
-	width: 40px;
-	border-radius: 50%;
-	background-color: rgb(204, 51, 255);
-}
-/*mise en page de la zone calculette*/
-/*l'apparence des boutons de la calculette*/
-/*la disposition des boutons carres*/
-#clavier label {
-	width: 20%;
-	text-align: center;
-	padding: 10px 0;
-	margin: 10px 0;
-	cursor: default;
-}
-/*le texte des boutons carres au clique*/
-#clavier input:checked + label {
-	color: rgb(255, 204, 255);
-}
-/*l'apparence des boutons carres*/
-#clavier label:before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: calc(50% - 25px);
-	height: 100%;
-	width: 50px;
-	border-radius: 10px;
-	background-color: rgb(255, 204, 255);
-	z-index: -1;
-}
-/*l'apparence des boutons carres au clique*/
-#clavier input:checked + label:before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: calc(50% - 25px);
-	height: 100%;
-	width: 50px;
-	border-radius: 10px;
-	background-color: rgb(204, 51, 255);
-}
-/*pour que le bouton affiche une curseur cliquable au survol
-on creer le meme bouton que before, mais transparent et au dessus du label*/
-#clavier label:after {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: calc(50% - 25px);
-	height: 100%;
-	width: 50px;
-	border-radius: 10px;
-	background-color: transparent;
-	cursor: pointer;
-}
-/*le message quand on gagne*/
-#win {
-	visibility: hidden;
-	background-color: rgb(255, 204, 255);
-	color: rgb(204, 51, 255);
-	width: 100%;
-	border-radius: 5px;
-	margin: 0;
-}
-/*les messages d'erreur*/
-#clavier p {
-	display: none;
-	text-align: center;
-	width: 100%;
-	margin: 10px 0;
-}
-
-/*mise en page de la zone somme*/
-#sum {
-	padding: 10px;
-	margin: 10px;
-	border-radius: 10px;
-	border: 2px solid rgb(255, 204, 255);
-	cursor: pointer;
-	font-size: 15px;
-	background-color: transparent;
-	color: rgb(255, 204, 255);
-}
-/*le counter qui affiche la somme des boutons*/
-#sum:after {
-	height: 100%;
-	width: 100%;
-	content: counter(sum);
-}
-/*quand on selectionne un bouton rond ca camouffle certains boutons carres*/
-#quatre:checked ~ #clavier .quatre,
-#cinquanquatre:checked ~ #clavier .cinquanquatre,
-#cinquante:checked ~ #clavier .cinquante,
-#dixsept:checked ~ #clavier .dixsept,
-#soixantreize:checked ~ #clavier .soixantreize {
-	z-index: -1;
-}
-#quatre:checked ~ #clavier .quatre:after,
-#cinquanquatre:checked ~ #clavier .cinquanquatre:after,
-#cinquante:checked ~ #clavier .cinquante:after,
-#dixsept:checked ~ #clavier .dixsept:after,
-#soixantreize:checked ~ #clavier .soixantreize:after {
-	background-color: rgba(50, 50, 50, 0.5);
-}
-/*attribution de la valeur aux boutons pour le compteur*/
-#a:checked { counter-increment: sum 6; }
-#b:checked { counter-increment: sum -17; }
-#c:checked { counter-increment: sum 38; }
-#d:checked { counter-increment: sum 23; }
-#e:checked { counter-increment: sum -21; }
-#f:checked { counter-increment: sum 18; }
-#g:checked { counter-increment: sum 41; }
-#h:checked { counter-increment: sum -37; }
-#i:checked { counter-increment: sum 5; }
-#j:checked { counter-increment: sum -7; }
-#k:checked { counter-increment: sum 15; }
-#l:checked { counter-increment: sum 33; }
-#m:checked { counter-increment: sum 25; }
-#n:checked { counter-increment: sum 13; }
-#o:checked { counter-increment: sum 43; }
-/*l'affichage des messages pour les differentes combinaisons*/
-#quatre:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:checked ~ #g:not(:checked) ~ #h:checked ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:checked ~ #l:not(:checked) ~ #m:checked ~ #n:not(:checked) ~ #o:not(:checked) ~ #win {
-	visibility: visible;
-}
-/*les messages d'erreur pour quatre*/
-#quatre:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:checked ~ #n:not(:checked) ~ #o:not(:checked) ~ #error1 {
-	display: block;
-}
-#quatre:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:checked ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:checked ~ #n:not(:checked) ~ #o:not(:checked) ~ #error1 {
-	display: block;
-}
-#quatre:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:checked ~ #g:not(:checked) ~ #h:checked ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error1 {
-	display: block;
-}
-#quatre:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:checked ~ #e:checked ~ #f:checked ~ #g:not(:checked) ~ #h:checked ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:checked ~ #n:checked ~ #o:not(:checked) ~ #error1 {
-	display: block;
-}
-#quatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:checked ~ #f:checked ~ #g:not(:checked) ~ #h:checked ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:checked ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error1 {
-	display: block;
-}
-/*premiere solution pour soixantreize*/
-#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:checked ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #win {
-	visibility: visible;
-}
-/*le message qui indique les autres solutions*/
-#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:checked ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error3 {
-	display: block;
-}
-/*deuxieme solution pour soixantreize*/
-#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #win {
-	visibility: visible;
-}
-/*le message qui indique les autres solutions*/
-#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #error3 {
-	display: block;
-}
-/*troisieme solution pour soixantreize*/
-#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #win {
-	visibility: visible;
-}
-/*le message qui indique les autres solutions*/
-#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error3 {
-	display: block;
-}
-/*les messages d'erreur pour soixantreize*/
-#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:checked ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:checked ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #error1 {
-	display: block;
-}
-/*premiere solution pour cinquanquatre*/
-#cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:checked ~ #d:not(:checked) ~ #e:checked ~ #f:checked ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
-	visibility: visible;
-}
-/*le message qui indique l'autre solution*/
-#cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:checked ~ #d:not(:checked) ~ #e:checked ~ #f:checked ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #error2 {
-	display: block;
-}
-/*deuxieme solution pour cinquanquatre*/
-#cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #win {
-	visibility: visible;
-}
-/*le message qui indique l'autre solution*/
-#cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error2 {
-	display: block;
-}
-/*les messages d'erreur pour cinquanquatre*/
-#cinquanquatre:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:checked ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #error1 {
-	display: block;
-}
-/*les messages d'erreur pour cinquanquatre*/
-#cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #error1 {
-	display: block;
-}
-#dixsept:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:checked ~ #i:checked ~ #j:checked ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
-	visibility: visible;
-}
-#cinquante:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:checked ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
-	visibility: visible;
-}
+	/*on met le compteur a zero*/
+	#form2 form {
+		counter-reset: sum;
+	}
+	/*pour gerer tous les input les uns apres les autres on va devoir organiser la page en ligne avec wrap, attention ca va etre galere*/
+	#form2 {
+		position: relative;
+		flex-wrap: wrap;
+	}
+	#clavier {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	/*la couleur des textes des labels*/
+	#form2 label {
+		color: rgb(204, 51, 255);
+	}
+	/*mise en page du cadre general du formulaire*/
+	#form2 form {
+		width: 60%;
+		width: 350px;
+		flex-wrap: wrap;
+		position: relative;
+		margin: 20px auto 100px auto;
+		/*ce z-index permet de positionner le formulaire au bon niveau pour
+		que les boutons puissent être caché en dessous*/
+		z-index: 1;
+	}
+	/*mise en page de la zone de regles*/
+	/*les espaces autour de cette zonre*/
+	#reglecount {
+		margin: 100px 0 20px 0;
+	}
+	/*le texte*/
+	#reglecount p {
+		text-align: center;
+		width: 80%;
+		margin: 0 10%;
+	}
+	/*mise en page de la zone des boutons ronds*/
+	/*les intstructions*/
+	#form2 form > p {
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		left: 0;
+		top: 45px;
+		visibility: hidden;
+	}
+	/*quand un des cinq boutons est selectionne ça affiche le texte*/
+	#form2 form input:checked + label + p {
+		visibility: visible;
+	}
+	/*la position et le texte des boutons ronds*/
+	#form2 form > label {
+		position: relative;
+		height: 60px;
+		/*on met width a 20% pour que les boutons remplissent toute la largeur*/
+		width: 20%;
+		text-align: center;
+		padding-top: 10px;
+		cursor: default;
+	}
+	/*le texte des boutons ronds au clique*/
+	#form2 form input:checked + label {
+		color: rgb(255, 204, 255);
+	}
+	/*l'apparence du cadre des boutons ronds*/
+	#form2 form > label:before {
+		content: "";
+		position: absolute;
+		top: -7px;
+		left: calc(50% - 25px);
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+		background-color: rgb(255, 204, 255);
+		z-index: -1;
+	}
+	/*pour que le cercle affiche une curseur cliquable au survol
+	on créer le meme bouton que before, mais transparent et au dessus du label*/
+	#form2 form > label:after {
+		content: "";
+		position: absolute;
+		top: -7px;
+		left: calc(50% - 25px);
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+		background-color: transparent;
+		cursor: pointer;
+	}
+	/*l'apparence des boutons ronds au clique*/
+	#form2 input:checked + label:before {
+		content: "";
+		position: absolute;
+		top: -3px;
+		left: calc(50% - 20px);
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		background-color: rgb(204, 51, 255);
+	}
+	/*mise en page de la zone calculette*/
+	/*l'apparence des boutons de la calculette*/
+	/*la disposition des boutons carres*/
+	#clavier label {
+		width: 20%;
+		text-align: center;
+		padding: 10px 0;
+		margin: 10px 0;
+		cursor: default;
+	}
+	/*le texte des boutons carres au clique*/
+	#clavier input:checked + label {
+		color: rgb(255, 204, 255);
+	}
+	/*l'apparence des boutons carres*/
+	#clavier label:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: calc(50% - 25px);
+		height: 100%;
+		width: 50px;
+		border-radius: 10px;
+		background-color: rgb(255, 204, 255);
+		z-index: -1;
+	}
+	/*l'apparence des boutons carres au clique*/
+	#clavier input:checked + label:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: calc(50% - 25px);
+		height: 100%;
+		width: 50px;
+		border-radius: 10px;
+		background-color: rgb(204, 51, 255);
+	}
+	/*pour que le bouton affiche une curseur cliquable au survol on creer le meme bouton que before, mais transparent et au dessus du label*/
+	#clavier label:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: calc(50% - 25px);
+		height: 100%;
+		width: 50px;
+		border-radius: 10px;
+		background-color: transparent;
+		cursor: pointer;
+	}
+	/*le message quand on gagne*/
+	#win {
+		visibility: hidden;
+		background-color: rgb(255, 204, 255);
+		color: rgb(204, 51, 255);
+		width: 100%;
+		border-radius: 5px;
+		margin: 0;
+	}
+	/*les messages d'erreur*/
+	#clavier p {
+		display: none;
+		text-align: center;
+		width: 100%;
+		margin: 10px 0;
+	}
+	/*mise en page de la zone somme*/
+	#sum {
+		padding: 10px;
+		margin: 10px;
+		border-radius: 10px;
+		border: 2px solid rgb(255, 204, 255);
+		cursor: pointer;
+		font-size: 15px;
+		background-color: transparent;
+		color: rgb(255, 204, 255);
+	}
+	/*le counter qui affiche la somme des boutons*/
+	#sum:after {
+		height: 100%;
+		width: 100%;
+		content: counter(sum);
+	}
+	/*quand on selectionne un bouton rond ca camouffle certains boutons carres*/
+	#quatre:checked ~ #clavier .quatre,
+	#cinquanquatre:checked ~ #clavier .cinquanquatre,
+	#cinquante:checked ~ #clavier .cinquante,
+	#dixsept:checked ~ #clavier .dixsept,
+	#soixantreize:checked ~ #clavier .soixantreize {
+		z-index: -1;
+	}
+	#quatre:checked ~ #clavier .quatre:after,
+	#cinquanquatre:checked ~ #clavier .cinquanquatre:after,
+	#cinquante:checked ~ #clavier .cinquante:after,
+	#dixsept:checked ~ #clavier .dixsept:after,
+	#soixantreize:checked ~ #clavier .soixantreize:after {
+		background-color: rgba(50, 50, 50, 0.5);
+	}
+	/*attribution de la valeur aux boutons pour le compteur*/
+	#a:checked { counter-increment: sum 6; }
+	#b:checked { counter-increment: sum -17; }
+	#c:checked { counter-increment: sum 38; }
+	#d:checked { counter-increment: sum 23; }
+	#e:checked { counter-increment: sum -21; }
+	#f:checked { counter-increment: sum 18; }
+	#g:checked { counter-increment: sum 41; }
+	#h:checked { counter-increment: sum -37; }
+	#i:checked { counter-increment: sum 5; }
+	#j:checked { counter-increment: sum -7; }
+	#k:checked { counter-increment: sum 15; }
+	#l:checked { counter-increment: sum 33; }
+	#m:checked { counter-increment: sum 25; }
+	#n:checked { counter-increment: sum 13; }
+	#o:checked { counter-increment: sum 43; }
+	/*l'affichage des messages pour les differentes combinaisons*/
+	#quatre:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:checked ~ #g:not(:checked) ~ #h:checked ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:checked ~ #l:not(:checked) ~ #m:checked ~ #n:not(:checked) ~ #o:not(:checked) ~ #win {
+		visibility: visible;
+	}
+	/*les messages d'erreur pour quatre*/
+	#quatre:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:checked ~ #n:not(:checked) ~ #o:not(:checked) ~ #error1 {
+		display: block;
+	}
+	#quatre:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:checked ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:checked ~ #n:not(:checked) ~ #o:not(:checked) ~ #error1 {
+		display: block;
+	}
+	#quatre:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:checked ~ #g:not(:checked) ~ #h:checked ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error1 {
+		display: block;
+	}
+	#quatre:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:checked ~ #e:checked ~ #f:checked ~ #g:not(:checked) ~ #h:checked ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:checked ~ #n:checked ~ #o:not(:checked) ~ #error1 {
+		display: block;
+	}
+	#quatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:checked ~ #f:checked ~ #g:not(:checked) ~ #h:checked ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:checked ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error1 {
+		display: block;
+	}
+	/*premiere solution pour soixantreize*/
+	#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:checked ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #win {
+		visibility: visible;
+	}
+	/*le message qui indique les autres solutions*/
+	#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:checked ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error3 {
+		display: block;
+	}
+	/*deuxieme solution pour soixantreize*/
+	#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #win {
+		visibility: visible;
+	}
+	/*le message qui indique les autres solutions*/
+	#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #error3 {
+		display: block;
+	}
+	/*troisieme solution pour soixantreize*/
+	#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #win {
+		visibility: visible;
+	}
+	/*le message qui indique les autres solutions*/
+	#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error3 {
+		display: block;
+	}
+	/*les messages d'erreur pour soixantreize*/
+	#soixantreize:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:not(:checked) ~ #d:checked ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:checked ~ #i:not(:checked) ~ #j:checked ~ #k:checked ~ #l:checked ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #error1 {
+		display: block;
+	}
+	/*premiere solution pour cinquanquatre*/
+	#cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:checked ~ #d:not(:checked) ~ #e:checked ~ #f:checked ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
+		visibility: visible;
+	}
+	/*le message qui indique l'autre solution*/
+	#cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:checked ~ #d:not(:checked) ~ #e:checked ~ #f:checked ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #error2 {
+		display: block;
+	}
+	/*deuxieme solution pour cinquanquatre*/
+	#cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #win {
+		visibility: visible;
+	}
+	/*le message qui indique l'autre solution*/
+	#cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:checked ~ #f:not(:checked) ~ #g:checked ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:not(:checked) ~ #error2 {
+		display: block;
+	}
+	/*les messages d'erreur pour cinquanquatre*/
+	#cinquanquatre:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:checked ~ #e:not(:checked) ~ #f:checked ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #error1 {
+		display: block;
+	}
+	/*les messages d'erreur pour cinquanquatre*/
+	#cinquanquatre:checked ~ #clavier #a:checked ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:checked ~ #j:not(:checked) ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:not(:checked) ~ #o:checked ~ #error1 {
+		display: block;
+	}
+	#dixsept:checked ~ #clavier #a:not(:checked) ~ #b:not(:checked) ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:checked ~ #i:checked ~ #j:checked ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
+		visibility: visible;
+	}
+	#cinquante:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:checked ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
+		visibility: visible;
+	}
 </style>
 </head>
 
@@ -310,68 +302,65 @@ on creer le meme bouton que before, mais transparent et au dessus du label*/
 <body>
 <formulaire id="formulaire" class="inputline" onclick="">
 <div id="form2" class="inputcolumn">
-<div id="reglecount">
-<p>pour commencer clique sur un rond !<br>
-le but du jeu est d'obtenir la somme de ce rond
-en cliquant sur cinq boutons de la calculatrice<br>
-</p>
-</div>
-<form id="count" class="inputline" action="#formulaire" method="post">
-<input id="quatre" name="cal" type="radio">
-<label tabindex="0"  for="quatre">4</label>
-<p>essaye d'obtenir 4 !</p>
-<input id="soixantreize" name="cal" type="radio">
-<label tabindex="0"  for="soixantreize">73</label>
-<p>essaye d'obtenir 73 !</p>
-<input id="cinquanquatre" name="cal" type="radio">
-<label tabindex="0"  for="cinquanquatre">54</label>
-<p>essaye d'obtenir 54 !</p>
-<input id="dixsept" name="cal" type="radio">
-<label tabindex="0"  for="dixsept">17</label>
-<p>essaye d'obtenir 17 !</p>
-<input id="cinquante" name="cal" type="radio">
-<label tabindex="0"  for="cinquante">50</label>
-<p>essaye d'obtenir 50 !</p>
-<div id="clavier" class="inputline">
-<input id="a" type="checkbox">
-<label tabindex="0" for="a" class="soixantreize cinquante">6</label>
-<input id="b" type="checkbox">
-<label tabindex="0" for="b" class="cinquanquatre dixsept">-17</label>
-<input id="c" type="checkbox">
-<label tabindex="0" for="c" class="quatre soixantreize">38</label>
-<input id="d" type="checkbox">
-<label tabindex="0" for="d" class="dixsept">23</label>
-<input id="e" type="checkbox">
-<label tabindex="0" for="e" class="dixsept">-21</label>
-<input id="f" type="checkbox">
-<label tabindex="0" for="f" class="soixantreize cinquante">18</label>
-<input id="g" type="checkbox">
-<label tabindex="0" for="g" class="quatre dixsept">41</label>
-<input id="h" type="checkbox">
-<label tabindex="0"for="h"class="cinquanquatre cinquante">-37</label>
-<input id="i" type="checkbox">
-<label tabindex="0" for="i" class="quatre cinquante">5</label>
-<input id="j" type="checkbox">
-<label tabindex="0" for="j" class="cinquanquatre">-7</label>
-<input id="k" type="checkbox">
-<label tabindex="0" for="k" class="cinquante cinquanquatre">15</label>
-<input id="l" type="checkbox">
-<label tabindex="0" for="l" class="quatre cinquanquatre">33</label>
-<input id="m" type="checkbox">
-<label tabindex="0" for="m" class="soixantreize dixsept">25</label>
-<input id="n" type="checkbox">
-<label tabindex="0" for="n" class="soixantreize">13</label>
-<input id="o" type="checkbox">
-<label tabindex="0" for="o" class="quatre">43</label>
-<button type="reset" id="win">bravo ! clique la-dessus pour remettre a zero et rejouer !</button>
-<p id="error1">non! tu dois y arriver avec cinq boutons</p>
-<p id="error2">mais aussi! sache qu'il y a une autre solution!</p>
-<p id="error3">mais aussi! sache qu'il y a deux autres solutions!</p>
-</div>
-<div class="inputline">
-<button type="reset" id="sum">= </button>
-</div>
-</form>
+	<div id="reglecount">
+	<p>pour commencer clique sur un rond !<br>le but du jeu est d'obtenir la somme de ce rond en cliquant sur cinq boutons de la calculatrice<br></p>
+	</div>
+	<form id="count" class="inputline" action="#formulaire" method="post">
+		<input id="quatre" name="cal" type="radio">
+		<label tabindex="0"  for="quatre">4</label>
+		<p>essaye d'obtenir 4 !</p>
+		<input id="soixantreize" name="cal" type="radio">
+		<label tabindex="0"  for="soixantreize">73</label>
+		<p>essaye d'obtenir 73 !</p>
+		<input id="cinquanquatre" name="cal" type="radio">
+		<label tabindex="0"  for="cinquanquatre">54</label>
+		<p>essaye d'obtenir 54 !</p>
+		<input id="dixsept" name="cal" type="radio">
+		<label tabindex="0"  for="dixsept">17</label>
+		<p>essaye d'obtenir 17 !</p>
+		<input id="cinquante" name="cal" type="radio">
+		<label tabindex="0"  for="cinquante">50</label>
+		<p>essaye d'obtenir 50 !</p>
+		<div id="clavier" class="inputline">
+			<input id="a" type="checkbox">
+			<label tabindex="0" for="a" class="soixantreize cinquante">6</label>
+			<input id="b" type="checkbox">
+			<label tabindex="0" for="b" class="cinquanquatre dixsept">-17</label>
+			<input id="c" type="checkbox">
+			<label tabindex="0" for="c" class="quatre soixantreize">38</label>
+			<input id="d" type="checkbox">
+			<label tabindex="0" for="d" class="dixsept">23</label>
+			<input id="e" type="checkbox">
+			<label tabindex="0" for="e" class="dixsept">-21</label>
+			<input id="f" type="checkbox">
+			<label tabindex="0" for="f" class="soixantreize cinquante">18</label>
+			<input id="g" type="checkbox">
+			<label tabindex="0" for="g" class="quatre dixsept">41</label>
+			<input id="h" type="checkbox">
+			<label tabindex="0"for="h"class="cinquanquatre cinquante">-37</label>
+			<input id="i" type="checkbox">
+			<label tabindex="0" for="i" class="quatre cinquante">5</label>
+			<input id="j" type="checkbox">
+			<label tabindex="0" for="j" class="cinquanquatre">-7</label>
+			<input id="k" type="checkbox">
+			<label tabindex="0" for="k" class="cinquante cinquanquatre">15</label>
+			<input id="l" type="checkbox">
+			<label tabindex="0" for="l" class="quatre cinquanquatre">33</label>
+			<input id="m" type="checkbox">
+			<label tabindex="0" for="m" class="soixantreize dixsept">25</label>
+			<input id="n" type="checkbox">
+			<label tabindex="0" for="n" class="soixantreize">13</label>
+			<input id="o" type="checkbox">
+			<label tabindex="0" for="o" class="quatre">43</label>
+			<button type="reset" id="win">bravo ! clique la-dessus pour remettre a zero et rejouer !</button>
+			<p id="error1">non! tu dois y arriver avec cinq boutons</p>
+			<p id="error2">mais aussi! sache qu'il y a une autre solution!</p>
+			<p id="error3">mais aussi! sache qu'il y a deux autres solutions!</p>
+		</div>
+		<div class="inputline">
+			<button type="reset" id="sum">= </button>
+		</div>
+	</form>
 </div>
 </formulaire>
 </body>
