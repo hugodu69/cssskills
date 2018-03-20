@@ -1,12 +1,24 @@
 <html>
 <head>
 <style>
-	/*ce bouton clignote grace a une transition sur le z-index : au hover de l'élément, le bouton change d'apparence, et un autre element cache derriere augmente son z-index au dessus en 1s, et une fois arrive devant le hover ne marche plus, donc la transition fait repasser l'element cache en 1s en dessous du coup le hover re-marche, etc...*/
+	/*ce bouton clignote grace a une transition sur le z-index : au hover de l'element, le bouton change d'apparence, et un autre element cache derriere augmente son z-index au dessus en 1s, et une fois arrive devant le hover ne marche plus, donc la transition fait repasser l'element cache en 1s en dessous du coup le hover re-marche, etc...*/
+	/*sur le site la position est relative et le bouton est place en display:flex mais si le code est copie pour voir c'est plus simple de le mettre au milieu de la page*/
 	#clignote {
-		position: relative;
+		position: absolute;
+		top: 50%;
+		left: 50%;
 	}
 	#disco {
+		position: relative;
 		z-index: 5;
+		font-family: "Courier New";
+		text-decoration: none;
+		text-align: center;
+		font-size: 15px;
+		background-color: rgba(204, 51, 255, 0.8);
+		border-radius: 5px;
+		padding: 10px;
+		color: rgb(255, 204, 255);
 	}
 	/*le z-index est inferieur au bouton*/
 	#camoufle {

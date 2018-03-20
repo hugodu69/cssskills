@@ -36,6 +36,12 @@
 		top: 45px;
 		background-color: rgb(255, 204, 255);
 	}
+	/*disposition et apparence des liens*/
+	.tiret {
+		position: relative;
+		margin: auto;
+		text-decoration: none;
+	}
 	/*le petit trait qui apparait quand on passe la souris sur la cible*/
 	.tiret:after {
 		content: "";

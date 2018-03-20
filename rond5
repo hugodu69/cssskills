@@ -2,8 +2,23 @@
 <head>
 <style>
 	/*le deuxieme bouton est un hover comme le premier mais la div qui apparrait est collee au p et est aussi en hover donc elle reste apparente tant que la souris est dessus*/
+	/*sur le site la position est relative et le bouton est place en display:flex mais si le code est copie pour voir c'est plus simple de le mettre au milieu de la page*/
 	#menu {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+	}
+	p {
 		position: relative;
+		z-index: 5;
+		font-family: "Courier New";
+		text-decoration: none;
+		text-align: center;
+		font-size: 15px;
+		background-color: rgba(204, 51, 255, 0.8);
+		border-radius: 5px;
+		padding: 10px;
+		color: rgb(255, 204, 255);
 	}
 	/*le bouton*/
 	#hoverextended {
@@ -16,6 +31,7 @@
 		background-color: rgba(255, 204, 255, 0.8);
 	}
 	/*la fenetre qui apparait*/
+	/*elle est en visibility:hidden et opacity:0, car opacity possede pleins de valeurs et peut donc passer progressivement de O a 1, alors que visibility ne peut apparaitre que d'un seul coup, en revanche opacity 0 est invisible mais toujours present, donc la souris passant au dessus de la div en opacity:0 la ferait apparaitre alors qu'on veut qu'elle n'apparaisse qu'au survol du bouton et pas autour, et dans ce cas visibility:hidden*/
 	#windowsextended {
 		visibility: hidden;
 		opacity: 0;

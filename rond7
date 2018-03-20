@@ -4,9 +4,6 @@
 	/*le principe c'est que le bouton est un lien <a> et quand on clique dessus il renvoit le href="#quelqueChose", ce qui ajoute #quelqueChose a l'url de navigation, puis, lorsqu'on applique le pseudo element target, quelqueChose:target, les actions précisees dans le code css s'activent pour l'element quelqueChose des que l'url est transformee*/
 	/*ici c'est une fenetre qui passe de display:none a display:block au target*/
 	/*il faut bien placer l'ancre  #target parce que la page va scroller dessus*/
-	#targetposition {
-		position: relative;
-	}
 	/*les reglages principaux*/
 	/*le texte du lien*/
 	#windowstarget > a {

@@ -2,19 +2,22 @@
 <head>
 <style>
 	/*en cliquant sur le bouton des bulles apparaissent pour que au clique sur le bouton un autre element, ici les bulles, subissent une action, ce n'est pas aussi simple que le hover ou le active, il faut ajouter un tabindex="0" a cet element pour que ses enfants soient touchees*/
+		/*sur le site la position est relative et le bouton est place en display:flex mais si le code est copie pour voir c'est plus simple de le mettre au milieu de la page*/
 	#focus {
-		position: relative;
+		position: absolute;
+		top: 50%;
+		left: 50%;
 	}
 	/*le cadre du bouton*/
 	/*on enleve le cadre habituel car on veut que le cadre soit indépendant
 	du texte pour se transformer en bulle*/
 	#focus > p {
-		background-color: transparent;
-		margin: 0;
+		padding: 10px;
 		z-index: 2;
 	}
 	/*dessin du cadre*/
 	#bull {
+		margin: auto;
 		border-radius: 5px;
 		position: absolute;
 		width: 100%;
@@ -28,10 +31,13 @@
 	}
 	/*l'apparence generale des bulles, qui sont petites et vont grossir au focus*/
 	.bulles {
+		/*le margin:auto change le comportement du placement en absolute, en creant des marges autour de chaque bulle qui la placent au milieu, par exemple top et bottom a 0 permet d'etre centre verticalement, et left a -210px et right a 0 met la bulle a -105px*/
+		margin: auto;
 		position: absolute;
-		width: 0px;
-		height: 0px;
+		width: 0;
+		height: 0;
 		border-radius: 50%;
+		/*toutes les bulles sont definies a 0 sur les quatre axes par defaut, puis un valeure sur un axe les place au bon endroit*/
 		top: 0;
 		bottom: 0;
 		left: 0;
