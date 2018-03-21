@@ -3,12 +3,16 @@
 <style>
 	/*on utilise ici deux pseudos elements, before et after, pour faire une ombre tordue*/
 	/*reglages generaux*/
+	/*sur le site la position est relative et le bouton est place en display:flex mais si le code est copie pour voir c'est plus simple de le mettre au milieu de la page*/
 	#beforeafter {
-		position: relative;
+		position: absolute;
+		top: 50%;
+		left: 50%;
 		outline: none;
+		width: 100px;
 	}
 	#beforeafter p {
-		text-align: left;
+		text-align: center;
 	}
 	/*le dessin des deux ombres qui forment l'ombre courbee*/
 	#beforeafter:before, #beforeafter:after {

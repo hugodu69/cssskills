@@ -1,6 +1,64 @@
 <html>
 <head>
 <style>
+	/*section remplie de formulaires :-) */
+	/*reglages generaux de la section*/
+	* {
+		margin: auto;
+	}
+	formulaire {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		color: rgb(255, 204, 255);
+	}
+	/*suppression des pointilles automatiques lors de la selection*/
+	formulaire * {
+		outline: none;
+		cursor: default;
+	}
+	/*creation d'un voile devant le fond*/
+	formulaire:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(50, 50, 50, 0.5);
+	}
+	/*repartir les deux zones de formulaire sur la page*/
+	#form1 {
+		position: relative;
+		width: 60%;
+		overflow: hidden;
+		margin: 0;
+	}
+	#form2 {
+		position: relative;
+		width: 40%;
+		margin: 0;
+	}
+	/*quand on clique sur un bouton du formulaire ou qu'on remplis un champs ça assombri le fond*/
+	#form1:focus-within, #form2:focus-within {
+		background-color: rgba(50, 50, 50, 0.2);
+	}
+	/*cacher les inputs par defaut*/
+		input:not([type="text"]) {
+		visibility: hidden;
+		position: absolute;
+	}
+	/*les bouts de formulaires qui doivent etre alignes en ligne*/
+	.inputline {
+		display: flex;
+		flex-direction: line;
+	}
+	/*les bouts de formulaires qui doivent etre alignes en colonnes*/
+	.inputcolumn {
+		display: flex;
+		flex-direction: column;
+	}
 	/*on met le compteur a zero*/
 	#form2 form {
 		counter-reset: sum;
@@ -25,12 +83,11 @@
 		flex-wrap: wrap;
 		position: relative;
 		margin: 20px auto 100px auto;
-		/*ce z-index permet de positionner le formulaire au bon niveau pour
-		que les boutons puissent être caché en dessous*/
+		/*ce z-index permet de positionner le formulaire au bon niveau pour que les boutons puissent être cache en dessous*/
 		z-index: 1;
 	}
 	/*mise en page de la zone de regles*/
-	/*les espaces autour de cette zonre*/
+	/*les espaces autour de cette zone*/
 	#reglecount {
 		margin: 100px 0 20px 0;
 	}
@@ -108,6 +165,7 @@
 	/*l'apparence des boutons de la calculette*/
 	/*la disposition des boutons carres*/
 	#clavier label {
+		position: relative;
 		width: 20%;
 		text-align: center;
 		padding: 10px 0;
@@ -295,6 +353,77 @@
 	#cinquante:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:checked ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
 		visibility: visible;
 	}
+/*mettre max-width n'est pas suffisant generalement sur les telephones car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute dans les meta du html avec name="viewport" et content="width=device-width"*/
+/*pour les ecrans de tablettes en position horizontale*/
+@media screen and (max-width: 1200px) {
+	formulaire {
+		flex-direction: column;
+	}
+	#form1, #form2 {
+		padding: 20px;
+		width: calc(100% - 40px);
+		margin: auto;
+	}
+}
+/*pour les ecrans de tablettes en position verticale*/
+@media screen and (max-width: 400px) {
+	#form2 form {
+		width: 230px;
+	}
+	/*la taille des textes de la calculette*/
+	#form2 #count label {
+		font-size: 13px;
+	}
+	/*les boutons ronds*/
+	#form2 form > label:before {
+		height: 30px;
+		width: 30px;
+		top: 2px;
+		left: calc(50% - 15px);
+	}
+	/*le pointeur sur les boutons ronds*/
+	#form2 form > label:after {
+		height: 30px;
+		width: 30px;
+		top: 2px;
+		left: calc(50% - 15px);
+	}
+	/*les boutons ronds au clic*/
+	#form2 input:checked + label:before {
+		height: 25px;
+		width: 25px;
+		top: 4px;
+		left: calc(50% - 12.5px);
+	}
+	/*les boutons carres*/
+	#clavier label:before {
+		top: 12%;
+		left: calc(50% - 15px);
+		height: 70%;
+		width: 30px;
+		border-radius: 7px;
+	}
+	/*les boutons carres au clic*/
+	#clavier input:checked + label:before {
+		top: 12%;
+		left: calc(50% - 15px);
+		height: 70%;
+		width: 30px;
+		border-radius: 7px;
+	}
+	/*le pointeur sur les boutons carres*/
+	#clavier label:after {
+		top: 12%;
+		left: calc(50% - 15px);
+		height: 70%;
+		width: 30px;
+		border-radius: 7px;
+	}
+	/*l'espace entre les lignes de boutons carres*/
+	#clavier label {
+		margin: 0;
+	}
+}
 </style>
 </head>
 

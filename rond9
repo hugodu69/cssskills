@@ -3,16 +3,14 @@
 <style>
 	/*section remplie de formulaires :-) */
 	/*reglages generaux de la section*/
+	* {
+		margin: auto;
+	}
 	formulaire {
 		position: relative;
 		display: flex;
 		flex-direction: row;
 		width: 100%;
-		background-image: url("./ressources/pantalon.jpg");
-		background-position: center;
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-attachment: fixed;
 		color: rgb(255, 204, 255);
 	}
 	/*suppression des pointilles automatiques lors de la selection*/
@@ -61,7 +59,7 @@
 		display: flex;
 		flex-direction: line;
 	}
-	/*les bouts de formulaires qui doivent etre alignés en colonnes*/
+	/*les bouts de formulaires qui doivent etre alignes en colonnes*/
 	.inputcolumn {
 		display: flex;
 		flex-direction: column;
@@ -109,7 +107,7 @@
 		margin: 2px;
 		padding: 5px;
 	}
-	/*l'élément surprise*/
+	/*l'element surprise*/
 	#camoufflage {
 		position: absolute;
 		background-color: rgba(10, 10, 10, 0.9);
@@ -202,8 +200,9 @@
 	#colorbook label {
 		margin-left: 28px;
 	}
-	/*section de selection des couleurs
-	la ligne au dessus des zones "j'aime" et "j'aime pas"*/
+	/*section de selection des couleurs*/
+	/*la ligne au dessus des zones "j'aime" et "j'aime pas"*/
+	.couleur {position: relative;}
 	.couleur:before {
 		content: "";
 		width: calc(100% - 7px);
@@ -414,6 +413,38 @@
 	button:active {
 		box-shadow: 0 0 2px rgba(50, 50, 50, 0.8) inset;
 	}
+/*mettre max-width n'est pas suffisant generalement sur les telephones car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute dans les meta du html avec name="viewport" et content="width=device-width"*/
+/*pour les ecrans de tablettes en position horizontale*/
+@media screen and (max-width: 1200px) {
+	formulaire {
+		flex-direction: column;
+	}
+	#form1, #form2 {
+		padding: 20px;
+		width: calc(100% - 40px);
+		margin: auto;
+	}
+	/*la ligne blanche qui separe les deux formulaires passe en dessous*/
+	#form1:before {
+		bottom: 0;
+		right: 20%;
+		width: 60%;
+		height: 1px;
+	}
+	/*sur les telephones le texte est un peu colle a droite si la taille de la scroll barre est trop petite, donc je rajoute un padding*/
+	#histoire {
+		padding-right: 50px;
+	}
+}
+/*pour les ecrans de tablettes en position verticale*/
+@media screen and (max-width: 600px) {
+	#form1 #colorbook {
+		flex-direction: column;
+	}
+	input#life:focus {
+		width: 50%;
+	}
+}
 </style>
 </head>
 
