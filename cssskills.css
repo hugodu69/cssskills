@@ -126,7 +126,7 @@ elevé après*/
 	padding: 10px;
 	overflow: hidden;
 	border-radius: 10px;
-	background-color: rgba(50, 50, 50, 0.9);
+	background-color: rgba(10, 10, 10, 0.9);
 	transition: all 0.5s;
 	transition: opacity 0.5s, visibility 0.5s, z-index 0.1s 0.5s;
 }
