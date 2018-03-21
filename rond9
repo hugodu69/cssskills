@@ -50,7 +50,7 @@
 		width: 1px;
 		background-color: rgb(200, 200, 200);
 	}
-	/*quand on clique sur un bouton du formulaire ou qu'on remplis un champs ça assombri le fond*/
+	/*quand on clique sur un bouton du formulaire ou qu'on remplis un champs ca assombri le fond*/
 	#form1:focus-within, #form2:focus-within {
 		background-color: rgba(50, 50, 50, 0.2);
 	}
@@ -196,7 +196,7 @@
 	#book {
 		margin: 0;
 	}
-	/*on déplaces les labels vers la droite par rapport aux titres*/
+	/*on deplaces les labels vers la droite par rapport aux titres*/
 	#colorbook label {
 		margin-left: 28px;
 	}
@@ -220,7 +220,7 @@
 		right: 0;
 		top: -4px;
 	}
-	/*on definit la couleur en la laissant transparente c'est juste pour adoucir l'animation avec des effets de couleurs et d'opacité*/
+	/*on definit la couleur en la laissant transparente c'est juste pour adoucir l'animation avec des effets de couleurs et d'opacite*/
 	#smaragdin {
 		background-color: rgba(1, 215, 88, 0);
 		width: calc(100% - 28px);
@@ -490,7 +490,7 @@
 				<input type="radio" name="livre" id="horde">
 				<label tabindex="0" for="horde">
 					<p><em>la horde du contrevent</em><br>de Alain Damasio</p>
-					<h4>ton héro-ine ?</h4>
+					<h4>ton hero-ine ?</h4>
 				</label>
 				<select id="selecthorde" name"horde" size="5" required>
 					<option value="" style="display:none">golgoth</option>

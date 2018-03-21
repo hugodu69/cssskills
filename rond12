@@ -30,7 +30,7 @@
 		100% { width: 35px; opacity: 0; }
 	}
 	
-	/*reglages pour mettre les trois slides cote a cote avec un petit espace entre eux lorsqu'on reduit la fenetre (mieux detaillé sur la premiere slide)*/
+	/*reglages pour mettre les trois slides cote a cote avec un petit espace entre eux lorsqu'on reduit la fenetre (mieux detaille sur la premiere slide)*/
 	#slideall {
 		display: flex;
 		position: absolute;
@@ -76,7 +76,7 @@
 		animation: timeliner 2.5s infinite;
 		z-index: 1;
 	}
-/*mettre max-width n'est pas suffisant generalement sur les telephones car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute dans les meta du html avec name="viewport" et content="width=device-width"*/
+/*mettre max-width n'est pas suffisant generalement sur les telephones car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant max-device-width mais j'ai choisis plutot de le preciser une fois pour toute dans les meta du html avec name="viewport" et content="width=device-width"*/
 @media screen and (max-width: 900px) {
 	/*pour que les slides s'affichent en column il faut que la section soit trois fois plus haute que large*/
 	slide {

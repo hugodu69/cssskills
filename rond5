@@ -31,7 +31,7 @@
 		background-color: rgba(255, 204, 255, 0.8);
 	}
 	/*la fenetre qui apparait*/
-	/*elle est en visibility:hidden et opacity:0, car opacity possede pleins de valeurs et peut donc passer progressivement de O a 1, alors que visibility ne peut apparaitre que d'un seul coup, en revanche opacity 0 est invisible mais toujours present, donc la souris passant au dessus de la div en opacity:0 la ferait apparaitre alors qu'on veut qu'elle n'apparaisse qu'au survol du bouton et pas autour, et dans ce cas visibility:hidden*/
+	/*elle est en visibility:hidden et opacity:0, car opacity possede pleins de valeurs et peut donc passer progressivement de 0 a 1, alors que visibility ne peut apparaitre que d'un seul coup, en revanche opacity 0 est invisible mais toujours present, donc la souris passant au dessus de la div en opacity:0 la ferait apparaitre alors qu'on veut qu'elle n'apparaisse qu'au survol du bouton et pas autour, et dans ce cas visibility:hidden*/
 	#windowsextended {
 		visibility: hidden;
 		opacity: 0;

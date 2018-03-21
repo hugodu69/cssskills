@@ -68,7 +68,7 @@
 	}
 	/*reglages pour mettre les trois slides cote a cote avec un petit espace entre eux lorsqu'on reduit la fenetre*/
 	/*pour que les trois slides reduisent avec la fenetre en gardant le ratio, il faut utiliser le padding-top, car les paddings ont la propriete d'etre determines en fonction de la width de leur element parent, donc en donnant la hauteur d'une div avec son padding-top on lui donne sa hauteur en fonction de la largeur de l'element parent, donc si les elements parents sont bien regles, en fonction de la largeur de la fenetre*/
-	/*malheureusement firefox bug, il ne definit pas le padding en fonction du width de l'element parent, sauf si c'est le body directement, c'est pour ca qu'on organise toute la div slide en mettant slide en padding et donc tout le contenu en position absolute avec les problemes d'organisation que ça provoque*/
+	/*malheureusement firefox bug, il ne definit pas le padding en fonction du width de l'element parent, sauf si c'est le body directement, c'est pour ca qu'on organise toute la div slide en mettant slide en padding et donc tout le contenu en position absolute avec les problemes d'organisation que ca provoque*/
 	#slideall {
 		display: flex;
 		position: absolute;
@@ -147,7 +147,7 @@
 	#gotofour:focus + .boite {
 		animation: 10s slidyfour infinite -7.2s;
 	}
-/*mettre max-width n'est pas suffisant generalement sur les telephones car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute dans les meta du html avec name="viewport" et content="width=device-width"*/
+/*mettre max-width n'est pas suffisant generalement sur les telephones car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant max-device-width mais j'ai choisis plutot de le preciser une fois pour toute dans les meta du html avec name="viewport" et content="width=device-width"*/
 @media screen and (max-width: 900px) {
 	/*pour que les slides s'affichent en column il faut que la section soit trois fois plus haute que large*/
 	slide {

@@ -43,7 +43,7 @@
 		transition: z-index 1s;
 	}
 /*mettre max-width n'est pas suffisant generalement sur les telephones car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute dans les meta du html avec name="viewport" et content="width=device-width"*/
-/*/////pour les ecrans de tablettes en position horizontale*/
+/*pour les ecrans de tablettes en position horizontale*/
 @media screen and (max-width: 900px) {
 	/*pour aligner les boutons verticalement*/
 	pseudo {

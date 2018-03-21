@@ -8,7 +8,7 @@
 		position: relative;
 		z-index: 5;
 	}
-	/*grace a la position sticky elle va rester accrochee en haut de la div c'est pour ça que la div navbarzone est plus grande que simplement la section navbar, elle englobe toute la zone sur laquelle la navbar devra rester sticky, donc aussi les pseudos et le section sticky*/
+	/*grace a la position sticky elle va rester accrochee en haut de la div c'est pour ca que la div navbarzone est plus grande que simplement la section navbar, elle englobe toute la zone sur laquelle la navbar devra rester sticky, donc aussi les pseudos et le section sticky*/
 	navbar {
 		display: flex;
 		width: 100%;

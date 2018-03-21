@@ -40,7 +40,7 @@
 		width: 40%;
 		margin: 0;
 	}
-	/*quand on clique sur un bouton du formulaire ou qu'on remplis un champs ça assombri le fond*/
+	/*quand on clique sur un bouton du formulaire ou qu'on remplis un champs ca assombri le fond*/
 	#form1:focus-within, #form2:focus-within {
 		background-color: rgba(50, 50, 50, 0.2);
 	}
@@ -83,7 +83,7 @@
 		flex-wrap: wrap;
 		position: relative;
 		margin: 20px auto 100px auto;
-		/*ce z-index permet de positionner le formulaire au bon niveau pour que les boutons puissent être cache en dessous*/
+		/*ce z-index permet de positionner le formulaire au bon niveau pour que les boutons puissent etre cache en dessous*/
 		z-index: 1;
 	}
 	/*mise en page de la zone de regles*/
@@ -107,7 +107,7 @@
 		top: 45px;
 		visibility: hidden;
 	}
-	/*quand un des cinq boutons est selectionne ça affiche le texte*/
+	/*quand un des cinq boutons est selectionne ca affiche le texte*/
 	#form2 form input:checked + label + p {
 		visibility: visible;
 	}
@@ -137,8 +137,7 @@
 		background-color: rgb(255, 204, 255);
 		z-index: -1;
 	}
-	/*pour que le cercle affiche une curseur cliquable au survol
-	on créer le meme bouton que before, mais transparent et au dessus du label*/
+	/*pour que le cercle affiche une curseur cliquable au survol on creer le meme bouton que before, mais transparent et au dessus du label*/
 	#form2 form > label:after {
 		content: "";
 		position: absolute;
@@ -353,7 +352,7 @@
 	#cinquante:checked ~ #clavier #a:not(:checked) ~ #b:checked ~ #c:checked ~ #d:checked ~ #e:not(:checked) ~ #f:not(:checked) ~ #g:not(:checked) ~ #h:not(:checked) ~ #i:not(:checked) ~ #j:checked ~ #k:not(:checked) ~ #l:not(:checked) ~ #m:not(:checked) ~ #n:checked ~ #o:not(:checked) ~ #win {
 		visibility: visible;
 	}
-/*mettre max-width n'est pas suffisant generalement sur les telephones car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute dans les meta du html avec name="viewport" et content="width=device-width"*/
+/*mettre max-width n'est pas suffisant generalement sur les telephones car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant max-device-width mais j'ai choisis plutot de le preciser une fois pour toute dans les meta du html avec name="viewport" et content="width=device-width"*/
 /*pour les ecrans de tablettes en position horizontale*/
 @media screen and (max-width: 1200px) {
 	formulaire {

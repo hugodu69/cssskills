@@ -1,7 +1,7 @@
 <html>
 <head>
 <style>
-	/*le principe c'est que le bouton est un lien <a> et quand on clique dessus il renvoit le href="#quelqueChose", ce qui ajoute #quelqueChose a l'url de navigation, puis, lorsqu'on applique le pseudo element target, quelqueChose:target, les actions précisees dans le code css s'activent pour l'element quelqueChose des que l'url est transformee*/
+	/*le principe c'est que le bouton est un lien <a> et quand on clique dessus il renvoit le href="#quelqueChose", ce qui ajoute #quelqueChose a l'url de navigation, puis, lorsqu'on applique le pseudo element target, quelqueChose:target, les actions precisees dans le code css s'activent pour l'element quelqueChose des que l'url est transformee*/
 	/*ici c'est une fenetre qui passe de display:none a display:block au target*/
 	/*il faut bien placer l'ancre  #target parce que la page va scroller dessus*/
 	/*les reglages principaux*/
@@ -58,8 +58,8 @@
 	#target:target {
 		display: block;
 	}
-/*mettre max-width n'est pas suffisant generalement sur les telephones car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute dans les meta du html avec name="viewport" et content="width=device-width"*/
-/*/////pour les ecrans de tablettes en position horizontale*/
+/*mettre max-width n'est pas suffisant generalement sur les telephones car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant max-device-width mais j'ai choisis plutot de le preciser une fois pour toute dans les meta du html avec name="viewport" et content="width=device-width"*/
+/*pour les ecrans de tablettes en position horizontale*/
 @media screen and (max-width: 900px) {
 	/*pour aligner les boutons verticalement*/
 	pseudo {
