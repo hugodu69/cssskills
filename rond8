@@ -53,6 +53,26 @@
 		transform-origin: left;
 		transition: all 0.5s linear;
 	}
+/*mettre max-width n'est pas suffisant generalement sur les telephones car leur viewport ne correspond pas a leur veritable largeur d'ecran, ils se croient plus grand qu'ils ne sont, ca pourrait etre resolu en mettant max-device-width mais j'ai choisis plutôt de le preciser une fois pour toute dans les meta du html avec name="viewport" et content="width=device-width"*/
+/*/////pour les ecrans de tablettes en position horizontale*/
+@media screen and (max-width: 900px) {
+	/*pour aligner les boutons verticalement*/
+	pseudo {
+		flex-direction: column;
+		/*on change le padding haut et bas en plus petit*/
+		padding: 100px 0;
+		/*pour les bulles qui apparaissent et sortent du cadre*/
+		overflow: hidden;
+	}
+	/*pour mettre de l'espace entre les boutons*/
+	pseudo > div {
+		margin: 90px auto;
+	}
+	/*elargissement des boutons quand ils sont dans la position verticale*/
+	#disco, #hoverextended > p, #focus > p, #windowstarget > a, #beforeafter > p {
+		padding: 10px 50px;
+	}
+}
 </style>
 </head>
 
