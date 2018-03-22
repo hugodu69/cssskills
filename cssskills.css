@@ -837,6 +837,7 @@ dans les meta du html avec name="viewport" et content="width=device-width"*/
 	#disco, #hoverextended > p, #focus > p, #windowstarget > a, #beforeafter > p {
 		padding: 10px 50px;
 		-webkit-appearance: initial;
+		appearance: initial;
 	}
 }
 
