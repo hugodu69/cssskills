@@ -836,8 +836,7 @@ dans les meta du html avec name="viewport" et content="width=device-width"*/
 	/*elargissement des boutons quand ils sont dans la position verticale*/
 	#disco, #hoverextended > p, #focus > p, #windowstarget > a, #beforeafter > p {
 		padding: 10px 50px;
-		-webkit-appearance: initial;
-		appearance: initial;
+		margin: 0;
 	}
 }
 
