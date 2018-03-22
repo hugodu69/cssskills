@@ -455,13 +455,16 @@ dans les meta du html avec name="viewport" et content="width=device-width"*/
 /*///////////////////////////////////////////*/
 /*/////troisieme section, les pseudos elements*/
 /*reglages generaux*/
+pseudo * {
+
+	text-align: center;
+}
 pseudo {
 	position: relative;
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 	padding: 300px 0;
-	text-align: center;
 	background-image: url("./ressources/lucie.jpg");
 	background-position: center;
 	background-size: cover;
